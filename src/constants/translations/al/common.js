@@ -147,8 +147,8 @@ logout:'LOG OUT',
   //SignInToJoin Screen
   skip: 'kapërce',
   Choose: 'Zgjidhni një opsion për të',
-  logIn: 'Identifikohu',
-  SendOtp: 'Dërgo OTP',
+  logIn: 'Identifikohu', 
+  SendOtp: 'Dërgo OTP', 
   Or: 'Ose',
   ContinueWithEmail: 'Vazhdo me Email ',
   facebook: 'Facebook',
@@ -408,7 +408,7 @@ logout:'LOG OUT',
   tranferCheck:'TRANSFER CHECK',
   actualCashAmount:'Actual Cash Amount',
   difference:'Difference',
-  printReport:'Print Report',
+  printReport:'Print Report'
   
 
 };
