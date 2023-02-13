@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   View,
-  FlatList,
   SafeAreaView,
   SectionList,
   Text,
@@ -20,7 +19,7 @@ const TodaySpecial = props => {
 
   const renderItem = ({item}) => {
     return (
-      <View
+      <TouchableOpacity
         style={{
           alignItems: 'center',
           height: 82,
@@ -39,19 +38,18 @@ const TodaySpecial = props => {
             flex: 1,
             marginLeft: 15,
             marginRight: 6,
-            justifyContent: 'center',
           }}>
           <Text
             style={{
               marginBottom: 6,
-              fontFamily: FONTS.normal,
+              fontFamily: FONTS.bold,
               fontSize: 14,
-              fontWeight: '700',
               lineHeight: 22.4,
             }}>
             {item.name}
           </Text>
           <Text
+          numberOfLines={2}
             style={{
               fontFamily: FONTS.normal,
               fontSize: 12,
@@ -61,7 +59,7 @@ const TodaySpecial = props => {
             {item.desc}
           </Text>
         </View>
-      </View>
+      </TouchableOpacity>
     );
   };
   const renderHeader = ({section}) => {
@@ -69,7 +67,7 @@ const TodaySpecial = props => {
       <Text
         style={{
           marginTop: 23,
-          fontFamily: FONTS.normal,
+          fontFamily: FONTS.medium,
           fontSize: 15,
           fontWeight: '500',
           lineHeight: 24,

@@ -71,7 +71,8 @@ placeOrder:'PLACE ORDER',
 
 
 //ORDERS
-order:'ORDERS',
+orders:'ORDERS',
+order:'Order',
 openOrders:'OPEN ORDERS',
 closedOrders:'CLOSED ORDERS',
 status:'Status',
@@ -92,7 +93,6 @@ paymentMethod: 'Payment Method',
 cash:'Cash',
 orderType: 'Order Type',
 salesAssociate: 'Sales Associate',
-openOrders:'Open Orders',
 bill:'Bill',
 edit:'Edit',
 addNew:'ADD NEW',

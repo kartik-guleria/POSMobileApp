@@ -236,7 +236,8 @@ logout:'LOG OUT',
   
   
   //ORDERS
-  order:'ORDERS',
+  orders:'ORDERS',
+  order:'Order',
   openOrders:'OPEN ORDERS',
   closedOrders:'CLOSED ORDERS',
   status:'Status',
@@ -257,7 +258,6 @@ logout:'LOG OUT',
   cash:'Cash',
   orderType: 'Order Type',
   salesAssociate: 'Sales Associate',
-  OpenOrders:'Open Orders',
   bill:'Bill',
   edit:'Edit',
   addNew:'ADD NEW',

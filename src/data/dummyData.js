@@ -159,7 +159,7 @@ export const SPECIAL = [
     data: [
       {
         name: 'Beef Barbeque',
-        desc: 'Amejdnjcjdncjdnjjncjdncjdncjdnjcdjncjdncjncjdnjcn eget nec vcdcdolutpat.',
+        desc: 'Amejdnjcjdncjdnjjncjdncjdncjdnjcdjncjcdcdcdcdccddcdcdccsccsscscscdncjncjdnjcn eget nec vcdcdolutpat.',
       },
     ],
   },

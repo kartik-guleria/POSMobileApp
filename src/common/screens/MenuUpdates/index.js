@@ -3,7 +3,7 @@ import {View, SafeAreaView, FlatList, Text, Image,TouchableOpacity} from 'react-
 import NavigationHeader from 'components/NavigationHeader';
 import {MENU_UPDATES} from 'data/dummyData';
 import styles from './style';
-import MainStyle from 'styleSheet/MainStyle';
+import MainStyle from '../../../styleSheet/MainStyle';
 import { COLORS } from 'assets/theme';
 import { useTranslation } from 'react-i18next';
 
@@ -20,7 +20,7 @@ const MenuUpdates = props => {
         />
         <View style={styles.boxTextView}>
           <Text style={styles.name}>{itemData.item.name}</Text>
-          <Text style={styles.desc}>{itemData.item.desc}</Text>
+          <Text numberOfLines={2} style={styles.desc}>{itemData.item.desc}</Text>
         </View>
       </View>
     );

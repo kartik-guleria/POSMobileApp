@@ -61,7 +61,7 @@ const ResetPassword = props => {
                 marginBottom: 18,
               },
             ]}>
-            {t('common:ResetPassword')}
+            {t('common:resetPassword')}
           </Text>
           <Text style={[MainStyle.descText, { textAlign: 'left' }]}>
             {t('common:ResetPasswordDesc')}
@@ -79,7 +79,7 @@ const ResetPassword = props => {
           </View>
         </View>
         <View>
-          <MyButton title={t('common:SendInstructions')} onPress={()=> checkTextInput()} />
+          <MyButton title={t('common:sendInstructions')} onPress={()=> checkTextInput()} />
         </View>
 
       </View>
