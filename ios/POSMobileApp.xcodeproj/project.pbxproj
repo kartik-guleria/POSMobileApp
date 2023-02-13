@@ -12,12 +12,12 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		7699B88040F8A987B510C191 /* libPods-POSMobileApp-POSMobileAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-POSMobileApp-POSMobileAppTests.a */; };
-		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		4B9D980945274C94BB1DB158 /* Gotham-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4CA71783AE4140F38651640F /* Gotham-Light.otf */; };
-		7C31F6C02B3E4913B7381753 /* GothamBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4CF9AE52158D40CE8F2A5A8A /* GothamBold.otf */; };
 		254A511B6D1249BD81916243 /* GothamBook.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6641D87FCB2440A590044AED /* GothamBook.otf */; };
+		4B9D980945274C94BB1DB158 /* Gotham-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4CA71783AE4140F38651640F /* Gotham-Light.otf */; };
 		6B002F82545B49C58C10376F /* GothamMedium.otf in Resources */ = {isa = PBXBuildFile; fileRef = FDBDA3909D854A93BEBB2F3A /* GothamMedium.otf */; };
+		7699B88040F8A987B510C191 /* libPods-POSMobileApp-POSMobileAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-POSMobileApp-POSMobileAppTests.a */; };
+		7C31F6C02B3E4913B7381753 /* GothamBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4CF9AE52158D40CE8F2A5A8A /* GothamBold.otf */; };
+		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,16 +42,16 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = POSMobileApp/main.m; sourceTree = "<group>"; };
 		19F6CBCC0A4E27FBF8BF4A61 /* libPods-POSMobileApp-POSMobileAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-POSMobileApp-POSMobileAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B4392A12AC88292D35C810B /* Pods-POSMobileApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-POSMobileApp.debug.xcconfig"; path = "Target Support Files/Pods-POSMobileApp/Pods-POSMobileApp.debug.xcconfig"; sourceTree = "<group>"; };
+		4CA71783AE4140F38651640F /* Gotham-Light.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Gotham-Light.otf"; path = "../assets/fonts/Gotham-Light.otf"; sourceTree = "<group>"; };
+		4CF9AE52158D40CE8F2A5A8A /* GothamBold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = GothamBold.otf; path = ../assets/fonts/GothamBold.otf; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-POSMobileApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-POSMobileApp.release.xcconfig"; path = "Target Support Files/Pods-POSMobileApp/Pods-POSMobileApp.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-POSMobileApp-POSMobileAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-POSMobileApp-POSMobileAppTests.debug.xcconfig"; path = "Target Support Files/Pods-POSMobileApp-POSMobileAppTests/Pods-POSMobileApp-POSMobileAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-POSMobileApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-POSMobileApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6641D87FCB2440A590044AED /* GothamBook.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = GothamBook.otf; path = ../assets/fonts/GothamBook.otf; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = POSMobileApp/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-POSMobileApp-POSMobileAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-POSMobileApp-POSMobileAppTests.release.xcconfig"; path = "Target Support Files/Pods-POSMobileApp-POSMobileAppTests/Pods-POSMobileApp-POSMobileAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		4CA71783AE4140F38651640F /* Gotham-Light.otf */ = {isa = PBXFileReference; name = "Gotham-Light.otf"; path = "../assets/fonts/Gotham-Light.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		4CF9AE52158D40CE8F2A5A8A /* GothamBold.otf */ = {isa = PBXFileReference; name = "GothamBold.otf"; path = "../assets/fonts/GothamBold.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		6641D87FCB2440A590044AED /* GothamBook.otf */ = {isa = PBXFileReference; name = "GothamBook.otf"; path = "../assets/fonts/GothamBook.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		FDBDA3909D854A93BEBB2F3A /* GothamMedium.otf */ = {isa = PBXFileReference; name = "GothamMedium.otf"; path = "../assets/fonts/GothamMedium.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		FDBDA3909D854A93BEBB2F3A /* GothamMedium.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = GothamMedium.otf; path = ../assets/fonts/GothamMedium.otf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +114,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		48DCB8C781C146D8B2D7DD69 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4CA71783AE4140F38651640F /* Gotham-Light.otf */,
+				4CF9AE52158D40CE8F2A5A8A /* GothamBold.otf */,
+				6641D87FCB2440A590044AED /* GothamBook.otf */,
+				FDBDA3909D854A93BEBB2F3A /* GothamMedium.otf */,
+			);
+			name = Resources;
+			path = "";
+			sourceTree = "<group>";
+		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
@@ -156,18 +168,6 @@
 			);
 			path = Pods;
 			sourceTree = "<group>";
-		};
-		48DCB8C781C146D8B2D7DD69 /* Resources */ = {
-			isa = "PBXGroup";
-			children = (
-				4CA71783AE4140F38651640F /* Gotham-Light.otf */,
-				4CF9AE52158D40CE8F2A5A8A /* GothamBold.otf */,
-				6641D87FCB2440A590044AED /* GothamBook.otf */,
-				FDBDA3909D854A93BEBB2F3A /* GothamMedium.otf */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-			path = "";
 		};
 /* End PBXGroup section */
 
