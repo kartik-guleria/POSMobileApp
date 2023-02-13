@@ -147,8 +147,8 @@ logout:'LOG OUT',
   //SignInToJoin Screen
   skip: 'kapërce',
   Choose: 'Zgjidhni një opsion për të',
-  logIn: 'Identifikohu',
-  SendOtp: 'Dërgo OTP',
+  logIn: 'Identifikohu', 
+  SendOtp: 'Dërgo OTP', 
   Or: 'Ose',
   ContinueWithEmail: 'Vazhdo me Email ',
   facebook: 'Facebook',
@@ -236,7 +236,8 @@ logout:'LOG OUT',
   
   
   //ORDERS
-  order:'ORDERS',
+  orders:'ORDERS',
+  order:'Order',
   openOrders:'OPEN ORDERS',
   closedOrders:'CLOSED ORDERS',
   status:'Status',
@@ -257,7 +258,6 @@ logout:'LOG OUT',
   cash:'Cash',
   orderType: 'Order Type',
   salesAssociate: 'Sales Associate',
-  OpenOrders:'Open Orders',
   bill:'Bill',
   edit:'Edit',
   addNew:'ADD NEW',
@@ -408,7 +408,7 @@ logout:'LOG OUT',
   tranferCheck:'TRANSFER CHECK',
   actualCashAmount:'Actual Cash Amount',
   difference:'Difference',
-  printReport:'Print Report',
+  printReport:'Print Report'
   
 
 };

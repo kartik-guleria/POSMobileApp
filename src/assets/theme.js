@@ -1,3 +1,5 @@
+import { Platform } from "react-native";
+
 const appTheme = {COLORS, FONTS};
 
 export const COLORS= {
@@ -14,10 +16,11 @@ g3:'#666666',
 g4:'#333333',
 }
 
-export const FONTS = {
-    light: 'Gotham-Light',
-    bold: 'Gotham-Bold',
-  normal: 'Gotham-Book',
+  export const FONTS = {
+    light: Platform.OS === 'ios' ? 'Gotham-Light' : 'Gotham-Light',
+    bold: Platform.OS === 'ios' ? 'Gotham-Bold' : 'GothamBold',
+    medium: Platform.OS === 'ios' ? 'Gotham' : 'GothamMedium',
+    normal: Platform.OS === 'ios' ? 'Gotham' : 'GothamBook',
   };
 
 export default appTheme;

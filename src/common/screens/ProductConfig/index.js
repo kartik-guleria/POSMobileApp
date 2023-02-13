@@ -364,7 +364,7 @@ const ProductConfig = props => {
             flex: 1,
             justifyContent: 'space-between',
           }}>
-          {bottomButtons(ComIcons.info, t('common:info'))}
+          {bottomButtons(ComIcons.info, t('common:info'),'LeaveNote')}
           <View style={{width: 5}}></View>
           {bottomButtons(ComIcons.note, t('common:leaveANote'),'LeaveNote')}
         </View>

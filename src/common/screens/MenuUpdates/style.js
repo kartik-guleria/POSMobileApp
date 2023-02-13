@@ -23,7 +23,8 @@ export default styles = StyleSheet.create({
     lineHeight: 22.4,
   },
   image: {marginLeft: 8, height: 64, width: 60},
-  boxTextView: {marginLeft: 15, marginRight: 6, justifyContent: 'center'},
+  boxTextView: {marginLeft: 15, marginRight: 6,
+    flex:1, justifyContent: 'center'},
   boxView: {
     alignItems: 'center',
     height: 82,
