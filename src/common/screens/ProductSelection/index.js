@@ -158,9 +158,8 @@ const ProductSelection = props => {
     );
   }
   return (
-    <><View style={{ backgroundColor: COLORS.red, height: 50 }}></View>
     <SafeAreaView style={MainStyle.safeAreaContainerLight}>
-      <NavigationHeader title={t('common:productSelection')}  navigation={props.navigation} productSelection={true} />
+      <NavigationHeader title={t('common:productSelection')}  navigation={props.navigation}  productSelection={true} />
       <View
         style={{
           marginHorizontal: 16,
@@ -199,7 +198,6 @@ const ProductSelection = props => {
             </Modal>
       </View>
     </SafeAreaView>
-    </>
   );
 };
 

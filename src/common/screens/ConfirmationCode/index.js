@@ -42,7 +42,6 @@ props.navigation.openDrawer();
     });
   };
   return (
-    <><View style={{ backgroundColor: COLORS.red, height: 50 }}></View>
     <SafeAreaView style={MainStyle.safeAreaContainerLight}>
       <NavigationHeader
         title={t('common:confirmationCode')}
@@ -77,7 +76,6 @@ props.navigation.openDrawer();
 
       </View>
     </SafeAreaView>
-    </>
   );
 };
 

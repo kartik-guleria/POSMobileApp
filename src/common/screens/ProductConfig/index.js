@@ -388,8 +388,6 @@ const ProductConfig = props => {
     setIngridients(filteredData);
   };
   return (
-    <>
-      <View style={{backgroundColor: COLORS.red, height: 50}}></View>
       <SafeAreaView style={MainStyle.safeAreaContainerLight}>
         <NavigationHeader
           title={t('common:productConfig')}
@@ -416,7 +414,6 @@ const ProductConfig = props => {
           />
         </View>
       </SafeAreaView>
-    </>
   );
 };
 

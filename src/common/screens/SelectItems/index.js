@@ -153,8 +153,6 @@ const [selectedTick , setSelectedTick] = useState(false);
     );
   }
   return (
-    <>
-      <View style={{backgroundColor: COLORS.red, height: 50}}></View>
       <SafeAreaView style={MainStyle.safeAreaContainerLight}>
         <NavigationHeader
           title={'Select Items'}
@@ -189,7 +187,6 @@ const [selectedTick , setSelectedTick] = useState(false);
             </Modal>
         </View>
       </SafeAreaView>
-    </>
   );
 };
 export default SelectItems;

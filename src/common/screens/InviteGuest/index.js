@@ -14,7 +14,6 @@ const InviteGuest = props => {
     const { t, i18n } = useTranslation();
 
     return(
-        <><View style={{ backgroundColor: COLORS.red, height: 50 }}></View>
 <SafeAreaView style={MainStyle.safeAreaContainerLight}>
     <NavigationHeader title = {'Invite Guest'} navigation={props.navigation}/>
     
@@ -45,7 +44,6 @@ const InviteGuest = props => {
         <MyButton title={"SEND INVITATION"} onPress={()=> replace('Drawer')}/>
     </View>
 </SafeAreaView>
-</>
     );
 }
 

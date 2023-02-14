@@ -2,10 +2,11 @@ import React from 'react';
 import { View, FlatList, SafeAreaView} from 'react-native';
 import MainStyle from '../../../styleSheet/MainStyle';
 import NavigationHeaderDash from 'components/NavigationHeaderDash';
-
 import ServiceGridTile from '../../../components/ServiceGridTile';
 import { ComIcons } from 'assets/index';
 import { useTranslation } from 'react-i18next';
+import GeneralStatusBarColor from '../../../components/GeneralStatusBarColor';
+import NavigationHeader from '../../../components/NavigationHeader';
 
 const DashBoard = props => {
   const { t, i18n } = useTranslation();
@@ -59,13 +60,13 @@ const DashBoard = props => {
     );
   };
   return (
-    <>
-      <NavigationHeaderDash
+      <SafeAreaView style={MainStyle.safeAreaContainerLight}>
+      <NavigationHeader
         title={t('common:dashboard')}
-        displayBtn={true}
+        displayBtn={'dash'}
+        pop ={false}
         onPress={() => props.navigation.openDrawer()}
       />
-      <SafeAreaView style={MainStyle.safeAreaContainerLight}>
         <View style={{flex:1}}>
           <FlatList
             bounces={false}
@@ -76,7 +77,6 @@ const DashBoard = props => {
           />
         </View>
       </SafeAreaView>
-    </>
   );
 }
 

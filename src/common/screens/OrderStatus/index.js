@@ -99,8 +99,6 @@ const OrderStatus = props => {
   };
 
   return (
-    <>
-      <View style={{backgroundColor: COLORS.red, height: 50}}></View>
       <SafeAreaView>
         <NavigationHeader
           title={'Order Status'}
@@ -116,7 +114,6 @@ const OrderStatus = props => {
           />
         </View>
       </SafeAreaView>
-    </>
   );
 };
 

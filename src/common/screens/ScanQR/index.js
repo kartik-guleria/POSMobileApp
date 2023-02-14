@@ -10,15 +10,12 @@ const ScanQR = props => {
     const { t, i18n } = useTranslation();
 
     return(
-        <><View style={{ backgroundColor: COLORS.red, height: 50 }}></View>
 <SafeAreaView style={MainStyle.safeAreaContainerLight}>
     <NavigationHeader title={t('common:scanQR')}/>
     <View>
         {ComIcons.scanQR}
     </View>
-
 </SafeAreaView>
-</>
     );
 }
 export default ScanQR;

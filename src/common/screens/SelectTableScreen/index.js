@@ -52,7 +52,6 @@ const SelectTableScreen = props => {
     };
 
     return (
-        <View>
             <SafeAreaView style={MainStyle.safeAreaContainer}>
                 <NavigationHeader
                     title={t('common:selectTable')}
@@ -175,7 +174,6 @@ const SelectTableScreen = props => {
                     </View>
                 </View >
             </SafeAreaView >
-        </View >
     )
 }
 

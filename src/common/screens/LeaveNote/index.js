@@ -12,7 +12,7 @@ const LeaveNote = props => {
   const { t, i18n } = useTranslation();
 
   return (
-    <><View style={{ backgroundColor: COLORS.red, height: 50 }}></View><SafeAreaView style={MainStyle.safeAreaContainerLight}>
+<SafeAreaView style={MainStyle.safeAreaContainerLight}>
       <NavigationHeader title={t('common:leaveANote')} navigation={props.navigation} />
       <View style={styles.screen}>
         <View>
@@ -33,7 +33,7 @@ const LeaveNote = props => {
           <MyButton title={t('common:apply')} width={false} onPress={() => props.navigation.navigate('FinalizeOrder')} />
         </View>
       </View>
-    </SafeAreaView></>
+    </SafeAreaView>
   );
 };
 

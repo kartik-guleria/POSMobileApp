@@ -40,7 +40,7 @@ const MenuUpdates = props => {
     );
   };
   return (
-    <><View style={{ backgroundColor: COLORS.red, height: 50 }}></View><SafeAreaView style={MainStyle.safeAreaContainerLight}>
+<SafeAreaView style={MainStyle.safeAreaContainerLight}>
       <NavigationHeader title={'Menu Updates'} navigation={props.navigation} />
       <View style={styles.screen}>
         <FlatList
@@ -51,7 +51,7 @@ const MenuUpdates = props => {
           bounces={false}
           keyExtractor={item => item.id} />
       </View>
-    </SafeAreaView></>
+    </SafeAreaView>
   );
 };
 
