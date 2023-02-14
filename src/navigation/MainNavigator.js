@@ -34,6 +34,7 @@ import SelectTableScreen from 'common/screens/SelectTableScreen';
 import ConfirmationCode from 'common/screens/ConfirmationCode';
 import {COLORS, ComIcons, FONTS} from '../assets';
 import CustomDrawer from '../components/CustomDrawer';
+import GeneralStatusBarColor from '../components/GeneralStatusBarColor';
 // import OrderDetails from 'common/screens/Pie3D';
 // import Pie3D from 'common/screens/Pie3D';
 
@@ -51,7 +52,7 @@ export default function MainNavigator() {
   };
   const DrawerStack = () => {
     return (
-      <Drawer.Navigator
+      <><Drawer.Navigator
         drawerContent={props => <CustomDrawer {...props} />}
         screenOptions={{
           headerShown: false,
@@ -70,50 +71,45 @@ export default function MainNavigator() {
           component={DashBoard}
           options={{
             drawerIcon: () => ComIcons.profileRed,
-          }}
-        />
+          }} />
 
         <Drawer.Screen
           name="Profile"
           component={MyProfile}
           options={{
             drawerIcon: () => ComIcons.profileRed,
-          }}
-        />
+          }} />
         <Drawer.Screen
           name="Notifications"
           component={Notifications}
           options={{
             drawerIcon: () => ComIcons.notification,
-          }}
-        />
+          }} />
         <Drawer.Screen
           name="Language"
           component={SelectLangScreen}
           options={{
             drawerIcon: () => ComIcons.language,
-          }}
-        />
+          }} />
         <Drawer.Screen
           name="Shift"
           component={StartShift}
           options={{
             drawerIcon: () => ComIcons.shift,
-          }}
-        />
+          }} />
         <Drawer.Screen
           name="Reset Password"
           component={ResetPasswordScreen}
           options={{
             drawerIcon: () => ComIcons.profileRed,
-          }}
-        />
-      </Drawer.Navigator>
+          }} />
+      </Drawer.Navigator></>
     );
   };
 
   return (
     <NavigationContainer ref={navigationRef}>
+      <GeneralStatusBarColor/>
       <Stack.Navigator screenOptions={screenOptions}>
         <Stack.Screen name="DrawerStack" component={DrawerStack} />
         <Stack.Screen name="LogIn" component={LogInScreen} />

@@ -132,7 +132,7 @@ const ShiftReport = props => {
     );
   };
   return (
-    <><View style={{ backgroundColor: COLORS.red, height: 50 }}></View><SafeAreaView style={{ flex: 1 }}>
+    <SafeAreaView style={{ flex: 1 }}>
       <NavigationHeader title={t('common:shiftReport')} navigation={props.navigation} />
       <View style={{ marginLeft: 16, marginRight: 16, marginTop: 23, flex: 1 }}>
         <SectionList
@@ -162,7 +162,7 @@ const ShiftReport = props => {
               <CloseShiftModal onPressCross={() => toggleModal()} onPressClose={()=> onPressClose()}/>
             </Modal>
       </View>
-    </SafeAreaView></>
+    </SafeAreaView>
   );
 };
 export default ShiftReport;

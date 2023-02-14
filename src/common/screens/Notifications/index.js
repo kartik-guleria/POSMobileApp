@@ -59,8 +59,8 @@ const Notifications = props => {
     );
   };
   return (
-    <><View style={{ backgroundColor: COLORS.red, height: 50 }}></View><SafeAreaView style={MainStyle.safeAreaContainerLight}>
-      <NavigationHeader title={'NOTIFICATIONS'} pop={false} navigation={props.navigation} onSelect={()=>props.navigation.openDrawer()}/>
+<SafeAreaView style={MainStyle.safeAreaContainerLight}>
+      <NavigationHeader title={'NOTIFICATIONS'} navigation={props.navigation} pop={false} onPress={()=>props.navigation.openDrawer()}/>
       <View style={{ flex: 1 }}>
         <SectionList
           showsVerticalScrollIndicator={false}
@@ -71,7 +71,7 @@ const Notifications = props => {
           keyExtractor={(item, index) => index}
           contentContainerStyle={{ marginTop: 20 }} />
       </View>
-    </SafeAreaView></>
+    </SafeAreaView>
   );
 };
 

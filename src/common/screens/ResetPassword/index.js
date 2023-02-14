@@ -42,12 +42,13 @@ const ResetPassword = props => {
     });
   };
   return (
-  <><View style={{ backgroundColor: COLORS.red, height: 50 }}></View><SafeAreaView style={MainStyle.safeAreaContainerLight}>
+  <SafeAreaView style={MainStyle.safeAreaContainerLight}>
       <NavigationHeader
         title={t('common:resetPassword')}
         navigation={props.navigation} 
         pop={false}
-        onSelect={()=>props.navigation.openDrawer()}/>
+        displayBtn={'dash'}
+        onPress={()=>props.navigation.openDrawer()}/>
       <View style={MainStyle.mainBody}>
         <View style={MainStyle.container}>
           <Text
@@ -83,7 +84,7 @@ const ResetPassword = props => {
         </View>
 
       </View>
-    </SafeAreaView></>
+    </SafeAreaView>
   );
 };
 

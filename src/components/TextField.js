@@ -16,6 +16,7 @@ const TextField = props => {
     placeholder={props.placeholder}
     secureTextEntry= {props.secureText}
     maxLength={15}
+    onChangeText={props.onChangeText}
     style={{marginLeft:10,marginRight:10,flex:1,fontFamily:FONTS.normal,fontSize:14,fontWeight:'400',alignItems:'center'}} />
 </View>
        
