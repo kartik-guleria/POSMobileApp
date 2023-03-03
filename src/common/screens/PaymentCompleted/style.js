@@ -1,13 +1,13 @@
 import {StyleSheet} from 'react-native';
 import {FONTS} from 'assets/index';
+import { COLORS } from '../../../assets';
 
  export default styles = StyleSheet.create({
     payment: {
         textAlign: 'center',
-        fontFamily: FONTS.normal,
+        fontFamily: FONTS.bold,
         fontSize: 25,
-        fontWeight: '700',
+        color:COLORS.black,
         lineHeight: 27.63,
-        marginBottom: 16,
       }
 });

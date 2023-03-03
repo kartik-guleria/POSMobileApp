@@ -3,21 +3,20 @@ import { COLORS, FONTS, SIZES } from 'assets/index';
 
 export default styles = StyleSheet.create({
     tableName: {
-        fontSize: 17, fontWeight: '700',
+        fontSize: 17,
         position: 'absolute',
+        fontFamily:FONTS.bold
     },
     topBarView: {
-        height: 50,
-        margin: 8,
-        borderRadius: 5,
-        borderColor: '#ddd',
-        shadowColor: '#000000',
-        shadowOffset: { width: 0, height: 0 },
-        shadowOpacity: 0.15,
-        shadowRadius: 2,
-        justifyContent: 'center',
-        alignItems: 'center',
-        flex: 1,
+      height: 50,
+      margin: 8,
+      borderRadius: 2,
+      shadowColor: '#000000',
+      shadowOffset: {width: 0, height: 0},
+      shadowOpacity: 0.15,
+      shadowRadius: 2,
+      justifyContent: 'center',
+      elevation: 4,
     },
     topBarText: {
         justifyContent: 'center',
@@ -29,13 +28,13 @@ export default styles = StyleSheet.create({
         fontFamily: FONTS.normal,
     },
     buttonStyle: {
-        fontFamily: FONTS.normal,
-        fontSize: 16, fontWeight: '700',
+        fontFamily: FONTS.bold,
+        fontSize: 16, 
         textTransform: 'uppercase',
         marginBottom: 10,
         marginTop: 10,
         marginLeft: 20,
         marginRight: 20,
-        color: 'white'
+        color: COLORS.white
     }
 });

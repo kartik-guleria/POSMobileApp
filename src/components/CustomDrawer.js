@@ -18,7 +18,7 @@ const CustomDrawer = props => {
 
 <TouchableOpacity style={{flexDirection:'row',marginLeft:16,alignItems:'center'}} onPress= {()=> props.navigation.navigate('LogIn')}>
     {ComIcons.logOut}
-        <Text style={{marginLeft:11.5,fontFamily:FONTS.normal,fontSize:16,fontWeight:'700',lineHeight:17,color:COLORS.darkGrey}}>
+        <Text style={{marginLeft:11.5,fontFamily:FONTS.bold,fontSize:16,lineHeight:17,color:COLORS.darkGrey}}>
             LOGOUT
         </Text>
         </TouchableOpacity>

@@ -110,9 +110,8 @@ export default ProductConfigTab;
 const styles = StyleSheet.create({
   tab: {
     fontSize: 12,
-    fontWeight: '700',
     lineHeight: 13,
-    fontFamily: FONTS.normal,
+    fontFamily: FONTS.bold,
     alignSelf: 'center',
   },
   line: {

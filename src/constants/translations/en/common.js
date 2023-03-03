@@ -202,7 +202,7 @@ newInTheMenu:'New in the Menu',
 sortBy:'SORT BY',
 sentToKitchen:'SENT TO KITCHEN',
 preparing:'PREPARING',
-ready:'Ready',
+ready:'READY',
 delivered:'DELIVERED',
 closed:'CLOSED',
 

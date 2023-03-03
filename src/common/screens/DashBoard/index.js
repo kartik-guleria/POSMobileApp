@@ -5,7 +5,6 @@ import NavigationHeaderDash from 'components/NavigationHeaderDash';
 import ServiceGridTile from '../../../components/ServiceGridTile';
 import { ComIcons } from 'assets/index';
 import { useTranslation } from 'react-i18next';
-import GeneralStatusBarColor from '../../../components/GeneralStatusBarColor';
 import NavigationHeader from '../../../components/NavigationHeader';
 
 const DashBoard = props => {

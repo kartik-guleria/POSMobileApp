@@ -17,7 +17,7 @@ const StartShift = props => {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <NavigationHeader title={t('common:startShift')} displayBtn={'dash'} pop={false} navigation={props.navigation}  onPress={()=>props.navigation.openDrawer()} />
-      <View style={{ flex: 1, justifyContent: 'space-between' }}>
+      <View style={{ flex: 1, justifyContent: 'space-between' ,marginBottom:'2%'}}>
         <View style={{ height: 10, marginLeft: 16, marginRight: 16 }}></View>
         <View
           style={{
@@ -32,7 +32,8 @@ const StartShift = props => {
           <Text
             style={{
               textAlign: 'center',
-              fontFamily: FONTS.normal,
+              fontFamily: FONTS.medium,
+              color:COLORS.black,
               fontSize: 20,
               fontWeight: '500',
               lineHeight: 24
@@ -42,23 +43,22 @@ const StartShift = props => {
           <Text
             style={{
               marginTop: 31,
-              fontFamily: FONTS.normal,
+              fontFamily: FONTS.medium,
               fontSize: 16,
-              fontWeight: '400',
+              fontWeight: '500',
               lineHeight: 19.2,
-              color: COLORS.darkGrey
-            }}>
-          {t('common:amount')} 
+              color: COLORS.darkGrey,
+            }}>{t('common:amount')} 
           </Text>
           <TextInput
             placeholder="0.00L"
             placeholderTextColor={COLORS.black}
             style={{
               marginTop: 2,
-              fontFamily: FONTS.normal,
+              fontFamily: FONTS.light,
               fontSize: 16,
-              fontWeight: '500',
-              lineHeight: 17.14
+              lineHeight: 17.14,
+              paddingVertical: 0,
             }} />
           <UnderlineView />
         </View>

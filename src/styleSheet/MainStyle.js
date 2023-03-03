@@ -3,10 +3,6 @@ import { StyleSheet, Dimensions, Platform } from 'react-native';
 import { COLORS, FONTS, SIZES, ComIcons, DelIcons, NavIcons } from 'assets/index';
 
 export default StyleSheet.create({
-  safeAreaContainer: {
-    paddingHorizontal: 24,
-    backgroundColor: COLORS.red,
-  },
   // screen: {
   //   flex: 1,
   //   justifyContent: 'center',
@@ -33,16 +29,16 @@ export default StyleSheet.create({
     elevation: 3,
     backgroundColor: "#FFFFFF",
   },
-  // menuItem: {
-  //   textAlign: 'left',
-  //   fontWeight: 700,
-  //   fontSize: 122,
-  //   color: COLORS.black,
-  //   fontFamily: FONTS.normal,
-  //   alignSelf: 'flex-start',
-  //   marginBottom: 8,
-  //   lineHeight: 13,
-  // },
+  menuItem: {
+    textAlign: 'left',
+    fontWeight: 700,
+    fontSize: 122,
+    color: COLORS.black,
+    fontFamily: FONTS.normal,
+    alignSelf: 'flex-start',
+    marginBottom: 8,
+    lineHeight: 13,
+  },
   // wrapperView: {
   //   padding: 10,
   //   marginTop: 5,

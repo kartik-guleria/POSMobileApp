@@ -5,21 +5,23 @@ export default styles = StyleSheet.create({
   desc: {
     fontFamily: FONTS.normal,
     fontSize: 12,
+    color:COLORS.black,
     fontWeight: '300',
     lineHeight: 19.2,
   },
   title: {
     marginTop: 23,
-    fontFamily: FONTS.normal,
+    fontFamily: FONTS.medium,
+    color:COLORS.black,
     fontSize: 15,
     fontWeight: '500',
     lineHeight: 24,
   },
   name: {
     marginBottom: 6,
-    fontFamily: FONTS.normal,
+    fontFamily: FONTS.bold,
+    color:COLORS.black,
     fontSize: 14,
-    fontWeight: '700',
     lineHeight: 22.4,
   },
   image: {marginLeft: 8, height: 64, width: 60},
@@ -33,5 +35,5 @@ export default styles = StyleSheet.create({
     marginTop: 16,
     flexDirection: 'row',
   },
-  screen: {flex: 1, marginLeft: 16, marginRight: 16},
+  screen: {flex: 1, marginHorizontal: 16,paddingBottom:10},
 });

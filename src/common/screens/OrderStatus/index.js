@@ -5,6 +5,7 @@ import NavigationHeader from 'components/NavigationHeader';
 import {ORDER_STATUS} from '../../../data/dummyData';
 import style from './style';
 import { useTranslation } from 'react-i18next';
+import MainStyle from '../../../styleSheet/MainStyle';
 
 const OrderStatus = props => {
   const { t, i18n } = useTranslation();
@@ -23,20 +24,22 @@ const OrderStatus = props => {
               : itemData.item.status === t('common:delivered')
               ? COLORS.g4
               : itemData.item.status === t('common:closed')
-              ? COLORS.white
-              : null,
+              && COLORS.white,
               height:71,
               marginTop:16,
               justifyContent:'space-between',
-              padding:8
+              padding:8,
+              elevation:3,marginHorizontal:2,
+              borderColor:COLORS.grey,
+              borderWidth:1
         }}>
 
         <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
           <Text
             style={{
               fontSize: 12,
-              fontWeight: '700',
-              fontFamily: FONTS.normal,
+              fontFamily: FONTS.bold,
+              color: itemData.item.status === 'CLOSED' ? COLORS.darkGrey : COLORS.white,
               lineHeight: 12.85,
             }}>
             ORDERD #{itemData.item.orderId}
@@ -50,8 +53,8 @@ const OrderStatus = props => {
             <Text
               style={{
                 fontSize: 12,
-                fontWeight: '700',
-                fontFamily: FONTS.normal,
+              color:itemData.item.status === 'CLOSED' ? COLORS.darkGrey:COLORS.black,
+                fontFamily: FONTS.bold,
                 lineHeight: 12.85,
               }}>
               {itemData.item.orderTime}
@@ -65,8 +68,7 @@ const OrderStatus = props => {
               style={{
                 color: itemData.item.status === 'CLOSED' ? COLORS.darkGrey : COLORS.white,
                 fontSize: 14,
-                fontWeight: '700',
-                fontFamily: FONTS.normal,
+                fontFamily: FONTS.bold,
                 lineHeight: 15.47,
               }}>
               {itemData.item.tableNo} {' '}
@@ -74,8 +76,7 @@ const OrderStatus = props => {
             <View style ={{justifyContent:'center'}}>{itemData.item.status === 'CLOSED' ? ComIcons.greyTableChair : ComIcons.whiteTableChair}</View>
             <Text style={{ color: itemData.item.status === 'CLOSED' ? COLORS.darkGrey : COLORS.white,
                 fontSize: 14,
-                fontWeight: '700',
-                fontFamily: FONTS.normal,
+                fontFamily: FONTS.bold,
                 lineHeight: 15.47,
               }}>
                 {' '}
@@ -86,8 +87,7 @@ const OrderStatus = props => {
           <Text
             style={{ color: itemData.item.status === 'CLOSED' ? COLORS.darkGrey : COLORS.white,
               fontSize: 14,
-              fontWeight: '700',
-              fontFamily: FONTS.normal,
+              fontFamily: FONTS.bold,
               lineHeight: 15.47,
             }}>
             {itemData.item.status}
@@ -99,20 +99,19 @@ const OrderStatus = props => {
   };
 
   return (
-      <SafeAreaView>
+      <SafeAreaView style={MainStyle.safeAreaContainerLight}>
         <NavigationHeader
           title={'Order Status'}
           navigation={props.navigation}
         />
-        <View>
           <FlatList
             data={ORDER_STATUS}
+            showsVerticalScrollIndicator={false}
             renderItem={renderItem}
             keyExtractor={item => item.orderId}
             bounces={false}
-            contentContainerStyle={{marginLeft:16,marginRight:16,marginTop:16}}
+            contentContainerStyle={{marginHorizontal:14,marginTop:10,paddingBottom:15}}
           />
-        </View>
       </SafeAreaView>
   );
 };

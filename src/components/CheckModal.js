@@ -3,6 +3,7 @@ import React from "react";
 import { View,Text} from "react-native-animatable";
 import MyButton from "./MyButton";
 import { useTranslation } from 'react-i18next';
+import { COLORS } from "../assets";
 
 
 const CheckModal = ({title,btnTitle,onPressNo,onPress}) => {
@@ -10,7 +11,7 @@ const CheckModal = ({title,btnTitle,onPressNo,onPress}) => {
 
 return(
     <View style={{flex:1}}>
-<Text style={{textAlign:'center',flex:1,marginTop:40,fontFamily:FONTS.normal,fontSize:16,fontWeight:'400',lineHeight:17,marginHorizontal:55}}>
+<Text style={{textAlign:'center',flex:1,marginTop:40,fontFamily:FONTS.medium,color:COLORS.black,fontSize:16,fontWeight:'400',lineHeight:17,marginHorizontal:55}}>
 {title}
 </Text>
 <View style={{flexDirection:'row',justifyContent:'space-around',backgroundColor:'grey',}}>

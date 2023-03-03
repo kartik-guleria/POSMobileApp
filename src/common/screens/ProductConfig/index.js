@@ -143,7 +143,8 @@ const ProductConfig = props => {
         <Text
           style={{
             fontSize: 10,
-            fontFamily: FONTS.normal,
+            fontFamily: FONTS.medium,
+            color:COLORS.black,
             fontWeight: '500',
             lineHeight: 10,
             marginBottom: 2,
@@ -173,7 +174,8 @@ const ProductConfig = props => {
             <Text
               style={{
                 fontSize: 14,
-                fontFamily: FONTS.normal,
+                fontFamily: FONTS.medium,
+                color:COLORS.black,
                 fontWeight: '500',
                 lineHeight: 16,
               }}>
@@ -184,7 +186,7 @@ const ProductConfig = props => {
               style={{
                 marginTop: 3,
                 fontSize: 12,
-                fontFamily: FONTS.normal,
+                fontFamily: FONTS.medium,
                 fontWeight: '400',
                 lineHeight: 14,
                 color: COLORS.darkGrey,
@@ -196,7 +198,8 @@ const ProductConfig = props => {
           <Text
             style={{
               fontSize: 14,
-              fontFamily: FONTS.normal,
+              fontFamily: FONTS.medium,
+              color:COLORS.black,
               fontWeight: '500',
               lineHeight: 16,
             }}>
@@ -206,7 +209,8 @@ const ProductConfig = props => {
         <Text
           style={{
             fontSize: 12,
-            fontFamily: FONTS.normal,
+            fontFamily: FONTS.medium,
+            color:COLORS.black,
             fontWeight: '500',
             lineHeight: 14,
             marginBottom: 15,
@@ -239,9 +243,9 @@ const ProductConfig = props => {
                 </TouchableOpacity>
                 <Text
                   style={{
-                    fontFamily: FONTS.normal,
+                    fontFamily: FONTS.bold,
                     fontSize: 18,
-                    fontWeight: '700',
+                    color:COLORS.black,
                     lineHeight: 23,
                     marginHorizontal: 9,
                   }}>
@@ -253,8 +257,9 @@ const ProductConfig = props => {
               </View>
               <Text
                 style={{
-                  fontFamily: FONTS.normal,
+                  fontFamily: FONTS.medium,
                   fontSize: 10,
+                  color:COLORS.black,
                   fontWeight: '400',
                   lineHeight: 10,
                 }}>
@@ -264,7 +269,8 @@ const ProductConfig = props => {
                 style={{
                   marginTop: 2,
                   textAlign: 'center',
-                  fontFamily: FONTS.normal,
+                  fontFamily: FONTS.medium,
+                  color:COLORS.black,
                   fontSize: 10,
                   fontWeight: '500',
                   lineHeight: 12,
@@ -283,7 +289,8 @@ const ProductConfig = props => {
                 style={{
                   marginTop: 10,
                   textAlign: 'center',
-                  fontFamily: FONTS.normal,
+                  fontFamily: FONTS.medium,
+                  color:COLORS.black,
                   fontSize: 10,
                   fontWeight: '500',
                   lineHeight: 12,
@@ -311,7 +318,8 @@ const ProductConfig = props => {
         <View>{image}</View>
         <Text
           style={{
-            fontFamily: FONTS.normal,
+            fontFamily: FONTS.medium,
+            color:COLORS.black,
             fontSize: 12,
             fontWeight: '500',
             lineHeight: 14,
@@ -335,9 +343,9 @@ const ProductConfig = props => {
         />
         <Text
           style={{
-            fontFamily: FONTS.normal,
+            fontFamily: FONTS.bold,
             fontSize: 12,
-            fontWeight: '700',
+            color:COLORS.black,
             lineHeight: 13,
             marginTop: 23,
             marginBottom: 12,
@@ -395,7 +403,6 @@ const ProductConfig = props => {
         />
         <View
           style={{
-            marginRight: 5,
             marginTop: 38,
             marginBottom: 15,
             flex: 1,
@@ -410,7 +417,7 @@ const ProductConfig = props => {
             ListFooterComponent={renderfooter}
             showsVerticalScrollIndicator={false}
             ItemSeparatorComponent={() => <View style={{height: 16}}></View>}
-            columnWrapperStyle={{justifyContent: 'space-evenly'}}
+            columnWrapperStyle={{justifyContent: 'space-evenly',marginHorizontal:10}}
           />
         </View>
       </SafeAreaView>

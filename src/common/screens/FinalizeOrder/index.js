@@ -22,7 +22,7 @@ const FinalizeOrder = props => {
 
   const renderItem = itemData => {
     return (
-     <MyButton title={itemData.item.title} backColor = {'white'} onPress={()=>props.navigation.navigate('PaymentCompleted')}/>
+     <MyButton title={itemData.item.title} backColor = {'white'} onPress={()=>props.navigation.navigate('FinalizeOrderAmount')}/>
     );
   };
   return (

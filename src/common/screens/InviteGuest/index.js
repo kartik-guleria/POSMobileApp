@@ -23,7 +23,7 @@ const InviteGuest = props => {
 
         <View style={{alignSelf:'center'}}>{ComIcons.inviteGuest}</View>
 
-        <Text style ={{textAlign:'center',marginBottom:14,marginTop:41,fontFamily:FONTS.normal,fontSize:16,fontWeight:'400',lineHeight:22.4}}>
+        <Text style ={{textAlign:'center',marginBottom:14,marginTop:41,fontFamily:FONTS.normal,color:COLORS.black,fontSize:16,fontWeight:'400',lineHeight:22.4}}>
         Invite guest to download wonderbites app and use QR code by filling up the information below.
             </Text>
             <InputField
@@ -41,7 +41,7 @@ const InviteGuest = props => {
             //   checkVal={value => setEmail(value)} 
             />
         </View>
-        <MyButton title={"SEND INVITATION"} onPress={()=> replace('Drawer')}/>
+        <MyButton title={"SEND INVITATION"} onPress={()=> props.navigation.navigate('DashBoard')}/>
     </View>
 </SafeAreaView>
     );

@@ -130,7 +130,7 @@ const styles = StyleSheet.create({
     alignContent: 'center',
     fontSize: 18,
     color: COLORS.black,
-    fontFamily: FONTS.normal,
+    fontFamily: FONTS.medium,
     fontStyle: 'normal',
     fontWeight: '500',
     paddingBottom: 15,

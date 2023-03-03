@@ -23,7 +23,7 @@ export default styles = StyleSheet.create({
   title: {
     marginBottom: 45,
     textAlign: 'center',
-    fontFamily: FONTS.normal,
+    fontFamily: FONTS.medium,
     fontSize: 20,
     fontWeight: '500',
     lineHeight: 24,
@@ -46,9 +46,9 @@ export default styles = StyleSheet.create({
     marginLeft: 18,
     marginRight: 18,
     flex: 1,
-    fontFamily: FONTS.normal,
+    fontFamily: FONTS.medium,
     fontSize: 16,
-    fontWeight: '400',
+    fontWeight: '500',
     lineHeight: 18,
     color: COLORS.black,
 
@@ -61,7 +61,6 @@ export default styles = StyleSheet.create({
   },
   resetText: {
     fontFamily: FONTS.normal,
-    fontWeight: '400',
     fontSize: 12,
     lineHeight: 12.85,
     textDecorationLine: 'underline',
