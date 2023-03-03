@@ -227,7 +227,6 @@ const CustomerDashboard = props => {
     );
   };
   return (
-    <><View style={{ backgroundColor: COLORS.red, height: 50 }}></View>
     <SafeAreaView style={MainStyle.safeAreaContainerLight}>
       <NavigationHeader title="JOHN DOE" navigation={props.navigation} />
       <FlatList
@@ -242,7 +241,6 @@ const CustomerDashboard = props => {
         contentContainerStyle={{marginBottom: 34}}
       />
     </SafeAreaView>
-    </>
   );
 };
 

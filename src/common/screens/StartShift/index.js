@@ -15,8 +15,8 @@ const StartShift = props => {
   const { t, i18n } = useTranslation();
 
   return (
-    <><View style={{ backgroundColor: COLORS.red, height: 50 }}></View><SafeAreaView style={{ flex: 1 }}>
-      <NavigationHeader title={t('common:startShift')} pop={false} navigation={props.navigation}  onSelect={()=>props.navigation.openDrawer()} />
+    <SafeAreaView style={{ flex: 1 }}>
+      <NavigationHeader title={t('common:startShift')} displayBtn={'dash'} pop={false} navigation={props.navigation}  onPress={()=>props.navigation.openDrawer()} />
       <View style={{ flex: 1, justifyContent: 'space-between' }}>
         <View style={{ height: 10, marginLeft: 16, marginRight: 16 }}></View>
         <View
@@ -64,7 +64,7 @@ const StartShift = props => {
         </View>
         <MyButton title={t('common:amount')}  onPress={() =>replace('ShiftReport')} />
       </View>
-    </SafeAreaView></>
+    </SafeAreaView>
   );
 };
 

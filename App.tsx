@@ -12,7 +12,6 @@ import {
 
 import MainNavigator from './src/navigation/MainNavigator';
 import './i18n';
-
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
   return (

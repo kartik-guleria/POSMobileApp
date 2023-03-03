@@ -1,10 +1,10 @@
 import React from "react";
-import { View, TouchableOpacity, Text, StyleSheet, StatusBar } from "react-native";
+import { View, TouchableOpacity, Text, StyleSheet } from "react-native";
 import { FONTS,COLORS,ComIcons} from 'assets/index'; 
 import { useTranslation } from 'react-i18next';
 
 
-const NavigationHeader = ({navigation,title,pop=true,onSelect,productSelection = false}) =>{
+const NavigationHeader = ({navigation,title,pop=true,onPress,productSelection = false,displayBtn='back'}) =>{
     const { t, i18n } = useTranslation();
 
     const back =() => {
@@ -12,8 +12,7 @@ const NavigationHeader = ({navigation,title,pop=true,onSelect,productSelection =
     }
     return (
         <View style={styles.mainView}>
-            <StatusBar barStyle="dark-content" />
-            <TouchableOpacity onPress={()=> pop ? back() : onSelect() } style={{ marginLeft: 10,backgroundColor:'green' }}>{ComIcons.back}</TouchableOpacity>
+         <TouchableOpacity onPress={()=> pop ? back() : onPress() } style={{ marginLeft: 10}}>{displayBtn==='back'? ComIcons.back : displayBtn ==='dash' ? ComIcons.drawer :  displayBtn ==='null' ? null : ComIcons.back }</TouchableOpacity>
             <View style ={{width:'80%'}}><Text style={styles.titleText}>{title}</Text></View>
            { productSelection ? <View>{ComIcons.productSelection}</View>:null}
 </View>

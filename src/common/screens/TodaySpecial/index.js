@@ -78,9 +78,8 @@ const TodaySpecial = props => {
   };
 
   return (
-    <><View style={{ backgroundColor: COLORS.red, height: 50 }}></View><SafeAreaView>
+    <SafeAreaView>
       <NavigationHeader title={t('common:todaySpecial')}  navigation={props.navigation} />
-
       <View style={{ marginLeft: 16, marginRight: 16 }}>
         <SectionList
           sections={SPECIAL}
@@ -88,7 +87,7 @@ const TodaySpecial = props => {
           renderSectionHeader={renderHeader}
           keyExtractor={(item, index) => index} />
       </View>
-    </SafeAreaView></>
+    </SafeAreaView>
   );
 };
 

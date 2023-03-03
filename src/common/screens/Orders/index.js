@@ -209,8 +209,6 @@ const Orders = props => {
     );
   };
   return (
-    <>
-      <View style={{backgroundColor: COLORS.red, height: 50}}></View>
       <SafeAreaView style={MainStyle.safeAreaContainerLight}>
         <NavigationHeader title={t('common:orders')} navigation={props.navigation} />
         
@@ -234,7 +232,6 @@ const Orders = props => {
       />
        }
       </SafeAreaView>
-    </>
   );
 };
 

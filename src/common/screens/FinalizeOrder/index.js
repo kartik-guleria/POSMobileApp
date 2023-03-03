@@ -26,7 +26,6 @@ const FinalizeOrder = props => {
     );
   };
   return (
-   <><View style={{ backgroundColor: COLORS.red, height: 50 }}></View>
     <SafeAreaView style={MainStyle.safeAreaContainerLight}>
       <NavigationHeader title={t('common:finalizeOrder')}   navigation={props.navigation}/>
       <View style={styles.screen}>
@@ -43,7 +42,7 @@ const FinalizeOrder = props => {
           contentContainerStyle={styles.flatlist}
         />
       </View>
-    </SafeAreaView></>
+    </SafeAreaView>
   );
 };
 

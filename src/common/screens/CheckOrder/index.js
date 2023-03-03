@@ -140,8 +140,8 @@ const CheckOrder = props => {
         const renderAmount = amountData => {
           return(
         <View style={{ alignItems: 'center', paddingHorizontal: 5, borderWidth: 1, height: 26, backgroundColor: COLORS.grey, flexDirection: 'row', justifyContent: 'space-between' }}>
-                  <Text style={{ fontFamily: FONTS.normal, fontSize: 14, fontWeight: amountData.item.id === 5 ? '700' : '400', lineHeight: 16 }}>{amountData.item.title}</Text>
-                  <Text style={{ fontFamily: FONTS.normal, fontSize: 14, fontWeight: '400', lineHeight: 16 }}>{amountData.item.price}</Text>
+                  <Text style={{ fontFamily: FONTS.medium, color:COLORS.black, fontSize: 14, fontWeight: amountData.item.id === 5 ? '700' : '400', lineHeight: 16 }}>{amountData.item.title}</Text>
+                  <Text style={{ fontFamily: FONTS.medium, fontSize: 14, fontWeight: '400', lineHeight: 16 }}>{amountData.item.price}</Text>
               </View>
       
           );
@@ -159,8 +159,6 @@ const CheckOrder = props => {
         );
       }
       return (
-        <>
-          <View style={{backgroundColor: COLORS.red, height: 50}}></View>
           <SafeAreaView style={MainStyle.safeAreaContainerLight}>
             <NavigationHeader
               title={t('common:check')}
@@ -195,7 +193,6 @@ const CheckOrder = props => {
             </Modal>
             </View>
           </SafeAreaView>
-        </>
       );
     };
     export default CheckOrder;

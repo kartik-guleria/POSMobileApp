@@ -3,8 +3,8 @@ import {COLORS, FONTS} from 'assets/index';
 
 export default styles = StyleSheet.create({
   image: {
-    height: 65,
-    width: 65,
+    height: 71,
+    width: 71,
     alignSelf: 'center',
     marginTop: 23,
     borderWidth: 1,
