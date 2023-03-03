@@ -1,4 +1,5 @@
-import { Platform } from "react-native";
+import { Platform, Dimensions } from "react-native";
+const { height, width } = Dimensions.get('window');
 
 const appTheme = {COLORS, FONTS};
 
@@ -15,6 +16,8 @@ g2:'#999999',
 g3:'#666666',
 g4:'#333333',
 }
+
+export const aspectRatio = height / width;
 
   export const FONTS = {
     light: Platform.OS === 'ios' ? 'Gotham-Light' : 'Gotham-Light',
