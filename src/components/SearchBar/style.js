@@ -1,16 +1,18 @@
 import { COLORS } from 'assets/index';
 import { StyleSheet } from 'react-native';
 import { heightToDP as height, widthToDP as width } from 'utils/Dimensions';
+import { FONTS } from '../../assets';
 
 export default StyleSheet.create({
   inputBox: {
-    marginTop: 15,
+    marginVertical: 15,
     marginHorizontal: width(4),
   },
   input: {
     height: height(6),
     flex: 1,
-    fontFamily: 'Gotham-Light',
+    fontFamily: FONTS.medium, 
+    color:COLORS.black
   },
   defaultInput: {
     fontSize: height(2),
@@ -64,7 +66,6 @@ export default StyleSheet.create({
   },
   searchContainer: {
     flexDirection: 'row',
-    backgroundColor: 'white',
     borderColor: COLORS.grey,
     borderWidth: 1
   },

@@ -85,10 +85,10 @@ export default WonderPointTab;
 
 const styles = StyleSheet.create({
   tab: {
-    fontSize: 16,
-    fontWeight: '400',
+    fontSize: 15,
+    fontWeight: '500',
     lineHeight: 15,
-    fontFamily: FONTS.normal,
+    fontFamily: FONTS.medium,
     alignSelf: 'center',
   },
   line: {

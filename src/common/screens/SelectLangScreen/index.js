@@ -12,6 +12,7 @@ import NavigationHeader from 'components/NavigationHeader';
 import {useTranslation} from 'react-i18next';
 import {ComIcons, COLORS} from 'assets/index';
 import UnderlineView from 'components/underlineView';
+import { FONTS } from '../../../assets';
 
 const SelectLangScreen = props => {
   const {i18n, t} = useTranslation();
@@ -19,7 +20,7 @@ const SelectLangScreen = props => {
   const LANGUAGE = [
     {
       id: '1',
-      title: t('common:English'),
+      title: t('common:english'),
       code: 'en',
     },
     {
@@ -44,8 +45,9 @@ const SelectLangScreen = props => {
             {
               textAlign: 'left',
               fontWeight: '500',
+              fontFamily:FONTS.medium,
               margin: 10,
-              color: selectedLanguageCode === code && 'red',
+              color: selectedLanguageCode === code ? COLORS.red :COLORS.black,
               width: '50%',
             },
           ]}>

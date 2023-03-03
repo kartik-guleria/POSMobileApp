@@ -1,13 +1,15 @@
 import {StyleSheet} from 'react-native';
 import {FONTS} from 'assets/index';
+import { COLORS } from '../../../assets';
 
 export default styles = StyleSheet.create({
   header: {
-    fontFamily: FONTS.normal,
+    fontFamily: FONTS.medium,
     fontSize: 15,
     fontWeight: '500',
     lineHeight: 24,
     marginLeft: 20,
+    color:COLORS.black
   },
   box: {
     alignItems: 'center',
@@ -20,10 +22,9 @@ export default styles = StyleSheet.create({
     marginRight: 11,
   },
   name:{
-    
-    fontFamily: FONTS.normal,
+    fontFamily: FONTS.medium,
     fontSize: 14,
-    fontWeight: '400',
+    fontWeight: '500',
     lineHeight: 22.4,
   },
   desc :{

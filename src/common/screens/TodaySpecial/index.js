@@ -43,6 +43,7 @@ const TodaySpecial = props => {
             style={{
               marginBottom: 6,
               fontFamily: FONTS.bold,
+              color:COLORS.black,
               fontSize: 14,
               lineHeight: 22.4,
             }}>
@@ -52,6 +53,7 @@ const TodaySpecial = props => {
           numberOfLines={2}
             style={{
               fontFamily: FONTS.normal,
+              color:COLORS.black,
               fontSize: 12,
               fontWeight: '400',
               lineHeight: 19.2,
@@ -69,6 +71,7 @@ const TodaySpecial = props => {
           marginTop: 23,
           fontFamily: FONTS.medium,
           fontSize: 15,
+          color:COLORS.black,
           fontWeight: '500',
           lineHeight: 24,
         }}>

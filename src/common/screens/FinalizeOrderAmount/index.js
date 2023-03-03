@@ -6,6 +6,7 @@ import React from 'react';
 import {SafeAreaView, View, Text} from 'react-native';
 import MainStyle from 'styleSheet/MainStyle';
 import {useTranslation} from 'react-i18next';
+import { COLORS } from '../../../assets';
 
 const FinalizeOrderAmount = props => {
   const {t, i18n} = useTranslation();
@@ -23,9 +24,10 @@ const FinalizeOrderAmount = props => {
             style={{
               textAlign: 'center',
               fontSize: 25,
-              fontFamily: FONTS.normal,
-              fontWeight: '700',
+              fontFamily: FONTS.bold,
+              color:COLORS.black,
               lineHeight: 27.63,
+              marginBottom:20
             }}>
             1000L {t('common:cash')}
           </Text>

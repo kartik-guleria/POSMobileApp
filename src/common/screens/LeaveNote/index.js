@@ -21,7 +21,8 @@ const LeaveNote = props => {
             <TextInput
               placeholder="Please dont overcook the meat!. Do not add fries to burger. Add extra Pickles"
               multiline={true}
-              style={[styles.text, { margin: 10 }]} />
+              placeholderTextColor={COLORS.grey}
+              style={[styles.text, { margin: 10,paddingVertical:0 }]} />
           </View>
         </View>
         <View style={styles.button}>

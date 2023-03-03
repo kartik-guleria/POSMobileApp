@@ -49,9 +49,8 @@ const SearchBar = forwardRef((props, inputRef) => {
           style={{
             alignSelf: 'center',
             resizeMode: 'contain',
-            marginLeft: 10,
-            marginRight: 10,
-          }}>
+            marginHorizontal: 10
+}}>
           {ComIcons.search}
         </View>
 
@@ -68,9 +67,7 @@ const SearchBar = forwardRef((props, inputRef) => {
             alignSelf: 'center',
             justifyContent: 'center',
             resizeMode: 'contain',
-            marginLeft: 10,
-            marginRight: 10,
-            // backgroundColor:'red',
+            marginHorizontal: 10,
             height: 20,
             width: 20,
           }}>
@@ -81,13 +78,13 @@ const SearchBar = forwardRef((props, inputRef) => {
         <ActivityIndicator animating={loading} size={20} />
       </View>
 
-      <FlatList
+      {/* <FlatList
         style={[Style.listContainer, Style.cardStyle]}
         showsVerticalScrollIndicator={false}
         bounces={false}
         data={listData}
         renderItem={renderItems}
-      />
+      /> */}
     </View>
   );
 });

@@ -1,5 +1,5 @@
 import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
+import {NavigationContainer, useNavigation, useRoute} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {navigationRef} from 'navigation/RootNaviagtion';
 import RNBootSplash from 'react-native-bootsplash';
@@ -60,7 +60,8 @@ export default function MainNavigator() {
           drawerItemStyle: {},
           drawerLabelStyle: {
             marginLeft: -15,
-            fontFamily: FONTS.bold,
+            fontFamily: FONTS.medium,
+            fontWeight:'500',
             fontSize: 16,
             color: COLORS.black,
             lineHeight: 19,
@@ -106,10 +107,9 @@ export default function MainNavigator() {
       </Drawer.Navigator></>
     );
   };
-
   return (
     <NavigationContainer ref={navigationRef}>
-      <GeneralStatusBarColor/>
+     <GeneralStatusBarColor/>
       <Stack.Navigator screenOptions={screenOptions}>
         <Stack.Screen name="DrawerStack" component={DrawerStack} />
         <Stack.Screen name="LogIn" component={LogInScreen} />

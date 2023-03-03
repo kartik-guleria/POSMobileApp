@@ -11,16 +11,14 @@ import {
 import MainStyle from 'styleSheet/MainStyle';
 import {COLORS, FONTS} from 'assets/theme';
 import SearchBar from 'components/SearchBar';
-import { useTranslation } from 'react-i18next';
-
+import {useTranslation} from 'react-i18next';
 
 const Orders = props => {
-  const { t, i18n } = useTranslation();
+  const {t, i18n} = useTranslation();
 
   const OPEN_ORDERS = [
     {
       id: 1,
-      status: t('common:open'),
       custName: 'Joe Nick',
       orderID: '62545',
       price: '200L',
@@ -30,7 +28,6 @@ const Orders = props => {
     },
     {
       id: 2,
-      status: 'Open',
       custName: 'Joe ',
       orderID: '62545',
       price: '200L',
@@ -40,7 +37,6 @@ const Orders = props => {
     },
     {
       id: 3,
-      status: 'Open',
       custName: 'Joe Nick',
       orderID: '62545',
       price: '200L',
@@ -50,7 +46,6 @@ const Orders = props => {
     },
     {
       id: 4,
-      status: 'Open',
       custName: 'Joe Nick',
       orderID: '62545',
       price: '200L',
@@ -62,7 +57,6 @@ const Orders = props => {
   const CLOSED_ORDERS = [
     {
       id: 1,
-      status: t('common:closed'),
       custName: 'Joe Nick',
       orderID: '62545',
       price: '200L',
@@ -72,7 +66,6 @@ const Orders = props => {
     },
     {
       id: 2,
-      status: 'Closed',
       custName: 'Joe ',
       orderID: '62545',
       price: '200L',
@@ -82,7 +75,6 @@ const Orders = props => {
     },
     {
       id: 3,
-      status: 'Closed',
       custName: 'Joe Nick',
       orderID: '62545',
       price: '200L',
@@ -92,7 +84,6 @@ const Orders = props => {
     },
     {
       id: 4,
-      status: 'Closed',
       custName: 'Joe Nick',
       orderID: '62545',
       price: '200L',
@@ -108,7 +99,7 @@ const Orders = props => {
         <View
           style={{
             flexDirection: 'row',
-            marginVertical: 16,
+            marginTop:12,
           }}>
           <TouchableOpacity
             onPress={() => setSelectedIndex(1)}
@@ -124,7 +115,7 @@ const Orders = props => {
               style={{
                 textAlign: 'center',
                 color: selectedIndex === 1 ? COLORS.white : COLORS.darkGrey,
-                fontFamily: FONTS.normal,
+                fontFamily: FONTS.medium,
                 fontSize: 12,
                 fontWeight: '500',
                 lineHeight: 14,
@@ -165,7 +156,8 @@ const Orders = props => {
   const renderItem = itemData => {
     return (
       <TouchableOpacity
-      onPress={()=> props.navigation.navigate('SelectItems')}
+        onPress={() => props.navigation.navigate('SelectItems')}
+        disabled={selectedIndex == 1 ?false:true }
         style={{
           height: 256,
           borderColor: COLORS.grey,
@@ -173,7 +165,7 @@ const Orders = props => {
           paddingLeft: 8,
           justifyContent: 'center',
         }}>
-        <View style={{flexDirection:'row'}}>
+        <View style={{flexDirection: 'row'}}>
           <View style={styles.titleView}>
             <Text style={styles.title}> {t('common:status')}</Text>
             <Text style={styles.title}> {t('common:customer')}</Text>
@@ -185,7 +177,21 @@ const Orders = props => {
           </View>
 
           <View style={styles.textview}>
-          <View style={{borderRadius:5,backgroundColor: selectedIndex == 1 ? COLORS.darkGrey:COLORS.red,alignSelf:'flex-start'}}><Text style={[styles.desc,{marginHorizontal:5,color:COLORS.white}]}>{itemData.item.status}</Text></View>
+            <View
+              style={{
+                borderRadius: 5,
+                backgroundColor:
+                  selectedIndex == 1 ? COLORS.darkGrey : COLORS.red,
+                alignSelf: 'flex-start',
+              }}>
+              <Text
+                style={[
+                  styles.desc,
+                  {marginHorizontal: 5, color: COLORS.white},
+                ]}>
+                {selectedIndex == 1 ?t('common:open') : t('common:closed')}
+              </Text>
+            </View>
             <Text
               style={[
                 styles.desc,
@@ -202,36 +208,27 @@ const Orders = props => {
             <Text style={styles.desc}>{itemData.item.table}</Text>
             <Text style={styles.desc}>{itemData.item.date}</Text>
             <Text style={styles.desc}>{itemData.item.empName}</Text>
-
           </View>
         </View>
       </TouchableOpacity>
     );
   };
   return (
-      <SafeAreaView style={MainStyle.safeAreaContainerLight}>
-        <NavigationHeader title={t('common:orders')} navigation={props.navigation} />
-        
-       { selectedIndex == 1 ? <FlatList
-          data={OPEN_ORDERS}
-          renderItem={renderItem}
-          ListHeaderComponent={renderHeader}
-          keyExtractor={item => item.id}
-          bounces={false}
-          contentContainerStyle={{marginHorizontal: 16}}
-          ItemSeparatorComponent={() => <View style={{height: 10}}></View>}
-        />:<FlatList
-        data={CLOSED_ORDERS}
+    <SafeAreaView style={MainStyle.safeAreaContainerLight}>
+      <NavigationHeader
+        title={t('common:orders')}
+        navigation={props.navigation}
+      />
+      <FlatList
+        data={selectedIndex == 1 ? OPEN_ORDERS : CLOSED_ORDERS}
         renderItem={renderItem}
         ListHeaderComponent={renderHeader}
         keyExtractor={item => item.id}
         bounces={false}
-        contentContainerStyle={{marginHorizontal: 16}}
-        ItemSeparatorComponent={() => <View style={{height: 10}}>
-        </View>}
+        contentContainerStyle={{marginHorizontal: 16,paddingBottom:10}}
+        ItemSeparatorComponent={() => <View style={{height: 10}}></View>}
       />
-       }
-      </SafeAreaView>
+    </SafeAreaView>
   );
 };
 
@@ -239,18 +236,19 @@ export default Orders;
 
 const styles = StyleSheet.create({
   title: {
-    fontFamily: FONTS.normal,
+    fontFamily: FONTS.bold,
     fontSize: 14,
-    fontWeight: '700',
+color:COLORS.black,
     lineHeight: 15,
     marginVertical: 9,
   },
   desc: {
-    fontFamily: FONTS.normal,
+    fontFamily: FONTS.medium,
+    color:COLORS.black,
     fontSize: 14,
     fontWeight: '400',
     lineHeight: 15,
-    marginVertical:9
+    marginVertical: 9,
   },
-  titleView: {width:'30%'},
+  titleView: {width: '30%'},
 });

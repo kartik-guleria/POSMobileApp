@@ -60,7 +60,7 @@ const Notifications = props => {
   };
   return (
 <SafeAreaView style={MainStyle.safeAreaContainerLight}>
-      <NavigationHeader title={'NOTIFICATIONS'} navigation={props.navigation} pop={false} onPress={()=>props.navigation.openDrawer()}/>
+      <NavigationHeader title={'NOTIFICATIONS'} displayBtn='dash' navigation={props.navigation} pop={false} onPress={()=>props.navigation.openDrawer()}/>
       <View style={{ flex: 1 }}>
         <SectionList
           showsVerticalScrollIndicator={false}

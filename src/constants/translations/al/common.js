@@ -15,9 +15,7 @@ viewOrders: 'View Orders',
 todaySpecial : "Today's Specials",
 menuUpdates: 'Menu Updates',
 orderStatus:'Orders Status',
-
 profile: 'Profile',
-language:'Language',
 shift:'Shift',
 logout:'LOG OUT',
 
@@ -102,8 +100,6 @@ logout:'LOG OUT',
   //Flatlist Text Items
 
   //SelectLanguage Screen
-  Language: 'gjuhe',
-  English: 'Anglisht',
   albanian: 'Albanian',
   french: 'Frengjisht',
   italian: 'Italiane',
@@ -349,7 +345,7 @@ logout:'LOG OUT',
   sortBy:'SORT BY',
   sentToKitchen:'SENT TO KITCHEN',
   preparing:'PREPARING',
-  ready:'Ready',
+  ready:'READY',
   delivered:'DELIVERED',
   closed:'CLOSED',
   

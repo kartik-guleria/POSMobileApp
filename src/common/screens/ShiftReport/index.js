@@ -5,11 +5,12 @@ import {FONTS,COLORS} from 'assets/theme';
 import UnderlineView from 'components/underlineView';
 import MyButton from 'components/MyButton';
 import {SHIFT_DATA} from 'data/dummyData';
-import CloseShiftModal from 'components/CloseShiftModal';
+import CloseShiftModal from '../../../components/CloseShiftModal';
 import Modal from 'react-native-modal';
 import { useTranslation } from 'react-i18next';
 
 const ShiftReport = props => {
+  const { t, i18n } = useTranslation();
   const SHIFT_DATA = [
     {
       title: t('common:cashDrawer'),
@@ -33,7 +34,7 @@ const ShiftReport = props => {
       ],
     },
   ];
-  const { t, i18n } = useTranslation();
+  
 
   const [isModalVisible, setModalVisible] = useState(false);
     const toggleModal = () => {
@@ -49,11 +50,8 @@ const ShiftReport = props => {
         <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
           <Text
             style={{
-              fontWeight:
-                item.id === 6 || item.id === 7 || item.id === 10
-                  ? '800'
-                  : '400',
-              fontFamily: FONTS.normal,
+              fontFamily:   item.id === 6 || item.id === 7 || item.id === 10? FONTS.bold:FONTS.normal,
+              color:COLORS.black,
               fontSize: 18,
               lineHeight: 21,
             }}>
@@ -62,12 +60,9 @@ const ShiftReport = props => {
 
           <Text
             style={{
-              fontWeight:
-                item.id === 6 || item.id === 7 || item.id === 10
-                  ? '800'
-                  : '400',
-              fontFamily: FONTS.normal,
-              fontSize: 18,
+                  fontFamily:  item.id === 6 || item.id === 7 || item.id === 10? FONTS.bold:FONTS.normal,
+                  fontSize: 18,
+                  color:COLORS.black,
               lineHeight: 21,
               marginBottom: item.id === 6 || item.id == 9 ? 21 : null,
             }}>
@@ -85,7 +80,8 @@ const ShiftReport = props => {
           style={{
             marginTop: 23,
             fontWeight: '500',
-            fontFamily: FONTS.normal,
+            fontFamily: FONTS.medium,
+            color:COLORS.black,
             fontSize: 18,
             lineHeight: 21.6,
           }}>
@@ -108,7 +104,8 @@ const ShiftReport = props => {
           <Text
             style={{
               textAlign: 'center',
-              fontFamily: FONTS.normal,
+              fontFamily: FONTS.medium,
+              color:COLORS.black,
               fontSize: 18,
               fontWeight: '500',
               lineHeight: 21,
@@ -118,7 +115,8 @@ const ShiftReport = props => {
           <Text
             style={{
               textAlign: 'center',
-              fontFamily: FONTS.normal,
+              fontFamily: FONTS.medium,
+              color:COLORS.black,
               fontSize: 18,
               fontWeight: '400',
               lineHeight: 21,

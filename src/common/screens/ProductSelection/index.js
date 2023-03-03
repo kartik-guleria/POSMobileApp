@@ -1,9 +1,9 @@
-import {COLORS, FONTS,ComIcons} from 'assets/index';
+import {COLORS, FONTS, ComIcons} from 'assets/index';
 import NavigationHeader from 'components/NavigationHeader';
 import ScanQRModal from 'components/ScanQRModal';
 import SearchBar from 'components/SearchBar';
 import {PRODUCTS} from 'data/dummyData';
-import React ,{useState}from 'react';
+import React, {useState} from 'react';
 import {
   View,
   StyleSheet,
@@ -16,23 +16,25 @@ import {
 import MainStyle from 'styleSheet/MainStyle';
 import Modal from 'react-native-modal';
 import MyButton from 'components/MyButton';
-import { useTranslation } from 'react-i18next';
+import {useTranslation} from 'react-i18next';
 
 const ProductSelection = props => {
-  const { t, i18n } = useTranslation();
+  const {t, i18n} = useTranslation();
 
-    const [selected, setSelected] = useState();
-    const [counter, setCounter] = useState(1);
-    const [isModalVisible, setModalVisible] = useState(false);
-    const toggleModal = () => {
-      setModalVisible(!isModalVisible);
-    };
-    const incrementCounter = () => {
-      setCounter(counter+1);
-    };
-    const decrementCounter = () => {
-    {counter === 1 ? setSelected(false) : setCounter(counter-1)}
-    };
+  const [selected, setSelected] = useState();
+  const [counter, setCounter] = useState(1);
+  const [isModalVisible, setModalVisible] = useState(false);
+  const toggleModal = () => {
+    setModalVisible(!isModalVisible);
+  };
+  const incrementCounter = () => {
+    setCounter(counter + 1);
+  };
+  const decrementCounter = () => {
+    {
+      counter === 1 ? setSelected(false) : setCounter(counter - 1);
+    }
+  };
   const renderItem = itemData => {
     return (
       <View>
@@ -43,11 +45,17 @@ const ProductSelection = props => {
             borderColor: COLORS.grey,
             alignItems: 'center',
           }}>
-       { selected === itemData.item.id ? null: <Image style={{height: 41, width: 41}} source={itemData.item.image}/>  }
+          {selected === itemData.item.id ? null : (
+            <Image
+              style={{height: 41, width: 41}}
+              source={itemData.item.image}
+            />
+          )}
           <Text
             style={{
               fontSize: 10,
-              fontFamily: FONTS.normal,
+              fontFamily: FONTS.medium,
+              color: COLORS.black,
               fontWeight: '500',
               lineHeight: 12,
               marginBottom: 2,
@@ -59,19 +67,52 @@ const ProductSelection = props => {
           <Text
             style={{
               fontSize: 10,
-              fontFamily: FONTS.normal,
+              fontFamily: FONTS.medium,
+              color: COLORS.black,
               fontWeight: '500',
               lineHeight: 12,
             }}>
             {itemData.item.price}L
           </Text>
-          { selected === itemData.item.id ? <View style={{flexDirection:'row',marginTop:8}}><TouchableOpacity onPress={()=> decrementCounter()}>{ComIcons.minusRed}</TouchableOpacity><Text style={{fontFamily:FONTS.normal,fontSize:20,fontWeight:'700',lineHeight:23,marginHorizontal:9}}>{counter}</Text><TouchableOpacity onPress={()=> incrementCounter()}>{ComIcons.plusRed}</TouchableOpacity></View>:null  }
+          {selected === itemData.item.id ? (
+            <View style={{flexDirection: 'row', marginTop: 8}}>
+              <TouchableOpacity onPress={() => decrementCounter()}>
+                {ComIcons.minusRed}
+              </TouchableOpacity>
+              <Text
+                style={{
+                  fontFamily: FONTS.bold,
+                  fontSize: 20,
+                  color: COLORS.black,
+                  lineHeight: 23,
+                  marginHorizontal: 9,
+                }}>
+                {counter}
+              </Text>
+              <TouchableOpacity onPress={() => incrementCounter()}>
+                {ComIcons.plusRed}
+              </TouchableOpacity>
+            </View>
+          ) : null}
         </View>
 
-        <TouchableOpacity 
-        onPress={()=> setSelected(itemData.item.id)}
-          style={{backgroundColor: COLORS.red, alignSelf: 'stretch'}}>
-          <Text style={{textAlign: 'center', color: COLORS.white}}>{t('common:add')}</Text>
+        <TouchableOpacity
+          onPress={() => setSelected(itemData.item.id)}
+          style={{
+            backgroundColor: COLORS.red,
+            alignSelf: 'stretch',
+            textTransform: 'uppercase',
+          }}>
+          <Text
+            style={{
+              textAlign: 'center',
+              color: COLORS.white,
+              fontFamily: FONTS.medium,
+              paddingVertical: 2,
+              fontSize: 12,
+            }}>
+            {t('common:add')}
+          </Text>
         </TouchableOpacity>
       </View>
     );
@@ -84,8 +125,8 @@ const ProductSelection = props => {
             <Text
               style={{
                 fontSize: 16,
-                fontFamily: FONTS.normal,
-                fontWeight: '700',
+                fontFamily: FONTS.bold,
+                color: COLORS.black,
                 lineHeight: 18,
               }}>
               T3, T9
@@ -100,8 +141,8 @@ const ProductSelection = props => {
             <Text
               style={{
                 fontSize: 16,
-                fontFamily: FONTS.normal,
-                fontWeight: '700',
+                fontFamily: FONTS.bold,
+                color: COLORS.black,
                 lineHeight: 18,
               }}>
               6
@@ -119,8 +160,7 @@ const ProductSelection = props => {
               <Text
                 style={{
                   fontSize: 16,
-                  fontFamily: FONTS.normal,
-                  fontWeight: '700',
+                  fontFamily: FONTS.bold,
                   lineHeight: 18,
                   textDecorationLine: 'underline',
                   textDecorationColor: 'red',
@@ -131,7 +171,9 @@ const ProductSelection = props => {
             </TouchableOpacity>
           </View>
           <View style={{flexDirection: 'row', alignItems: 'flex-end'}}>
-            <TouchableOpacity onPress={()=>toggleModal()}>{ComIcons.scanBlack}</TouchableOpacity>
+            <TouchableOpacity onPress={() => toggleModal()}>
+              {ComIcons.scanBlack}
+            </TouchableOpacity>
             <View
               style={{
                 backgroundColor: COLORS.darkGrey,
@@ -144,22 +186,30 @@ const ProductSelection = props => {
           </View>
         </View>
 
-        <View style={{marginHorizontal: -16}}>
+        <View style={{marginHorizontal: -15}}>
           <SearchBar placeholder={t('common:searchHere')} />
         </View>
       </View>
     );
   };
-  const renderFooter=()=>{
-    return(
-      <View style={{marginTop:20,marginHorizontal:-16}}>
-      <MyButton title={'DONE'} backColor={'red'} onPress={()=> props.navigation.navigate('ProductConfig')}/>
+  const renderFooter = () => {
+    return (
+      <View style={{marginTop: 20, marginHorizontal: -16}}>
+        <MyButton
+          title={'DONE'}
+          backColor={'red'}
+          onPress={() => props.navigation.navigate('ProductConfig')}
+        />
       </View>
     );
-  }
+  };
   return (
     <SafeAreaView style={MainStyle.safeAreaContainerLight}>
-      <NavigationHeader title={t('common:productSelection')}  navigation={props.navigation}  productSelection={true} />
+      <NavigationHeader
+        title={t('common:productSelection')}
+        navigation={props.navigation}
+        productSelection={true}
+      />
       <View
         style={{
           marginHorizontal: 16,
@@ -180,22 +230,22 @@ const ProductSelection = props => {
           columnWrapperStyle={{justifyContent: 'space-around'}}
         />
         <Modal
-            isVisible={isModalVisible}
-            onSwipeComplete={() => setModalVisible(false)}
-            swipeDirection="down"
-            backdropOpacity={0.7}
-            backgroundColor="#FFFFFF"
-            style={{
-              marginBottom:400,
-              position:'absolute',
-              top:200,
-              backgroundColor:COLORS.white,
-              marginHorizontal:16,
+          isVisible={isModalVisible}
+          onSwipeComplete={() => setModalVisible(false)}
+          swipeDirection="down"
+          backdropOpacity={0.7}
+          backgroundColor="#FFFFFF"
+          style={{
+            marginBottom: 400,
+            position: 'absolute',
+            top: 200,
+            backgroundColor: COLORS.white,
+            marginHorizontal: 16,
 
-              marginTop: 0,
-            }}>
-              <ScanQRModal onPressCross={() => toggleModal()}/>
-            </Modal>
+            marginTop: 0,
+          }}>
+          <ScanQRModal onPressCross={() => toggleModal()} />
+        </Modal>
       </View>
     </SafeAreaView>
   );

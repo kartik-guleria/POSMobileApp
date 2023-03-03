@@ -7,9 +7,10 @@ import NavigationHeader from 'components/NavigationHeader';
 import { useTranslation } from 'react-i18next';
 import { FONTS,COLORS} from 'assets/index';
 import Toast from 'react-native-toast-message';
-import { useDispatch, useSelector } from 'react-redux';
 
-const ResetPassword = props => {
+const ResetPassword = ({route,navigation})=> {
+  const cameFrom = route.params
+  console.log(cameFrom)
   const { t, i18n } = useTranslation();
   const [email, setEmail] = useState('');
 
@@ -21,7 +22,7 @@ const ResetPassword = props => {
     // } else if (!validate(email)) {
     //   errorMsg = 'Please enter a valid email';
     // } else {
-      props.navigation.navigate('ConfirmationCode');
+      navigation.navigate('ConfirmationCode');
     // }
     // showToast(errorMsg);
     // return;
@@ -45,10 +46,10 @@ const ResetPassword = props => {
   <SafeAreaView style={MainStyle.safeAreaContainerLight}>
       <NavigationHeader
         title={t('common:resetPassword')}
-        navigation={props.navigation} 
-        pop={false}
-        displayBtn={'dash'}
-        onPress={()=>props.navigation.openDrawer()}/>
+        navigation={navigation} 
+        pop={cameFrom && true}
+        displayBtn={ cameFrom ? 'back': 'dash'}
+        onPress= { () => cameFrom || navigation.openDrawer()}/>
       <View style={MainStyle.mainBody}>
         <View style={MainStyle.container}>
           <Text
@@ -57,7 +58,7 @@ const ResetPassword = props => {
               {
                 textAlign: 'left',
                 fontWeight: "500",
-                fontFamily: FONTS.normal,
+                fontFamily: FONTS.medium,
                 fontSize: 20,
                 marginBottom: 18,
               },
@@ -68,7 +69,7 @@ const ResetPassword = props => {
             {t('common:ResetPasswordDesc')}
           </Text>
           <View>
-            <Text style={{ textAlign: 'left', marginTop: 15, fontSize: 12, fontFamily: FONTS.normal, fontWeight: '500' }}>
+            <Text style={{ textAlign: 'left', marginTop: 15, fontSize: 12, fontFamily: FONTS.medium,color:COLORS.black, fontWeight: '500' }}>
             {t('common:email')}
             </Text>
             <InputField
@@ -79,7 +80,7 @@ const ResetPassword = props => {
               checkVal={value => setEmail(value)} />
           </View>
         </View>
-        <View>
+        <View style={{marginBottom:10}}>
           <MyButton title={t('common:sendInstructions')} onPress={()=> checkTextInput()} />
         </View>
 

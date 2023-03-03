@@ -4,7 +4,8 @@ import {COLORS, FONTS, SIZES} from 'assets/index';
 export default styles = StyleSheet.create({
   screen: {flex: 1, justifyContent: 'space-between', margin: 18},
   text: {
-    fontFamily: FONTS.normal,
+    fontFamily: FONTS.medium,
+    color:COLORS.black,
     fontSize: 12,
     fontWeight: '500',
     lineHeight: 19.2,

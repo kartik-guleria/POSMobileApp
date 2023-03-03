@@ -78,22 +78,22 @@ const CheckOrder = props => {
           else setQuantity(itemQuantity - 1);
         };
 
-      const rightSwipeActions = billData => {
+      const rightSwipeActions = () => {
         return (
           <View style={styles.swipeView}>
             <View style={{flexDirection: 'row'}}>
               <TouchableOpacity onPress={() => decrementValue(billData)}>
                 <View>{ComIcons.minusRed}</View>
               </TouchableOpacity>
-              <Text
-                style={{
-                  marginHorizontal:8,
-                  fontSize: 18,
-                  fontWeight: '600',
-                  alignSelf: 'center',
-                }}>
-                {itemQuantity}
-              </Text>
+               <Text
+                 style={{
+                   marginHorizontal:8,
+                   fontSize: 18,
+                   fontWeight: '600',
+                   alignSelf: 'center',
+                 }}>
+                 {itemQuantity}
+               </Text>
               <TouchableOpacity onPress={() => incrementValue(props.id)}>
                 <View>{ComIcons.plusRed}</View>
               </TouchableOpacity>
@@ -109,13 +109,14 @@ const CheckOrder = props => {
       };
       const renderBill = billData => {
         return(
-          <Swipeable renderRightActions={()=> rightSwipeActions(billData)}>
+          <Swipeable renderRightActions={rightSwipeActions}>
             <View style={{
             marginTop: 6,
             flexDirection: 'row',
             justifyContent: 'space-between',
             alignItems: 'center',
             height: 49,
+            backgroundColor:'grey',
             backgroundColor: billData.item.id % 2 ? COLORS.grey :COLORS.lightGrey
           }}>
             <Text style={[styles.billText, { width: '35%', marginLeft: 4}]}>
@@ -141,7 +142,7 @@ const CheckOrder = props => {
           return(
         <View style={{ alignItems: 'center', paddingHorizontal: 5, borderWidth: 1, height: 26, backgroundColor: COLORS.grey, flexDirection: 'row', justifyContent: 'space-between' }}>
                   <Text style={{ fontFamily: FONTS.medium, color:COLORS.black, fontSize: 14, fontWeight: amountData.item.id === 5 ? '700' : '400', lineHeight: 16 }}>{amountData.item.title}</Text>
-                  <Text style={{ fontFamily: FONTS.medium, fontSize: 14, fontWeight: '400', lineHeight: 16 }}>{amountData.item.price}</Text>
+                  <Text style={{ fontFamily: FONTS.medium,color:COLORS.black, fontSize: 14, fontWeight: '400', lineHeight: 16 }}>{amountData.item.price}</Text>
               </View>
       
           );
@@ -201,15 +202,15 @@ const CheckOrder = props => {
         infoText: {fontSize: 14, fontFamily: FONTS.normal, lineHeight: 15},
         billHeader: {
           fontSize: 14,
-          fontWeight: '700',
-          fontFamily: FONTS.normal,
+          fontFamily: FONTS.bold,
           lineHeight: 15,
           color: COLORS.white,
         },
         billText: {
           fontSize: 12,
           fontWeight: '500',
-          fontFamily: FONTS.normal,
+          fontFamily: FONTS.medium,
+          color:COLORS.black,
           lineHeight: 14,
         },
           swipeView: {justifyContent: 'center',marginLeft:6},

@@ -43,10 +43,10 @@ const [selectedTick , setSelectedTick] = useState(false);
     const renderInfo = infoData => {
       return (
         <View style={{flexDirection: 'row', marginBottom: 15}}>
-          <Text style={[styles.infoText, {fontWeight: '500'}]}>
+          <Text style={styles.infoText}>
             {infoData.item.title}{' '}
           </Text>
-          <Text style={[styles.infoText, {fontWeight: '400'}]}>
+          <Text style={[styles.infoText, {fontWeight: '400',fontFamily:FONTS.medium}]}>
             {infoData.item.info}
           </Text>
         </View>
@@ -57,7 +57,7 @@ const [selectedTick , setSelectedTick] = useState(false);
         <Text
         style={[
           styles.billHeader,
-          {fontSize: 18, color: COLORS.black, lineHeight: 19,marginBottom:18,marginTop:13},
+          {fontSize: 18,fontFamily:FONTS.bold,color: COLORS.black, lineHeight: 19,marginBottom:18,marginTop:13},
         ]}>
         {t('common:orderInformation')}
       </Text>
@@ -135,10 +135,9 @@ const [selectedTick , setSelectedTick] = useState(false);
     const renderAmount = amountData => {
       return(
         <View style={{alignItems:'center',paddingHorizontal:5,borderWidth:1,height:26,backgroundColor:COLORS.darkGrey,flexDirection:'row',justifyContent:'space-between'}}>
-          <Text style={{fontFamily:FONTS.normal,fontSize:14,fontWeight: amountData.item.id === 5 ? '700':'400',lineHeight:16}}>{amountData.item.title}</Text>
-          <Text style={{fontFamily:FONTS.normal,fontSize:14,fontWeight:'400',lineHeight:16}}>{amountData.item.price}</Text>
+          <Text style={{fontFamily: amountData.item.id === 5 ? FONTS.bold : FONTS.normal,color:COLORS.black,fontSize:14,fontWeight: amountData.item.id === 5 ? '500':'400',lineHeight:16}}>{amountData.item.title}</Text>
+          <Text style={{fontFamily: amountData.item.id === 5 ? FONTS.bold :FONTS.normal,color:COLORS.black,fontSize:14,fontWeight: amountData.item.id === 5 ? '500':'400',lineHeight:16}}>{amountData.item.price}</Text>
         </View>
-  
       );
     };
     return(
@@ -192,18 +191,18 @@ const [selectedTick , setSelectedTick] = useState(false);
 export default SelectItems;
 
 const styles = StyleSheet.create({
-  infoText: {fontSize: 14, fontFamily: FONTS.normal, lineHeight: 15},
+  infoText: {fontSize: 14, fontFamily: FONTS.bold,color:COLORS.black, lineHeight: 15},
   billHeader: {
     fontSize: 14,
-    fontWeight: '700',
-    fontFamily: FONTS.normal,
+    fontFamily: FONTS.bold,
     lineHeight: 15,
     color: COLORS.white,
   },
   billText: {
     fontSize: 12,
     fontWeight: '400',
-    fontFamily: FONTS.normal,
+    fontFamily: FONTS.medium,
+    color:COLORS.black,
     lineHeight: 14,
   },
 });

@@ -1,12 +1,11 @@
-import { StyleSheet, Platform, StatusBar } from 'react-native';
-import { getStatusBarHeight } from 'react-native-status-bar-height';
-import { COLORS } from '../../assets';
+import {StyleSheet, Platform, StatusBar} from 'react-native';
+import {getStatusBarHeight} from 'react-native-status-bar-height';
 
 const height = getStatusBarHeight();
-const STATUSBAR_HEIGHT = Platform.OS === 'ios' ? height : StatusBar.currentHeight;
+const STATUSBAR_HEIGHT =
+  Platform.OS === 'ios' ? height : StatusBar.currentHeight;
 export default StyleSheet.create({
-statusBar: {
-height: STATUSBAR_HEIGHT,
-backgroundColor:COLORS.red
-}
+  statusBar: {
+    height: STATUSBAR_HEIGHT,
+  },
 });

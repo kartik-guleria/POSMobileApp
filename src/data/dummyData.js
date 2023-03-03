@@ -41,6 +41,13 @@ export const MENU_UPDATES = [
 ];
 export const ORDER_STATUS = [
   {
+    orderId: '62544',
+    tableNo: 'T4',
+    time: '15:00',
+    orderTime: '01:32',
+    status: 'SENT TO KITCHEN',
+  },
+  {
     orderId: '62547',
     tableNo: 'T4',
     time: '15:00',

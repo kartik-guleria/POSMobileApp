@@ -3,14 +3,19 @@ import NavigationHeader from 'components/NavigationHeader';
 import WonderPointTab from 'components/WonderpointsTab';
 import {ORDER_DATA, TAGS, WONDERPOINTS_DATA} from 'data/dummyData';
 import React, {useState} from 'react';
-import {View, FlatList, SafeAreaView, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {
+  View,
+  FlatList,
+  SafeAreaView,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+} from 'react-native';
 import MainStyle from 'styleSheet/MainStyle';
-import { useTranslation } from 'react-i18next';
-
+import {useTranslation} from 'react-i18next';
 
 const CustomerDashboard = props => {
-  const { t, i18n } = useTranslation();
-
+  const {t, i18n} = useTranslation();
   const [wpTypeId, setwpTypeId] = useState(1);
   const [wpType, setwpType] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
@@ -46,7 +51,8 @@ const CustomerDashboard = props => {
           style={{
             fontSize: 14,
             fontWeight: '400',
-            fontFamily: FONTS.normal,
+            fontFamily: FONTS.medium,
+            color: COLORS.black,
             lineHeight: 15,
           }}>
           {tagData.item.title}
@@ -62,7 +68,8 @@ const CustomerDashboard = props => {
           paddingHorizontal: 4,
           marginTop: 6,
           height: 49,
-          backgroundColor: orderData.item.id % 2 ? COLORS.darkGrey : COLORS.g1,
+          backgroundColor:
+            orderData.item.id % 2 ? COLORS.grey : COLORS.lightGrey,
           flexDirection: 'row',
           alignItems: 'center',
           justifyContent: 'space-between',
@@ -76,7 +83,7 @@ const CustomerDashboard = props => {
   };
   const renderHeader = () => {
     return (
-      <View style={{marginHorizontal: 16,marginTop:18}}>
+      <View style={{marginHorizontal: 16, marginTop: 18}}>
         <Text style={styles.footerText}>Tags</Text>
         <FlatList
           data={TAGS}
@@ -134,9 +141,9 @@ const CustomerDashboard = props => {
           <View>
             <Text
               style={{
-                fontFamily: FONTS.normal,
+                fontFamily: FONTS.bold,
                 fontSize: 12,
-                fontWeight: '700',
+                color: COLORS.black,
                 lineHeight: 13,
               }}>
               {wbData.item.title}
@@ -144,9 +151,9 @@ const CustomerDashboard = props => {
             <Text
               style={{
                 marginTop: 11,
-                fontFamily: FONTS.normal,
+                fontFamily: FONTS.light,
                 fontSize: 12,
-                fontWeight: '400',
+                color: '#898989',
                 lineHeight: 13,
               }}>
               {wbData.item.desc}
@@ -154,9 +161,9 @@ const CustomerDashboard = props => {
             <Text
               style={{
                 marginTop: 8,
-                fontFamily: FONTS.normal,
+                fontFamily: FONTS.light,
                 fontSize: 12,
-                fontWeight: '400',
+                color: '#898989',
                 lineHeight: 13,
               }}>
               {wbData.item.date}
@@ -164,9 +171,9 @@ const CustomerDashboard = props => {
           </View>
           <Text
             style={{
-              fontFamily: FONTS.normal,
+              fontFamily: FONTS.bold,
               fontSize: 18,
-              fontWeight: '700',
+              color: COLORS.black,
               lineHeight: 19,
             }}>
             +1
@@ -222,7 +229,6 @@ const CustomerDashboard = props => {
           bounces={false}
           contentContainerStyle={{}}
         />
-        
       </>
     );
   };
@@ -235,10 +241,13 @@ const CustomerDashboard = props => {
         renderItem={renderOrders}
         ListHeaderComponent={renderHeader}
         ListFooterComponent={renderFooter}
-        ListFooterComponentStyle={{marginTop: 34, marginHorizontal: 16}}
+        ListFooterComponentStyle={{
+          marginTop: 34,
+          marginHorizontal: 16,
+          marginBottom: 10,
+        }}
         keyExtractor={item => item.id}
         bounces={false}
-        contentContainerStyle={{marginBottom: 34}}
       />
     </SafeAreaView>
   );
@@ -247,22 +256,27 @@ const CustomerDashboard = props => {
 export default CustomerDashboard;
 
 const styles = StyleSheet.create({
-  orderText: {fontSize: 12, fontFamily: FONTS.normal, fontWeight: '400'},
+  orderText: {
+    fontSize: 12,
+    fontFamily: FONTS.medium,
+    fontWeight: '400',
+    color: COLORS.black,
+  },
   billHeader: {
     fontSize: 14,
-    fontWeight: '700',
-    fontFamily: FONTS.normal,
+    fontFamily: FONTS.bold,
     lineHeight: 15,
     color: COLORS.white,
   },
   footerText: {
-    fontFamily: FONTS.normal,
+    fontFamily: FONTS.bold,
+    color: COLORS.black,
     fontSize: 18,
     fontWeight: '500',
     lineHeight: 21,
   },
   seeMoreText: {
-    fontFamily: FONTS.normal,
+    fontFamily: FONTS.medium,
     fontSize: 14,
     fontWeight: '500',
     color: COLORS.red,
