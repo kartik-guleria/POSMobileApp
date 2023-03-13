@@ -1,9 +1,11 @@
-import {COLORS, FONTS, ComIcons} from 'assets/index';
+import { COLORS, FONTS, ComIcons, DEVICE } from 'assets/index';
 import NavigationHeader from 'components/NavigationHeader';
 import ScanQRModal from 'components/ScanQRModal';
 import SearchBar from 'components/SearchBar';
-import {PRODUCTS} from 'data/dummyData';
-import React, {useState} from 'react';
+import { PRODUCTS } from 'data/dummyData';
+import CheckOrderGrid from '../../../components/CheckOrderGrid';
+import React, { useState } from 'react';
+import DashBoardMenu from '../../../components/DashboardMenu';
 import {
   View,
   StyleSheet,
@@ -210,6 +212,19 @@ const ProductSelection = props => {
         navigation={props.navigation}
         productSelection={true}
       />
+      <View>
+        <View style={{ flexDirection: 'row' }} >
+          {DEVICE == 'tab' &&
+            <View style={{ width: '13%', justifyContent: 'center', alignContent: 'center', borderRightWidth: 1, borderRightColor: '#dddddd' }}>
+              <DashBoardMenu navigation={props.navigation} />
+            </View>
+
+          }
+          {DEVICE == 'tab' &&
+            <View style={{ width: '40%', }}>
+              <CheckOrderGrid navigation={props.navigation} />
+            </View>
+          }
       <View
         style={{
           marginHorizontal: 16,
@@ -246,6 +261,8 @@ const ProductSelection = props => {
           }}>
           <ScanQRModal onPressCross={() => toggleModal()} />
         </Modal>
+          </View>
+        </View>
       </View>
     </SafeAreaView>
   );

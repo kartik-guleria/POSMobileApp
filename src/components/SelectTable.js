@@ -87,17 +87,28 @@ const SelectTable = ({title, navigation, newLine = false, newLineTitle}) => {
   return (
     <SafeAreaView>
       <View>
-        <FlatList
-          data={GUEST_NUMBER}
-          renderItem={renderItem}
-          keyExtractor={item => item.id}
-          bounces={false}
-          numColumns={3}
-          contentContainerStyle={{justifyContent: 'space-between'}}
-          ListHeaderComponent={renderHeader}
-          ListFooterComponent={renderFooter}
-        />
-        <TouchableOpacity onPress={()=> navigation.navigate('ProductSelection')}><Text>Product selection</Text></TouchableOpacity>
+        {DEVICE == 'mobile' ?
+          (<View>
+            <FlatList
+              data={GUEST_NUMBER}
+              renderItem={renderItem}
+              keyExtractor={item => item.id}
+              bounces={false}
+              numColumns={3}
+              contentContainerStyle={{ justifyContent: 'space-between' }}
+              ListHeaderComponent={renderHeader}
+              ListFooterComponent={renderFooter}
+            />
+            <TouchableOpacity onPress={() => navigation.navigate('ProductSelection')}><Text>Product selection</Text></TouchableOpacity>
+          </View>)
+          : (<View>
+            <Text>Abcd</Text>
+
+
+          </View>
+          )
+
+        }
       </View>
     </SafeAreaView>
   );

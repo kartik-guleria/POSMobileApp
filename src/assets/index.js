@@ -1,4 +1,4 @@
 import { ComIcons } from "assets/svg/commonSVG";
-import { COLORS, FONTS, aspectRatio } from "assets/theme";
+import { COLORS, FONTS, DEVICE } from "assets/theme";
 
-export { ComIcons, COLORS, FONTS, aspectRatio };
+export { ComIcons, COLORS, FONTS, DEVICE };
