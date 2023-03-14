@@ -1,9 +1,12 @@
-import {COLORS, FONTS, ComIcons} from 'assets/index';
+import { COLORS, FONTS, ComIcons, DEVICE } from 'assets/index';
 import NavigationHeader from 'components/NavigationHeader';
 import ScanQRModal from 'components/ScanQRModal';
 import SearchBar from 'components/SearchBar';
-import {PRODUCTS} from 'data/dummyData';
-import React, {useState} from 'react';
+import { PRODUCTS } from 'data/dummyData';
+import CheckOrderGrid from '../../../components/CheckOrderGrid';
+import React, { useState } from 'react';
+import DashBoardMenu from '../../../components/DashboardMenu';
+import ProductSelInfo from '../../../components/ProductSelInfo';
 import {
   View,
   StyleSheet,
@@ -211,6 +214,20 @@ const ProductSelection = props => {
         navigation={props.navigation}
         productSelection={true}
       />
+      <View style={{ height: '100%' }}>
+        <View style={{ flexDirection: 'row', flex: 1 }} >
+          {DEVICE == 'tab' &&
+            <View style={{ width: '11%', justifyContent: 'center', alignContent: 'center', borderRightWidth: 1, borderRightColor: '#dddddd' }}>
+              <DashBoardMenu navigation={props.navigation} />
+            </View>
+
+          }
+          {DEVICE == 'tab' &&
+            <View style={{ width: '44%', }}>
+
+              <CheckOrderGrid navigation={props.navigation} />
+            </View>
+          }
       <View
         style={{
           marginHorizontal: 16,
@@ -223,7 +240,7 @@ const ProductSelection = props => {
           renderItem={renderItem}
           keyExtractor={item => item.id}
           bounces={false}
-          numColumns={3}
+              numColumns={DEVICE == 'tab' ? 4 : 3}
           ListHeaderComponent={renderHeader}
           ListFooterComponent={renderFooter}
           showsVerticalScrollIndicator={false}
@@ -247,6 +264,8 @@ const ProductSelection = props => {
           }}>
           <ScanQRModal onPressCross={() => toggleModal()} onPressProceed={()=>toggleModal() & props.navigation.navigate('ScanQR')} />
         </Modal>
+          </View>
+        </View>
       </View>
     </SafeAreaView>
   );

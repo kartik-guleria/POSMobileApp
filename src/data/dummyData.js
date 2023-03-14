@@ -285,11 +285,7 @@ export const PRODUCTS = [
   {id:9,image:require('../assets/images/burger.png'), title:'Special Burger',price:'200'},
   {id:10,image:require('../assets/images/burger.png'), title:'Special Burger',price:'200'},
   {id:11,image:require('../assets/images/burger.png'), title:'Special Burger',price:'200'},
-  {id:12,image:require('../assets/images/burger.png'), title:'Special Burger',price:'200'},
-  {id:13,image:require('../assets/images/burger.png'), title:'Special Burger',price:'200'},
-  {id:14,image:require('../assets/images/burger.png'), title:'Special Burger',price:'200'},
-  {id:15,image:require('../assets/images/burger.png'), title:'Special Burger',price:'200'},
-
+  { id: 12, image: require('../assets/images/burger.png'), title: 'Special Burger', price: '200' },
 ];
 
 export const INGRIDIENTS = [

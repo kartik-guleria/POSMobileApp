@@ -27,7 +27,7 @@ const NavigationHeader = ({
           ? null
           : ComIcons.back}
       </TouchableOpacity>
-      <View style={{width: '75%', marginLeft: 10}}>
+      <View style={{ flex: 1, marginLeft: 10, }}>
         <Text style={styles.titleText}>{title}</Text>
       </View>
       {productSelection ? <View>{ComIcons.productSelection}</View> : null}
