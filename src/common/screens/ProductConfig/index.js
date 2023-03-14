@@ -1,10 +1,11 @@
-import {COLORS, FONTS, ComIcons} from 'assets/index';
+import { COLORS, FONTS, ComIcons, DEVICE } from 'assets/index';
 import MyButton from 'components/MyButton';
 import NavigationHeader from 'components/NavigationHeader';
 import ProductConfigTab from 'components/ProductConfigTab';
 import UnderlineView from 'components/underlineView';
 import { INGRI_BASE_DATA, INGRI_EXTRA_DATA, INGRI_PROTEIN_DATA, INGRI_TOPPING_DATA } from 'data/dummyData';
-import React, {useState} from 'react';
+import React, { useState } from 'react';
+import DashBoardMenu from '../../../components/DashboardMenu';
 import {
   View,
   StyleSheet,
@@ -400,7 +401,14 @@ const ProductConfig = props => {
         <NavigationHeader
           title={t('common:productConfig')}
           navigation={props.navigation}
-        />
+      />
+      <View style={{ height: '100%' }}>
+        <View style={{ flexDirection: 'row', flex: 1 }} >
+          {DEVICE == 'tab' &&
+            <View style={{ width: '13%', justifyContent: 'center', alignContent: 'center', borderRightWidth: 1, borderRightColor: '#dddddd' }}>
+              <DashBoardMenu navigation={props.navigation} />
+            </View>
+          }
         <View
           style={{
             marginTop: 38,
@@ -412,7 +420,7 @@ const ProductConfig = props => {
             renderItem={renderItem}
             keyExtractor={item => item.id}
             bounces={false}
-            numColumns={4}
+              numColumns={DEVICE == 'tab' ? 7 : 4}
             ListHeaderComponent={renderHeader}
             ListFooterComponent={renderfooter}
             showsVerticalScrollIndicator={false}
@@ -420,6 +428,8 @@ const ProductConfig = props => {
             columnWrapperStyle={{justifyContent: 'space-evenly',marginHorizontal:10}}
           />
         </View>
+        </View>
+      </View>
       </SafeAreaView>
   );
 };

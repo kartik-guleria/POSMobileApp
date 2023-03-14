@@ -1,21 +1,21 @@
 import React from 'react';
-import { View, FlatList, SafeAreaView} from 'react-native';
+import { View, FlatList, SafeAreaView, Alert } from 'react-native';
 import MainStyle from 'styleSheet/MainStyle';
 import NavigationHeaderDash from 'components/NavigationHeaderDash';
 import ServiceGridTile from '../../../components/ServiceGridTile';
-import { ComIcons } from 'assets/index';
+import { ComIcons, DEVICE } from 'assets/index';
 import { useTranslation } from 'react-i18next';
 import NavigationHeader from '../../../components/NavigationHeader';
 
 const DashBoard = props => {
   const { t, i18n } = useTranslation();
   const SERVICES = [
-    {id: '1', title: t('common:dineIn'), image: ComIcons.dineIn},
-    {id: '2', title: t('common:newOrderSmall'), image: ComIcons.newOrder},
-    {id: '3', title: t('common:viewOrders'), image: ComIcons.viewOrders},
-    {id: '4', title: t('common:todaySpecial'),image: ComIcons.todaySpecial},
-    {id: '5', title: t('common:menuUpdates'), image: ComIcons.menuUpdates},
-    {id: '6', title: t('common:orderStatus'), image: ComIcons.orderStatus},
+    { id: '1', title: t('common:dineIn'), image: DEVICE == 'tab' ? ComIcons.dineInTab : ComIcons.dineIn },
+    { id: '2', title: t('common:newOrderSmall'), image: DEVICE == 'tab' ? ComIcons.newOrderTab : ComIcons.newOrder },
+    { id: '3', title: t('common:viewOrders'), image: DEVICE == 'tab' ? ComIcons.viewOrdersTab : ComIcons.viewOrders },
+    { id: '4', title: t('common:todaySpecial'), image: DEVICE == 'tab' ? ComIcons.todaySpecialTab : ComIcons.todaySpecial },
+    { id: '5', title: t('common:menuUpdates'), image: DEVICE == 'tab' ? ComIcons.menuUpdatesTab : ComIcons.menuUpdates },
+    { id: '6', title: t('common:orderStatus'), image: DEVICE == 'tab' ? ComIcons.orderStatusTab : ComIcons.orderStatus },
   ];
   const renderServiceGridItem = itemData => {
     return (
@@ -66,10 +66,10 @@ const DashBoard = props => {
         pop ={false}
         onPress={() => props.navigation.openDrawer()}
       />
-        <View style={{flex:1}}>
+      <View style={{ flex: 1, marginHorizontal: DEVICE == 'tab' ? 100 : 25, marginVertical: DEVICE == 'tab' ? 50 : 20 }}>
           <FlatList
             bounces={false}
-            numColumns={2}
+          numColumns={DEVICE == 'tab' ? 3 : 2}
             data={SERVICES}
             renderItem={renderServiceGridItem}
             contentContainerStyle={{justifyContent:'center',flex:1}}

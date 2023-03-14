@@ -8,12 +8,13 @@ import {
   Dimensions,
   ScrollView,
 } from 'react-native';
-import {COLORS, FONTS, ComIcons} from 'assets/index';
+import { COLORS, FONTS, ComIcons, DEVICE } from 'assets/index';
 import NavigationHeader from 'components/NavigationHeader';
 import MainStyle from '../../../styleSheet/MainStyle';
 import UnderlineView from 'components/underlineView';
 import styles from './style';
-import {useTranslation} from 'react-i18next';
+import { useTranslation } from 'react-i18next';
+import DashBoardMenu from '../../../components/DashboardMenu';
 
 const screenHeight = Dimensions.get('window').height;
 const SelectTableScreen = props => {
@@ -30,7 +31,10 @@ const SelectTableScreen = props => {
     {Table: 'T3', Booked: true},
     {Table: 'T4', Booked: false},
     {Table: 'T5', Booked: false},
-    {Table: 'T6', Booked: false},
+    { Table: 'T6', Booked: false },
+    { Table: 'T7', Booked: false },
+    { Table: 'T8', Booked: false },
+    { Table: 'T9', Booked: false },
   ];
   const doubleTableArray = [
     {Table: 'T7', Booked: true},
@@ -38,7 +42,10 @@ const SelectTableScreen = props => {
     {Table: 'T9', Booked: false},
     {Table: 'T10', Booked: false},
     {Table: 'T11', Booked: true},
-    {Table: 'T12', Booked: false},
+    { Table: 'T12', Booked: false },
+    { Table: 'T13', Booked: false },
+    { Table: 'T14', Booked: false },
+    { Table: 'T15', Booked: false },
   ];
   const [status, setStatus] = useState('CLOSED');
   const [selectedFloor, setSelectedFloor] = useState('Main Floor');
@@ -55,10 +62,12 @@ const SelectTableScreen = props => {
   // };
   const floorItem = items => {
     return (
+      <View>
       <TouchableOpacity
         style={[
           styles.topBarView,
-          {
+            {
+              marginHorizontal: DEVICE == 'mobile' ? 20 : 40,
             backgroundColor:
               selectedFloor == items.item.name ? '#E1251B' : 'white',
           },
@@ -67,17 +76,19 @@ const SelectTableScreen = props => {
           setSelectedFloor(items.item.name);
         }}>
         <Text
-          style={{
+            style={{
+              alignSelf: 'center',
+              marginHorizontal: DEVICE == 'mobile' ? 20 : '20%',
             color: selectedFloor == items.item.name ? 'white' : COLORS.black,
-            fontSize: 12,
-            padding: 10,
+              fontSize: DEVICE == 'tab' ? 15 : 12,
             fontWeight: '500',
             textTransform: 'uppercase',
             fontFamily: FONTS.medium,
           }}>
           {items.item.name}
         </Text>
-      </TouchableOpacity>
+        </TouchableOpacity>
+      </View>
     );
   };
 
@@ -89,9 +100,15 @@ const SelectTableScreen = props => {
         navigation={props.navigation}
         onPress={() => props.navigation.openDrawer()}
       />
-
+      <View style={{ flexDirection: 'row' }} >
+        {DEVICE == 'tab' &&
+          <View style={{ width: '13%', justifyContent: 'center', alignContent: 'center', borderRightWidth: 1, borderRightColor: '#dddddd' }}>
+            <DashBoardMenu navigation={props.navigation} />
+          </View>
+        }
+        <View>
       <View style={{marginTop: 20}}>
-        <FlatList
+            <FlatList 
           bounces={false}
           data={floorArray}
           horizontal
@@ -100,202 +117,399 @@ const SelectTableScreen = props => {
           contentContainerStyle={{}}
         />
       </View>
-
-      {/* <View style={{height: screenHeight - 220}}> */}
-      <ScrollView>
-        <View style={{}}>
-          {selectedTable.length > 0 ? (
-            <View style={{marginHorizontal: 16}}>
-              <UnderlineView />
-              <View
-                style={{
-                  flexDirection: 'row',
-                  justifyContent: 'space-around',
-                  marginBottom: 8,
-                  marginTop: 8,
-                }}>
-                <Text
-                  style={{
-                    alignSelf: 'center',
-                    fontFamily: FONTS.bold,
-                    color: COLORS.black,
-                    fontSize: 16,
-                  }}>
-                  {selectedTable.length} {ComIcons.blackMergeArrow} T9
-                </Text>
-                <TouchableOpacity
-                  // onPress={ }
-                  style={{
-                    height: 41,
-                    justifyContent: 'center',
-                    backgroundColor: COLORS.grey,
-                  }}>
-                  <Text style={styles.buttonStyle}>{t('common:cancel')}</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  // onPress={ }
-                  style={{
-                    height: 41,
-                    justifyContent: 'center',
-                    backgroundColor: COLORS.red,
-                  }}>
+          {/* <ScrollView style={{ height: '100%' }}> */}
+          {DEVICE == 'mobile' ?
+            <View >
+              {selectedTable.length > 0 ? (
+                <View style={{ marginHorizontal: 16 }}>
+                  <UnderlineView />
                   <View
                     style={{
                       flexDirection: 'row',
-                      marginLeft: 10,
-                      alignItems: 'center',
+                      justifyContent: 'space-around',
+                      marginBottom: 8,
+                      marginTop: 8,
                     }}>
-                    {ComIcons.whiteMergeArrow}
-                    <Text style={[styles.buttonStyle, {marginLeft: 5}]}>
-                      {t('common:merge')}
+                    <Text
+                      style={{
+                        alignSelf: 'center',
+                        fontFamily: FONTS.bold,
+                        color: COLORS.black,
+                        fontSize: 16,
+                      }}>
+                      {selectedTable.length} {ComIcons.blackMergeArrow} T9
                     </Text>
+                    <TouchableOpacity
+                      // onPress={ }
+                      style={{
+                        height: 41,
+                        justifyContent: 'center',
+                        backgroundColor: COLORS.grey,
+                      }}>
+                      <Text style={styles.buttonStyle}>{t('common:cancel')}</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                      // onPress={ }
+                      style={{
+                        height: 41,
+                        justifyContent: 'center',
+                        backgroundColor: COLORS.red,
+                      }}>
+                      <View
+                        style={{
+                          flexDirection: 'row',
+                          marginLeft: 10,
+                          alignItems: 'center',
+                        }}>
+                        {ComIcons.whiteMergeArrow}
+                        <Text style={[styles.buttonStyle, { marginLeft: 5 }]}>
+                          {t('common:merge')}
+                        </Text>
+                      </View>
+                    </TouchableOpacity>
                   </View>
-                </TouchableOpacity>
+                  <UnderlineView />
+                </View>
+              ) : null}
+              <View
+                style={{
+                  justifyContent: 'space-between',
+                  flexDirection: 'row',
+                  margin: 10,
+                  marginTop: 20,
+                }}>
+                <View style={{ width: '30%', backgroundColor: 'white' }}>
+                  <FlatList
+
+                    bounces={false}
+                    data={singleTableArray}
+                    Vertical
+                    renderItem={({ item }) => (
+                      <TouchableOpacity
+                        disabled={item.Booked}
+                        onPress={
+                          () =>
+                            tableExists(item.Table)
+                              ? setSelectedTable(current =>
+                              current.filter(selectedTable => {
+                                // 👇️ remove object that has id equal to 2
+                                return selectedTable != item.Table;
+                              }),
+                            )
+                              : setSelectedTable(selectedTable => [
+                              ...selectedTable,
+                              item.Table,
+                            ])
+                        // alert(selectedTable)
+                        }>
+                        <View
+                          style={{
+                            margin: 8,
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            flexDirection: 'row',
+                          }}>
+                          {item.Booked == true
+                            ? ComIcons.singleBookedTable
+                            : ComIcons.singleTable}
+                          <Text
+                            style={[
+                              styles.tableName,
+                              {
+                                left: '40%',
+                                color: item.Booked == true ? 'white' : 'black',
+                              },
+                            ]}>
+                            {item.Table}
+                          </Text>
+                          {item.Booked ? null : (
+                            <View
+                              style={{
+                                top: -5,
+                                right: '17%',
+                                position: 'absolute',
+                              }}>
+                              {tableExists(item.Table)
+                                ? ComIcons.tickRedCircle
+                                : ComIcons.emptyGreyCircle}
+                            </View>
+                          )}
+                        </View>
+                      </TouchableOpacity>
+                    )}
+                    showsHorizontalScrollIndicator={false}
+                  />
+                </View>
+                <View
+                  style={{
+                    width: '32%',
+                    backgroundColor: '#dddddd',
+                    borderStyle: 'dotted',
+                    borderColor: COLORS.red,
+                    borderWidth: 1,
+                  }}></View>
+                <View style={{ width: '38%', backgroundColor: 'white' }}>
+                  <FlatList
+                    bounces={false}
+                    data={doubleTableArray}
+                    Vertical
+                    renderItem={({ item }) => (
+                      <TouchableOpacity
+                        disabled={item.Booked}
+                        onPress={
+                          () =>
+                            tableExists(item.Table)
+                              ? setSelectedTable(current =>
+                              current.filter(selectedTable => {
+                                // 👇️ remove object that has id equal to 2
+                                return selectedTable != item.Table;
+                              }),
+                            )
+                              : setSelectedTable(selectedTable => [
+                              ...selectedTable,
+                              item.Table,
+                            ])
+                        // alert(selectedTable)
+                        }>
+                        <View
+                          style={{
+                            margin: 8,
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            flexDirection: 'row',
+                          }}>
+                          {item.Booked == true
+                            ? ComIcons.doubleBookedTable
+                            : ComIcons.doubleTable}
+                          <Text
+                            style={[
+                              styles.tableName,
+                              {
+                                left: '40%',
+                                color: item.Booked == true ? 'white' : 'black',
+                              },
+                            ]}>
+                            {item.Table}
+                          </Text>
+                          {item.Booked ? null : (
+                            <View
+                              style={{
+                                top: -5,
+                                right: '8%',
+                                position: 'absolute',
+                              }}>
+                              {tableExists(item.Table)
+                                ? ComIcons.tickRedCircle
+                                : ComIcons.emptyGreyCircle}
+                            </View>
+                          )}
+                        </View>
+                      </TouchableOpacity>
+                    )}
+                    showsHorizontalScrollIndicator={false}
+                  />
+                </View>
               </View>
-              <UnderlineView />
             </View>
-          ) : null}
-          <View
-            style={{
-              justifyContent: 'space-between',
-              flexDirection: 'row',
-              margin: 10,
-              marginTop: 20,
-            }}>
-            <View style={{width: '30%', backgroundColor: 'white'}}>
-              <FlatList
-                bounces={false}
-                data={singleTableArray}
-                Vertical
-                renderItem={({item}) => (
-                  <TouchableOpacity
-                    disabled={item.Booked}
-                    onPress={
-                      () =>
-                        tableExists(item.Table)
-                          ? setSelectedTable(current =>
-                              current.filter(selectedTable => {
-                                // 👇️ remove object that has id equal to 2
-                                return selectedTable != item.Table;
-                              }),
-                            )
-                          : setSelectedTable(selectedTable => [
-                              ...selectedTable,
-                              item.Table,
-                            ])
-                      // alert(selectedTable)
-                    }>
-                    <View
+            :
+            <View >
+              {selectedTable.length > 0 ? (
+                <View style={{ marginHorizontal: 16 }}>
+                  <UnderlineView />
+                  <View
+                    style={{
+                      flexDirection: 'row',
+                      justifyContent: 'space-around',
+                      marginBottom: 8,
+                      marginTop: 8,
+                    }}>
+                    <Text
                       style={{
-                        margin: 8,
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        flexDirection: 'row',
+                        alignSelf: 'center',
+                        fontFamily: FONTS.bold,
+                        color: COLORS.black,
+                        fontSize: 16,
                       }}>
-                      {item.Booked == true
-                        ? ComIcons.singleBookedTable
-                        : ComIcons.singleTable}
-                      <Text
-                        style={[
-                          styles.tableName,
-                          {
-                            left: '40%',
-                            color: item.Booked == true ? 'white' : 'black',
-                          },
-                        ]}>
-                        {item.Table}
-                      </Text>
-                      {item.Booked ? null : (
+                      {selectedTable.length} {ComIcons.blackMergeArrow} T9
+                    </Text>
+                    <TouchableOpacity
+                      // onPress={ }
+                      style={{
+                        height: 41,
+                        justifyContent: 'center',
+                        backgroundColor: COLORS.grey,
+                      }}>
+                      <Text style={styles.buttonStyle}>{t('common:cancel')}</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                      // onPress={ }
+                      style={{
+                        height: 41,
+                        justifyContent: 'center',
+                        backgroundColor: COLORS.red,
+                      }}>
+                      <View
+                        style={{
+                          flexDirection: 'row',
+                          marginLeft: 10,
+                          alignItems: 'center',
+                        }}>
+                        {ComIcons.whiteMergeArrow}
+                        <Text style={[styles.buttonStyle, { marginLeft: 5 }]}>
+                          {t('common:merge')}
+                        </Text>
+                      </View>
+                    </TouchableOpacity>
+                  </View>
+                  <UnderlineView />
+                </View>
+              ) : null}
+              <View
+                style={{
+                  justifyContent: 'space-between',
+                  flexDirection: 'column',
+                  margin: 50,
+                  marginTop: 50,
+                }}>
+                <View style={{ backgroundColor: 'white' }}>
+                  <FlatList
+                    bounces={false}
+                    data={doubleTableArray}
+                    horizontal
+                    renderItem={({ item }) => (
+                      <TouchableOpacity
+                        disabled={item.Booked}
+                        onPress={
+                          () =>
+                            tableExists(item.Table)
+                              ? setSelectedTable(current =>
+                                current.filter(selectedTable => {
+                                  // 👇️ remove object that has id equal to 2
+                                  return selectedTable != item.Table;
+                                }),
+                              )
+                              : setSelectedTable(selectedTable => [
+                                ...selectedTable,
+                                item.Table,
+                              ])
+                          // alert(selectedTable)
+                        }>
                         <View
                           style={{
-                            top: -5,
-                            right: '17%',
-                            position: 'absolute',
+                            margin: 30,
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            flexDirection: 'row',
                           }}>
-                          {tableExists(item.Table)
-                            ? ComIcons.tickRedCircle
-                            : ComIcons.emptyGreyCircle}
+                          {item.Booked == true
+                            ? ComIcons.tabDoubleActiveTable
+                            : ComIcons.tabDoubleTable}
+                          <Text
+                            style={[
+                              styles.tableName,
+                              {
+                                left: '40%',
+                                color: item.Booked == true ? 'white' : 'black',
+                              },
+                            ]}>
+                            {item.Table}
+                          </Text>
+                          {item.Booked ? null : (
+                            <View
+                              style={{
+                                top: -5,
+                                right: '-5%',
+                                position: 'absolute',
+                              }}>
+                              {tableExists(item.Table)
+                                ? ComIcons.tickRedCircle
+                                : ComIcons.emptyGreyCircle}
+                            </View>
+                          )}
                         </View>
-                      )}
-                    </View>
-                  </TouchableOpacity>
-                )}
-                showsHorizontalScrollIndicator={false}
-              />
-            </View>
-            <View
-              style={{
-                width: '32%',
-                backgroundColor: '#dddddd',
-                borderStyle: 'dotted',
-                borderColor: COLORS.red,
-                borderWidth: 1,
-              }}></View>
-            <View style={{width: '38%', backgroundColor: 'white'}}>
-              <FlatList
-                bounces={false}
-                data={doubleTableArray}
-                Vertical
-                renderItem={({item}) => (
-                  <TouchableOpacity
-                    disabled={item.Booked}
-                    onPress={
-                      () =>
-                        tableExists(item.Table)
-                          ? setSelectedTable(current =>
-                              current.filter(selectedTable => {
-                                // 👇️ remove object that has id equal to 2
-                                return selectedTable != item.Table;
-                              }),
-                            )
-                          : setSelectedTable(selectedTable => [
-                              ...selectedTable,
-                              item.Table,
-                            ])
-                      // alert(selectedTable)
-                    }>
-                    <View
-                      style={{
-                        margin: 8,
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        flexDirection: 'row',
-                      }}>
-                      {item.Booked == true
-                        ? ComIcons.doubleBookedTable
-                        : ComIcons.doubleTable}
-                      <Text
-                        style={[
-                          styles.tableName,
-                          {
-                            left: '40%',
-                            color: item.Booked == true ? 'white' : 'black',
-                          },
-                        ]}>
-                        {item.Table}
-                      </Text>
-                      {item.Booked ? null : (
+                      </TouchableOpacity>
+                    )}
+                    showsHorizontalScrollIndicator={false}
+                  />
+
+                </View>
+                <View
+                  style={{
+                    height: '32%',
+                    backgroundColor: '#dddddd',
+                    borderStyle: 'dotted',
+                    borderColor: COLORS.red,
+                    borderWidth: 1,
+                  }}></View>
+                <View style={{ height: '42%', backgroundColor: 'white' }}>
+                  <FlatList
+                    bounces={false}
+                    data={singleTableArray}
+                    horizontal
+                    renderItem={({ item }) => (
+                      <TouchableOpacity
+                        disabled={item.Booked}
+                        onPress={
+                          () =>
+                            tableExists(item.Table)
+                              ? setSelectedTable(current =>
+                                current.filter(selectedTable => {
+                                  // 👇️ remove object that has id equal to 2
+                                  return selectedTable != item.Table;
+                                }),
+                              )
+                              : setSelectedTable(selectedTable => [
+                                ...selectedTable,
+                                item.Table,
+                              ])
+                          // alert(selectedTable)
+                        }>
                         <View
                           style={{
-                            top: -5,
-                            right: '8%',
-                            position: 'absolute',
+                            margin: 30,
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            flexDirection: 'row',
                           }}>
-                          {tableExists(item.Table)
-                            ? ComIcons.tickRedCircle
-                            : ComIcons.emptyGreyCircle}
+                          {item.Booked == true
+                            ? ComIcons.tabActiveSingleTable
+                            : ComIcons.tabSingleTable}
+                          <Text
+                            style={[
+                              styles.tableName,
+                              {
+                                left: '41%',
+                                color: item.Booked == true ? 'white' : 'black',
+                              },
+                            ]}>
+                            {item.Table}
+                          </Text>
+                          {item.Booked ? null : (
+                            <View
+                              style={{
+                                top: -5,
+                                right: '-5%',
+                                position: 'absolute',
+                              }}>
+                              {tableExists(item.Table)
+                                ? ComIcons.tickRedCircle
+                                : ComIcons.emptyGreyCircle}
+                            </View>
+                          )}
                         </View>
-                      )}
-                    </View>
-                  </TouchableOpacity>
-                )}
-                showsHorizontalScrollIndicator={false}
-              />
+                      </TouchableOpacity>
+                    )}
+                    showsHorizontalScrollIndicator={false}
+                  />
+                </View>
+              </View>
+
             </View>
-          </View>
+          }
+          {/* </ScrollView> */}
+
         </View>
-      </ScrollView>
-      {/* </View> */}
+      </View>
     </SafeAreaView>
   );
 };

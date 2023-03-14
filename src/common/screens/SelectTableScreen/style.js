@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { COLORS, FONTS, SIZES } from 'assets/index';
+import { COLORS, FONTS, SIZES, DEVICE } from 'assets/index';
 
 export default styles = StyleSheet.create({
     tableName: {
@@ -8,14 +8,14 @@ export default styles = StyleSheet.create({
         fontFamily:FONTS.bold
     },
     topBarView: {
-      height: 50,
-      margin: 8,
+        height: 50,
+        margin: DEVICE == 'mobile' ? 8 : 20,
       borderRadius: 2,
       shadowColor: '#000000',
       shadowOffset: {width: 0, height: 0},
       shadowOpacity: 0.15,
       shadowRadius: 2,
-      justifyContent: 'center',
+        justifyContent: 'center',
       elevation: 4,
     },
     topBarText: {

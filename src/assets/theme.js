@@ -16,8 +16,8 @@ g2:'#999999',
 g3:'#666666',
 g4:'#333333',
 }
-
-export const aspectRatio = height / width;
+const aspectRatio = height / width;
+export const DEVICE = aspectRatio < 1.6 ? 'tab' : 'mobile'
 
   export const FONTS = {
     light: Platform.OS === 'ios' ? 'Gotham-Light' : 'Gotham-Light',
