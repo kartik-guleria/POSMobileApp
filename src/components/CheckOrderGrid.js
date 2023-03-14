@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { View, SafeAreaView, Text, FlatList, TouchableOpacity, StyleSheet } from "react-native";
-import { COLORS, ComIcons, FONTS } from "assets/index";
+import { COLORS, ComIcons, FONTS, DEVICE } from "assets/index";
 import MainStyle from "styleSheet/MainStyle";
 import NavigationHeader from "components/NavigationHeader";
 import { BILL_INFO, ORDER_INFO } from "data/dummyData";
@@ -49,7 +49,7 @@ const CheckOrderGrid = props => {
                     flexDirection: 'row',
                     justifyContent: 'space-between',
                     alignItems: 'center',
-                    height: 23,
+                    height: DEVICE == 'tab' ? 45 : 23,
                     backgroundColor: COLORS.red
                 }}>
                 <Text style={[styles.billHeader, { width: '30%', marginLeft: 4 }]}>
@@ -111,13 +111,11 @@ const CheckOrderGrid = props => {
         return (
             <Swipeable renderRightActions={rightSwipeActions}>
                 <View style={{
-                    marginTop: 6,
                     flexDirection: 'row',
                     justifyContent: 'space-between',
                     alignItems: 'center',
                     height: 49,
-                    backgroundColor: 'grey',
-                    backgroundColor: billData.item.id % 2 ? COLORS.grey : COLORS.lightGrey
+                    backgroundColor: billData.item.id % 2 ? 'rgba(0, 0, 0, 0.05)' : 'rgba(0, 0, 0, 0.10)',
                 }}>
                     <Text style={[styles.billText, { width: '35%', marginLeft: 4 }]}>
                         {billData.item.name}
@@ -140,7 +138,7 @@ const CheckOrderGrid = props => {
     const renderBillFooter = () => {
         const renderAmount = amountData => {
             return (
-                <View style={{ alignItems: 'center', paddingHorizontal: 5, borderWidth: 1, height: 26, backgroundColor: COLORS.grey, flexDirection: 'row', justifyContent: 'space-between' }}>
+                <View style={{ alignItems: 'center', paddingHorizontal: 5, borderWidth: 1, borderColor: '#EBEBEB', height: 26, backgroundColor: 'rgba(0, 0, 0, 0.02)', flexDirection: 'row', justifyContent: 'space-between' }}>
                     <Text style={{ fontFamily: FONTS.medium, color: COLORS.black, fontSize: 14, fontWeight: amountData.item.id === 5 ? '700' : '400', lineHeight: 16 }}>{amountData.item.title}</Text>
                     <Text style={{ fontFamily: FONTS.medium, color: COLORS.black, fontSize: 14, fontWeight: '400', lineHeight: 16 }}>{amountData.item.price}</Text>
                 </View>

@@ -65,8 +65,7 @@ const DashBoardMenu = props => {
     };
     return (
         <SafeAreaView style={MainStyle.safeAreaContainerLight}>
-
-            <FlatList
+            <FlatList style={{ marginBottom: 50 }}
                 bounces={false}
                 numColumns={1}
                 showsVerticalScrollIndicator={false}
@@ -74,7 +73,6 @@ const DashBoardMenu = props => {
                 scrollEnabled={true}
                 renderItem={renderServiceGridItem}
             />
-
         </SafeAreaView>
     );
 }

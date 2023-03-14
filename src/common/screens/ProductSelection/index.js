@@ -6,6 +6,7 @@ import { PRODUCTS } from 'data/dummyData';
 import CheckOrderGrid from '../../../components/CheckOrderGrid';
 import React, { useState } from 'react';
 import DashBoardMenu from '../../../components/DashboardMenu';
+import ProductSelInfo from '../../../components/ProductSelInfo';
 import {
   View,
   StyleSheet,
@@ -212,16 +213,17 @@ const ProductSelection = props => {
         navigation={props.navigation}
         productSelection={true}
       />
-      <View>
-        <View style={{ flexDirection: 'row' }} >
+      <View style={{ height: '100%' }}>
+        <View style={{ flexDirection: 'row', flex: 1 }} >
           {DEVICE == 'tab' &&
-            <View style={{ width: '13%', justifyContent: 'center', alignContent: 'center', borderRightWidth: 1, borderRightColor: '#dddddd' }}>
+            <View style={{ width: '11%', justifyContent: 'center', alignContent: 'center', borderRightWidth: 1, borderRightColor: '#dddddd' }}>
               <DashBoardMenu navigation={props.navigation} />
             </View>
 
           }
           {DEVICE == 'tab' &&
-            <View style={{ width: '40%', }}>
+            <View style={{ width: '44%', }}>
+
               <CheckOrderGrid navigation={props.navigation} />
             </View>
           }
@@ -237,7 +239,7 @@ const ProductSelection = props => {
           renderItem={renderItem}
           keyExtractor={item => item.id}
           bounces={false}
-          numColumns={3}
+              numColumns={DEVICE == 'tab' ? 4 : 3}
           ListHeaderComponent={renderHeader}
           ListFooterComponent={renderFooter}
           showsVerticalScrollIndicator={false}
@@ -256,7 +258,6 @@ const ProductSelection = props => {
             top: 200,
             backgroundColor: COLORS.white,
             marginHorizontal: 16,
-
             marginTop: 0,
           }}>
           <ScanQRModal onPressCross={() => toggleModal()} />

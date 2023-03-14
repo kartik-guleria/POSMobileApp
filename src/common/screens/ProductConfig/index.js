@@ -402,8 +402,8 @@ const ProductConfig = props => {
           title={t('common:productConfig')}
           navigation={props.navigation}
       />
-      <View>
-        <View style={{ flexDirection: 'row' }} >
+      <View style={{ height: '100%' }}>
+        <View style={{ flexDirection: 'row', flex: 1 }} >
           {DEVICE == 'tab' &&
             <View style={{ width: '13%', justifyContent: 'center', alignContent: 'center', borderRightWidth: 1, borderRightColor: '#dddddd' }}>
               <DashBoardMenu navigation={props.navigation} />
@@ -420,7 +420,7 @@ const ProductConfig = props => {
             renderItem={renderItem}
             keyExtractor={item => item.id}
             bounces={false}
-            numColumns={4}
+              numColumns={DEVICE == 'tab' ? 7 : 4}
             ListHeaderComponent={renderHeader}
             ListFooterComponent={renderfooter}
             showsVerticalScrollIndicator={false}
