@@ -20,6 +20,7 @@ import MainStyle from 'styleSheet/MainStyle';
 import Modal from 'react-native-modal';
 import MyButton from 'components/MyButton';
 import {useTranslation} from 'react-i18next';
+import { DEVICE } from '../../../assets/theme';
 
 const ProductSelection = props => {
   const {t, i18n} = useTranslation();
@@ -257,10 +258,11 @@ const ProductSelection = props => {
             position: 'absolute',
             top: 200,
             backgroundColor: COLORS.white,
-            marginHorizontal: 16,
+            marginHorizontal: DEVICE === 'tab' ? '35%' :16,
+
             marginTop: 0,
           }}>
-          <ScanQRModal onPressCross={() => toggleModal()} />
+          <ScanQRModal onPressCross={() => toggleModal()} onPressProceed={()=>toggleModal() & props.navigation.navigate('ScanQR')} />
         </Modal>
           </View>
         </View>

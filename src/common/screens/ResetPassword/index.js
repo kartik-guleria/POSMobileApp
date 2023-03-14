@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text,SafeAreaView } from 'react-native';
+import { View, Text,SafeAreaView, Dimensions } from 'react-native';
 import MyButton from 'components/MyButton';
 import InputField from 'components/InputField';
 import MainStyle from 'styleSheet/MainStyle';
@@ -7,6 +7,9 @@ import NavigationHeader from 'components/NavigationHeader';
 import { useTranslation } from 'react-i18next';
 import { FONTS,COLORS} from 'assets/index';
 import Toast from 'react-native-toast-message';
+import { DEVICE } from '../../../assets/theme';
+const {height: screenHeight, width: screenWidth} = Dimensions.get('screen');
+
 
 const ResetPassword = ({route,navigation})=> {
   const cameFrom = route.params
@@ -50,6 +53,24 @@ const ResetPassword = ({route,navigation})=> {
         pop={cameFrom && true}
         displayBtn={ cameFrom ? 'back': 'dash'}
         onPress= { () => cameFrom || navigation.openDrawer()}/>
+         <View style={{flex:1,justifyContent:'center'}}> 
+      <View
+          style={{
+            marginHorizontal: DEVICE === 'tab' ? '30%' : 0,
+            borderRadius: 5,
+            borderColor: '#ddd',
+            shadowColor: '#000000',
+            shadowOffset: {width: 0, height: 0},
+            shadowOpacity: 0.15,
+            shadowRadius: 2,
+            elevation: 3,
+            backgroundColor: '#FFFFFF',
+            paddingVertical: DEVICE === 'tab' ? 44 : 0,
+            paddingHorizontal: DEVICE === 'tab' ? '4%':0,
+            flex: DEVICE === 'tab' ? 0 : 1,
+            justifyContent: 'space-between',
+            height: DEVICE === 'tab'? screenHeight / 1.4 : screenHeight,
+          }}>
       <View style={MainStyle.mainBody}>
         <View style={MainStyle.container}>
           <Text
@@ -84,6 +105,8 @@ const ResetPassword = ({route,navigation})=> {
           <MyButton title={t('common:sendInstructions')} onPress={()=> checkTextInput()} />
         </View>
 
+      </View>
+      </View>
       </View>
     </SafeAreaView>
   );

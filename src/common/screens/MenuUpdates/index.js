@@ -1,16 +1,16 @@
-import React from 'react';
-import {View, SafeAreaView, FlatList, Text, Image,TouchableOpacity} from 'react-native';
+import React, { useState } from 'react';
+import {View, SafeAreaView, FlatList, Text, Image} from 'react-native';
 import NavigationHeader from 'components/NavigationHeader';
 import {MENU_UPDATES} from 'data/dummyData';
 import styles from './style';
 import MainStyle from '../../../styleSheet/MainStyle';
-import { COLORS } from 'assets/theme';
 import { useTranslation } from 'react-i18next';
+import Skeleton from './skeleton';
 
 
 const MenuUpdates = props => {
   const { t, i18n } = useTranslation();
-
+  const [loading, setLoading] = useState(false);
   const renderItem = itemData => {
     return (
       <View style={styles.boxView}>
@@ -43,6 +43,7 @@ const MenuUpdates = props => {
 <SafeAreaView style={MainStyle.safeAreaContainerLight}>
       <NavigationHeader title={'Menu Updates'} navigation={props.navigation} />
       <View style={styles.screen}>
+        {loading === true ? <Skeleton/> :
         <FlatList
           showsVerticalScrollIndicator={false}
           data={MENU_UPDATES}
@@ -50,6 +51,7 @@ const MenuUpdates = props => {
           ListHeaderComponent={header}
           bounces={false}
           keyExtractor={item => item.id} />
+  }
       </View>
     </SafeAreaView>
   );

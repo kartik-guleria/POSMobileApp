@@ -21,7 +21,7 @@ return(
         </TouchableOpacity>
     </View>
     <View style={{flexDirection:'row',justifyContent:'space-evenly',marginHorizontal:16,marginBottom:20}}>
-        <MyButton title={t('common:back')} width={false} size={false} backColor='grey' onPress={props.onPressCross}/><MyButton width={false} size={false} title={t('common:proceed')}/>
+        <MyButton title={t('common:back')} width={false} size={false} backColor='grey' onPress={props.onPressCross}/><MyButton onPress={props.onPressProceed} width={false} size={false} title={t('common:proceed')}/>
     </View>
 </View>
 );

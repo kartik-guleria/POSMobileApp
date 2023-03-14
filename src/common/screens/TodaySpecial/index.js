@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   View,
   SafeAreaView,
@@ -10,12 +10,12 @@ import {
 import NavigationHeader from 'components/NavigationHeader';
 import {COLORS, FONTS} from 'assets/theme';
 import {SPECIAL} from 'data/dummyData';
-import style from './style';
-import { useTranslation } from 'react-i18next';
-
+import {useTranslation} from 'react-i18next';
+import Skeleton from './skeleton';
 
 const TodaySpecial = props => {
-  const { t, i18n } = useTranslation();
+  const {t, i18n} = useTranslation();
+  const [loading, setLoading] = useState(false);
 
   const renderItem = ({item}) => {
     return (
@@ -43,17 +43,17 @@ const TodaySpecial = props => {
             style={{
               marginBottom: 6,
               fontFamily: FONTS.bold,
-              color:COLORS.black,
+              color: COLORS.black,
               fontSize: 14,
               lineHeight: 22.4,
             }}>
             {item.name}
           </Text>
           <Text
-          numberOfLines={2}
+            numberOfLines={2}
             style={{
               fontFamily: FONTS.normal,
-              color:COLORS.black,
+              color: COLORS.black,
               fontSize: 12,
               fontWeight: '400',
               lineHeight: 19.2,
@@ -71,7 +71,7 @@ const TodaySpecial = props => {
           marginTop: 23,
           fontFamily: FONTS.medium,
           fontSize: 15,
-          color:COLORS.black,
+          color: COLORS.black,
           fontWeight: '500',
           lineHeight: 24,
         }}>
@@ -82,13 +82,21 @@ const TodaySpecial = props => {
 
   return (
     <SafeAreaView>
-      <NavigationHeader title={t('common:todaySpecial')}  navigation={props.navigation} />
-      <View style={{ marginLeft: 16, marginRight: 16 }}>
-        <SectionList
-          sections={SPECIAL}
-          renderItem={renderItem}
-          renderSectionHeader={renderHeader}
-          keyExtractor={(item, index) => index} />
+      <NavigationHeader
+        title={t('common:todaySpecial')}
+        navigation={props.navigation}
+      />
+      <View style={{marginLeft: 16, marginRight: 16}}>
+        {loading === true ? (
+          <Skeleton />
+        ) : (
+          <SectionList
+            sections={SPECIAL}
+            renderItem={renderItem}
+            renderSectionHeader={renderHeader}
+            keyExtractor={(item, index) => index}
+          />
+        )}
       </View>
     </SafeAreaView>
   );

@@ -41,6 +41,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: COLORS.red,
+    marginTop:-4
   },
   titleText: {
     textAlign: 'center',

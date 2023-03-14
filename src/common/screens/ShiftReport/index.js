@@ -1,16 +1,21 @@
 import React,{useState}from 'react';
-import {View, Text, SafeAreaView, SectionList,TouchableOpacity} from 'react-native';
+import {View, Text, SafeAreaView, SectionList, Dimensions} from 'react-native';
 import NavigationHeader from 'components/NavigationHeader';
 import {FONTS,COLORS} from 'assets/theme';
 import UnderlineView from 'components/underlineView';
 import MyButton from 'components/MyButton';
-import {SHIFT_DATA} from 'data/dummyData';
 import CloseShiftModal from '../../../components/CloseShiftModal';
 import Modal from 'react-native-modal';
 import { useTranslation } from 'react-i18next';
+import { DEVICE } from '../../../assets/theme';
+import MainStyle from '../../../styleSheet/MainStyle';
+import Skeleton from './skeleton';
+const {height: screenHeight, width: screenWidth} = Dimensions.get('screen');
+
 
 const ShiftReport = props => {
   const { t, i18n } = useTranslation();
+  const [loading, setLoading] = useState(false);
   const SHIFT_DATA = [
     {
       title: t('common:cashDrawer'),
@@ -130,8 +135,29 @@ const ShiftReport = props => {
     );
   };
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeAreaView style={MainStyle.safeAreaContainerLight}>
       <NavigationHeader title={t('common:shiftReport')} navigation={props.navigation} />
+      
+     {loading === true ? <Skeleton/> : 
+      <View style={{flex:1,justifyContent:'center'}}> 
+      <View
+          style={{
+            marginHorizontal: DEVICE === 'tab' ? '30%' : 0,
+            borderRadius: 5,
+            borderColor: '#ddd',
+            shadowColor: '#000000',
+            shadowOffset: {width: 0, height: 0},
+            shadowOpacity: 0.15,
+            shadowRadius: 2,
+            elevation: 3,
+            backgroundColor: '#FFFFFF',
+            paddingHorizontal: DEVICE === 'tab' ? '4%' : 0,
+            paddingVertical: DEVICE === 'tab' ? 44 : 0,
+            flex: DEVICE === 'tab' ? 0 : 1,
+            justifyContent: 'space-between',
+            height: DEVICE === 'tab'? screenHeight / 1.4 : screenHeight,
+          }}>
+      
       <View style={{ marginLeft: 16, marginRight: 16, marginTop: 23, flex: 1 }}>
         <SectionList
           showsVerticalScrollIndicator={false}
@@ -155,11 +181,15 @@ const ShiftReport = props => {
               top:120,
               height:582,
               backgroundColor:COLORS.white,
-              marginRight:-4
+            marginHorizontal:DEVICE ==='tab' ? '20%':'5%',
+            marginRight:'-2%'
             }}>
               <CloseShiftModal onPressCross={() => toggleModal()} onPressClose={()=> onPressClose()}/>
             </Modal>
       </View>
+      </View>
+      </View>
+}
     </SafeAreaView>
   );
 };

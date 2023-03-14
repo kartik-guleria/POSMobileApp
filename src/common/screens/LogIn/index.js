@@ -7,6 +7,7 @@ import MyButton from 'components/MyButton';
 import styles from './style';
 import MainStyle from 'styleSheet/MainStyle';
 import {useTranslation} from 'react-i18next';
+import { DEVICE } from '../../../assets/theme';
 
 const {height, width} = Dimensions.get('window');
 const aspectRatio = height / width;
@@ -16,15 +17,15 @@ const LogInScreen = props => {
   return (
     <SafeAreaView style={MainStyle.safeAreaContainerLight}>
       <View style={styles.screen}>
-        <View style={{margin: aspectRatio < 1.6 ? '20%' : 16}}>
+        <View style={{margin: DEVICE === 'tab' ? '20%' : 16}}>
           <View style={MainStyle.shadowForView}>
             <View style={styles.image}>{ComIcons.posLogo}</View>
             <Text style={styles.title}>{t('common:projectName')}</Text>
-            <View style={[styles.inputView, {marginBottom: 7}]}>
+           <View style={[styles.inputView, {marginBottom: 7}]}>
               <View style={styles.icon}>{ComIcons.userRed}</View>
               <View style={styles.separator}></View>
               <TextInput
-                maxLength={20}
+                maxLength={10}
                 placeholder={t('common:user')}
                 placeholderTextColor={COLORS.darkGrey}
                 style={styles.inputText}
@@ -34,7 +35,8 @@ const LogInScreen = props => {
               <View style={styles.icon}>{ComIcons.lock}</View>
               <View style={styles.separator}></View>
               <TextInput
-                maxLength={20}
+                maxLength={10}
+                multiline={true}
                 placeholder={t('common:password')}
                 placeholderTextColor={COLORS.darkGrey}
                 style={styles.inputText}
@@ -52,6 +54,7 @@ const LogInScreen = props => {
               />
             </View>
             <TouchableOpacity
+            hitSlop={15}
               onPress={() => props.navigation.navigate('ResetPassword',{
                 cameFrom:'logIn'
               })}

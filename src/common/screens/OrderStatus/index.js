@@ -1,15 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {FlatList, SafeAreaView, Text, View} from 'react-native';
 import {COLORS, ComIcons, FONTS} from 'assets/index';
 import NavigationHeader from 'components/NavigationHeader';
 import {ORDER_STATUS} from '../../../data/dummyData';
-import style from './style';
 import { useTranslation } from 'react-i18next';
 import MainStyle from '../../../styleSheet/MainStyle';
+import Skeleton from './skeleton';
 
 const OrderStatus = props => {
   const { t, i18n } = useTranslation();
-
+const [loading ,setLoading] = useState(false);
   const renderItem = itemData => {
     return (
       <View
@@ -46,14 +46,15 @@ const OrderStatus = props => {
           </Text>
 
           <View style={{flexDirection: 'row'}}>
-            {itemData.item.status === 'CLOSED' ||
-            itemData.item.status === 'DELIVERED'
-              ? ComIcons.whiteClock
-              : null}
+            {/* {itemData.item.status === 'CLOSED' ||
+            itemData.item.status === 'DELIVERED' */}
+              {/* ?  */}
+             {ComIcons.whiteClock}
+              {/* : null} */}
             <Text
               style={{
                 fontSize: 12,
-              color:itemData.item.status === 'CLOSED' ? COLORS.darkGrey:COLORS.black,
+              color:itemData.item.status === 'CLOSED' ? COLORS.darkGrey:COLORS.white,
                 fontFamily: FONTS.bold,
                 lineHeight: 12.85,
               }}>
@@ -104,6 +105,7 @@ const OrderStatus = props => {
           title={'Order Status'}
           navigation={props.navigation}
         />
+        {loading === true ? <Skeleton/> :
           <FlatList
             data={ORDER_STATUS}
             showsVerticalScrollIndicator={false}
@@ -112,6 +114,7 @@ const OrderStatus = props => {
             bounces={false}
             contentContainerStyle={{marginHorizontal:14,marginTop:10,paddingBottom:15}}
           />
+  }
       </SafeAreaView>
   );
 };

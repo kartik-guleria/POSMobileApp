@@ -16,7 +16,9 @@ g2:'#999999',
 g3:'#666666',
 g4:'#333333',
 }
+
 const aspectRatio = height / width;
+
 export const DEVICE = aspectRatio < 1.6 ? 'tab' : 'mobile'
 
   export const FONTS = {
