@@ -6,13 +6,14 @@ import {
   SafeAreaView,
   StatusBar,
   TouchableOpacity,
+  Image,
 } from 'react-native';
 import MainStyle from 'styleSheet/MainStyle';
 import NavigationHeader from 'components/NavigationHeader';
 import {useTranslation} from 'react-i18next';
 import {ComIcons, COLORS} from 'assets/index';
 import UnderlineView from 'components/underlineView';
-import { FONTS } from '../../../assets';
+import {FONTS} from '../../../assets';
 
 const SelectLangScreen = props => {
   const {i18n, t} = useTranslation();
@@ -21,11 +22,13 @@ const SelectLangScreen = props => {
     {
       id: '1',
       title: t('common:english'),
+      img: require('../../../assets/images/English-Flag.png'),
       code: 'en',
     },
     {
       id: '2',
       title: t('common:albanian'),
+      img: require('../../../assets/images/Albanian-Flag.png'),
       code: 'al',
     },
   ];
@@ -33,29 +36,49 @@ const SelectLangScreen = props => {
     return <Item item={item} />;
   };
 
-  const Item = ({item: {title, code}}) => (
+  const Item = ({item: {title, code, img}}) => (
     <TouchableOpacity
       onPress={() => {
         i18n.changeLanguage(code);
       }}>
-      <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-        <Text
-          style={[
-            MainStyle.descText,
-            {
-              textAlign: 'left',
-              fontWeight: '500',
-              fontFamily:FONTS.medium,
-              margin: 10,
-              color: selectedLanguageCode === code ? COLORS.red :COLORS.black,
-              width: '50%',
-            },
-          ]}>
-          {title}
-        </Text>
-        <View style={{marginRight: 30, alignSelf: 'center'}}>
-          {selectedLanguageCode === code ? ComIcons.redTick : null}
+      <View style={{flexDirection: 'row'}}>
+        <Image
+          source={img}
+          style={{
+            width: 23,
+            height: 18,
+            alignSelf: 'center',
+            backgroundColor: 'grey',
+          }}
+        />
+        <View
+          style={{
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            flex:1,
+          }}>
+          <Text
+            style={[
+              MainStyle.descText,
+              {
+                textAlign: 'left',
+                fontWeight: '500',
+                fontFamily: FONTS.medium,
+                margin: 10,
+                color:
+                  selectedLanguageCode === code ? COLORS.red : COLORS.black,
+                width: '50%',
+              },
+            ]}>
+            {title}
+          </Text>
+
+          <View style={{marginRight: 30, alignSelf: 'center'}}>
+            {selectedLanguageCode === code ? ComIcons.redTick : null}
+          </View>
+      
         </View>
+     
       </View>
       <UnderlineView />
     </TouchableOpacity>

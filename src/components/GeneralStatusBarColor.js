@@ -10,7 +10,7 @@ const GeneralStatusBarColor = ({backgroundColor = true, ...props}) => {
         styles.statusBar,
         {backgroundColor: backgroundColor == true ? COLORS.red : COLORS.white},
       ]}>
-      <StatusBar translucent backgroundColor={COLORS.red} {...props} />
+      <StatusBar barStyle={'light-content'} translucent backgroundColor={COLORS.red} {...props} />
     </View>
   );
 };

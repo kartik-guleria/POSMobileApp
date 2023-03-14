@@ -24,7 +24,7 @@ export default styles = StyleSheet.create({
     fontSize: 14,
     lineHeight: 22.4,
   },
-  image: {marginLeft: 8, height: 64, width: 60},
+  image: {marginLeft: 8, height: 64, width: 64},
   boxTextView: {marginLeft: 15, marginRight: 6,
     flex:1, justifyContent: 'center'},
   boxView: {

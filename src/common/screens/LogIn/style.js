@@ -37,7 +37,7 @@ export default styles = StyleSheet.create({
     marginRight: aspectRatio < 1.6 ? 100 : 22,
     shadowColor: '#000000',
     shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0.15,
+    shadowOpacity: 0.12,
     shadowRadius: 3,
     elevation: 3,
     backgroundColor: "#FFFFFF",
@@ -51,13 +51,15 @@ export default styles = StyleSheet.create({
     fontWeight: '500',
     lineHeight: 18,
     color: COLORS.black,
-
+    alignSelf:'center'
   },
   reset: {
     textDecorationLine: 'underline',
     color: COLORS.red,
     alignSelf: 'center',
     marginTop: 22,
+    backgroundColor:'grey',
+    marginBottom: aspectRatio < 1.6 ? 100 : 35,
   },
   resetText: {
     fontFamily: FONTS.normal,
@@ -65,15 +67,10 @@ export default styles = StyleSheet.create({
     lineHeight: 12.85,
     textDecorationLine: 'underline',
     color: COLORS.red,
-    marginBottom: aspectRatio < 1.6 ? 100 : 35,
   },
   separator: {
-    width: 1, shadowColor: '#000000',
-    shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0.25,
-    shadowRadius: 2,
-    elevation: 3,
-    backgroundColor: "#FFFFFF",
+    width: 1,
+    backgroundColor: "#D6D6D6",
   },
   icon: { margin: 15.93, },
 });

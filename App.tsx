@@ -4,12 +4,11 @@
  *
  * @format
  */
-
+import 'react-native-gesture-handler';
 import React from 'react';
 import {
   useColorScheme,
 } from 'react-native';
-
 import MainNavigator from './src/navigation/MainNavigator';
 import './i18n';
 function App(): JSX.Element {
