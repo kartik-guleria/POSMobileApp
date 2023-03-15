@@ -14,6 +14,7 @@ import SearchBar from 'components/SearchBar';
 import {useTranslation} from 'react-i18next';
 import {DEVICE} from '../../../assets/theme';
 import Skeleton from './skeleton';
+import DashBoardMenu from '../../../components/DashboardMenu';
 
 const Orders = props => {
   const {t, i18n} = useTranslation();
@@ -103,7 +104,7 @@ const Orders = props => {
             flexDirection: 'row',
             marginTop: 12,
           }}>
-          <TouchableOpacity
+          <TouchableOpacity activeOpacity={0.7}
             onPress={() => setSelectedIndex(1)}
             style={{
               borderWidth: selectedIndex === 1 ? 0 : 1,
@@ -125,7 +126,7 @@ const Orders = props => {
               {t('common:openOrders')}
             </Text>
           </TouchableOpacity>
-          <TouchableOpacity
+          <TouchableOpacity activeOpacity={0.7}
             onPress={() => setSelectedIndex(2)}
             style={{
               borderWidth: selectedIndex === 2 ? 0 : 1,
@@ -163,7 +164,7 @@ const Orders = props => {
             flexDirection: 'row',
             marginTop: 12,
           }}>
-          <TouchableOpacity
+          <TouchableOpacity activeOpacity={0.7}
             onPress={() => setSelectedIndex(1)}
             style={{
               borderWidth: selectedIndex === 1 ? 0 : 1,
@@ -185,7 +186,7 @@ const Orders = props => {
               {t('common:openOrders')}
             </Text>
           </TouchableOpacity>
-          <TouchableOpacity
+          <TouchableOpacity activeOpacity={0.7}
             onPress={() => setSelectedIndex(2)}
             style={{
               borderWidth: selectedIndex === 2 ? 0 : 1,
@@ -236,7 +237,7 @@ const Orders = props => {
 
   const renderItem = itemData => {
     return (
-      <TouchableOpacity
+      <TouchableOpacity activeOpacity={0.7}
         onPress={() => props.navigation.navigate('SelectItems')}
         disabled={selectedIndex == 1 ? false : true}
         style={{
@@ -297,7 +298,7 @@ const Orders = props => {
 
   const renderItemTab = itemData => {
     return (
-      <TouchableOpacity
+      <TouchableOpacity activeOpacity={0.7}
         disabled={selectedIndex === 1 ? false : true}
         onPress={() => props.navigation.navigate('SelectItems')}>
         <View
@@ -353,6 +354,10 @@ const Orders = props => {
       {loading === true ? (
         <Skeleton />
       ) : (
+        <View style={{flexDirection:'row',flex:1}}>
+{DEVICE === 'tab' &&  <View style={{width: '13%',justifyContent: 'center', alignContent: 'center', borderRightWidth: 1, borderRightColor: '#dddddd' }}>
+<DashBoardMenu navigation={props.navigation} />
+</View>}
         <FlatList
           data={selectedIndex == 1 ? OPEN_ORDERS : CLOSED_ORDERS}
           renderItem={DEVICE === 'tab' ? renderItemTab : renderItem}
@@ -361,11 +366,12 @@ const Orders = props => {
           }
           keyExtractor={item => item.id}
           bounces={false}
-          contentContainerStyle={{marginHorizontal: 16, paddingBottom: 10}}
+          contentContainerStyle={{marginHorizontal: 20, paddingBottom: 10}}
           ItemSeparatorComponent={() =>
             DEVICE === 'tab' ? null : <View style={{height: 10}}></View>
           }
         />
+        </View>
       )}
     </SafeAreaView>
   );

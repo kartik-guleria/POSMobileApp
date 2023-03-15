@@ -53,7 +53,7 @@ const LogInScreen = props => {
                 size={false}
               />
             </View>
-            <TouchableOpacity
+            <TouchableOpacity activeOpacity={0.7}
             hitSlop={15}
               onPress={() => props.navigation.navigate('ResetPassword',{
                 cameFrom:'logIn'

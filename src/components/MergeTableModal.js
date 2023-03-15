@@ -30,7 +30,7 @@ const MergeTableModal = props => {
   const renderFooter = () =>{
     const renderOptions = optionData => {
       return(
-        <TouchableOpacity style= {{width:'31%',marginHorizontal:5,marginTop:23,backgroundColor:COLORS.red,alignItems:'center',justifyContent:'center',height:100}}>
+        <TouchableOpacity activeOpacity={0.7} style= {{width:'31%',marginHorizontal:5,marginTop:23,backgroundColor:COLORS.red,alignItems:'center',justifyContent:'center',height:100}}>
           <Text style={{fontSize:14,fontFamily:FONTS.normal,fontWeight:'700',lineHeight:15.47,color:COLORS.white,textAlign:'center'}}>
             {optionData.item.title}
           </Text>

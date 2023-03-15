@@ -23,7 +23,7 @@ const ProductConfigTab = ({
   return (
     <View style={{ flexDirection: 'row', marginTop: 20 }}>
       <View style={{ width: '25%' }}>
-        <TouchableOpacity
+        <TouchableOpacity activeOpacity={0.7}
           style={{ width: '100%' }}
           activeOpacity={1}
           onPress={() => updatedSwitchData(1)}>
@@ -43,7 +43,7 @@ const ProductConfigTab = ({
       </View>
 
       <View style={{ width: '25%' }}>
-        <TouchableOpacity
+        <TouchableOpacity activeOpacity={0.7}
           style={{ width: '100%' }}
           activeOpacity={1}
           onPress={() => updatedSwitchData(2)}>
@@ -63,7 +63,7 @@ const ProductConfigTab = ({
       </View>
     
       <View style={{ width: '25%' }}>
-        <TouchableOpacity
+        <TouchableOpacity activeOpacity={0.7}
           style={{ width: '100%' }}
           activeOpacity={1}
           onPress={() => updatedSwitchData(3)}>
@@ -83,7 +83,7 @@ const ProductConfigTab = ({
       </View>
 
       <View style={{ width: '25%' }}>
-        <TouchableOpacity
+        <TouchableOpacity activeOpacity={0.7}
           style={{ width: '100%' }}
           activeOpacity={1}
           onPress={() => updatedSwitchData(4)}>

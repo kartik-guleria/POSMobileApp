@@ -9,7 +9,7 @@ const ModalHeader = ({title,newLine=false,newLineTitle,navigation,onPressCross})
 
     return(
         <View style={{paddingLeft:9,height:68,backgroundColor:COLORS.red,flexDirection:'row',alignItems:'center'}}>
-   <TouchableOpacity onPress={onPressCross}>{ComIcons.whiteCross}</TouchableOpacity>
+   <TouchableOpacity activeOpacity={0.7} onPress={onPressCross}>{ComIcons.whiteCross}</TouchableOpacity>
     <View style={{width:"90%",alignItems:'center'}}>
         <Text style={{fontFamily:FONTS.medium,fontSize:16,fontWeight:'500',color:COLORS.white}}>{title}</Text>
         {newLine ?<Text style={{fontFamily:FONTS.normal,fontSize:16,fontWeight:'500',color:COLORS.white}}>{newLineTitle}</Text>:null}

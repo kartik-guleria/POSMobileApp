@@ -37,7 +37,7 @@ const SelectLangScreen = props => {
   };
 
   const Item = ({item: {title, code, img}}) => (
-    <TouchableOpacity
+    <TouchableOpacity activeOpacity={0.7}
       onPress={() => {
         i18n.changeLanguage(code);
       }}>

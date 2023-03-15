@@ -18,7 +18,7 @@ const OrderItem = props => {
     return (
       <View style={styles.swipeView}>
         <View style={{flexDirection: 'row'}}>
-          <TouchableOpacity onPress={() => decrementValue()}>
+          <TouchableOpacity activeOpacity={0.7} onPress={() => decrementValue()}>
             <View>{ComIcons.minusRed}</View>
           </TouchableOpacity>
           <Text
@@ -30,7 +30,7 @@ const OrderItem = props => {
             }}>
             {itemQuantity}
           </Text>
-          <TouchableOpacity onPress={() => incrementValue(props.id)}>
+          <TouchableOpacity activeOpacity={0.7} onPress={() => incrementValue(props.id)}>
             <View>{ComIcons.plusRed}</View>
           </TouchableOpacity>
         </View>

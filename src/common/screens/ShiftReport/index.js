@@ -160,6 +160,7 @@ const ShiftReport = props => {
       
       <View style={{ marginLeft: 16, marginRight: 16, marginTop: 23, flex: 1 }}>
         <SectionList
+        stickySectionHeadersEnabled={false}
           showsVerticalScrollIndicator={false}
           bounces={false}
           contentContainerStyle={{ marginBottom: 19 }}
@@ -174,15 +175,10 @@ const ShiftReport = props => {
             onSwipeComplete={() => setModalVisible(false)}
             swipeDirection="down"
             backdropOpacity={0.7}
-            backgroundColor="#FFFFFF"
             style={{
-              marginBottom:400,
-              position:'absolute',
-              top:120,
-              height:582,
-              backgroundColor:COLORS.white,
-            marginHorizontal:DEVICE ==='tab' ? '20%':'5%',
-            marginRight:'-2%'
+            width: DEVICE==='tab' ? '30%' : '100%',
+            alignSelf:'center',
+            paddingHorizontal:DEVICE==='tab' ?0:16
             }}>
               <CloseShiftModal onPressCross={() => toggleModal()} onPressClose={()=> onPressClose()}/>
             </Modal>

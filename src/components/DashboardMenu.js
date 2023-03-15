@@ -1,9 +1,7 @@
 import React from 'react';
-import { View, FlatList, SafeAreaView, Alert, StyleSheet, Dimensions, TouchableOpacity, Text } from 'react-native';
+import { View, FlatList, SafeAreaView, StyleSheet, Dimensions, TouchableOpacity, Text } from 'react-native';
 import MainStyle from 'styleSheet/MainStyle';
-import NavigationHeaderDash from 'components/NavigationHeaderDash';
-import ServiceGridTile from './ServiceGridTile';
-import { ComIcons, DEVICE, COLORS, FONTS } from 'assets/index';
+import { ComIcons, COLORS, FONTS } from 'assets/index';
 import { useTranslation } from 'react-i18next';
 const { height, width } = Dimensions.get('window');
 
@@ -20,7 +18,7 @@ const DashBoardMenu = props => {
     const renderServiceGridItem = itemData => {
         return (
             <View style={{ margin: 3, justifyContent: 'center', alignItems: 'center' }}>
-                <TouchableOpacity style={styles.productItem} onPress={() => {
+                <TouchableOpacity activeOpacity={0.7} style={styles.productItem} onPress={() => {
                     if (itemData.item.id == '1') {
                         props.navigation.navigate('SelectTableScreen', {
                             serviceId: itemData.item.id,

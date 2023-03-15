@@ -12,6 +12,9 @@ import {COLORS, FONTS} from 'assets/theme';
 import {SPECIAL} from 'data/dummyData';
 import {useTranslation} from 'react-i18next';
 import Skeleton from './skeleton';
+import DashBoardMenu from '../../../components/DashboardMenu';
+import { DEVICE } from '../../../assets';
+import MainStyle from '../../../styleSheet/MainStyle';
 
 const TodaySpecial = props => {
   const {t, i18n} = useTranslation();
@@ -19,7 +22,7 @@ const TodaySpecial = props => {
 
   const renderItem = ({item}) => {
     return (
-      <TouchableOpacity
+      <TouchableOpacity activeOpacity={0.7}
         style={{
           alignItems: 'center',
           height: 82,
@@ -64,8 +67,8 @@ const TodaySpecial = props => {
       </TouchableOpacity>
     );
   };
-  const renderHeader = ({section}) => {
-    return (
+  const renderSectionHeader = ({section}) => {
+    return (      
       <Text
         style={{
           marginTop: 23,
@@ -75,28 +78,34 @@ const TodaySpecial = props => {
           fontWeight: '500',
           lineHeight: 24,
         }}>
-        {section.title}
-      </Text>
+          {section.title}
+        </Text>
     );
   };
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={MainStyle.safeAreaContainerLight}>
       <NavigationHeader
         title={t('common:todaySpecial')}
         navigation={props.navigation}
       />
-      <View style={{marginLeft: 16, marginRight: 16}}>
+      <View style={{marginLeft: 16, marginRight: 16,flex:1}}>
         {loading === true ? (
           <Skeleton />
         ) : (
-          <SectionList
-            sections={SPECIAL}
-            renderItem={renderItem}
-            renderSectionHeader={renderHeader}
-            keyExtractor={(item, index) => index}
-          />
-        )}
+          <View style={{flexDirection:'row',flex:1}}>
+            {DEVICE === 'tab' &&  <View style={{width: '13%', justifyContent: 'center', alignContent: 'center', borderRightWidth: 1, borderRightColor: '#dddddd' }}>
+        <DashBoardMenu navigation={props.navigation} />
+      </View>}
+        <SectionList
+            bounces={false}
+                sections={SPECIAL}
+                renderItem={renderItem}
+                renderSectionHeader={renderSectionHeader}
+                keyExtractor={(item, index) => index}
+                contentContainerStyle={{marginLeft:20}} />
+                </View>
+          )}
       </View>
     </SafeAreaView>
   );

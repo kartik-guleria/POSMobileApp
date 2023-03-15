@@ -6,10 +6,12 @@ import {ORDER_STATUS} from '../../../data/dummyData';
 import { useTranslation } from 'react-i18next';
 import MainStyle from '../../../styleSheet/MainStyle';
 import Skeleton from './skeleton';
+import { DEVICE } from '../../../assets';
+import DashBoardMenu from '../../../components/DashboardMenu';
 
 const OrderStatus = props => {
   const { t, i18n } = useTranslation();
-const [loading ,setLoading] = useState(false);
+const [loading ,setLoading] = useState(true);
   const renderItem = itemData => {
     return (
       <View
@@ -106,14 +108,20 @@ const [loading ,setLoading] = useState(false);
           navigation={props.navigation}
         />
         {loading === true ? <Skeleton/> :
+
+<View style={{flexDirection:'row',flex:1}}>
+{DEVICE === 'tab' &&  <View style={{width: '13%',justifyContent: 'center', alignContent: 'center', borderRightWidth: 1, borderRightColor: '#dddddd' }}>
+<DashBoardMenu navigation={props.navigation} />
+</View>}
           <FlatList
             data={ORDER_STATUS}
             showsVerticalScrollIndicator={false}
             renderItem={renderItem}
             keyExtractor={item => item.orderId}
             bounces={false}
-            contentContainerStyle={{marginHorizontal:14,marginTop:10,paddingBottom:15}}
+            contentContainerStyle={{marginHorizontal:20,marginTop:10,paddingBottom:15}}
           />
+          </View>
   }
       </SafeAreaView>
   );

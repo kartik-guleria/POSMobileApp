@@ -6,6 +6,8 @@ import styles from './style';
 import MainStyle from '../../../styleSheet/MainStyle';
 import { useTranslation } from 'react-i18next';
 import Skeleton from './skeleton';
+import { DEVICE } from '../../../assets';
+import DashBoardMenu from '../../../components/DashboardMenu';
 
 
 const MenuUpdates = props => {
@@ -44,13 +46,20 @@ const MenuUpdates = props => {
       <NavigationHeader title={'Menu Updates'} navigation={props.navigation} />
       <View style={styles.screen}>
         {loading === true ? <Skeleton/> :
+
+<View style={{flexDirection:'row',flex:1}}>
+{DEVICE === 'tab' &&  <View style={{width: '13%',justifyContent: 'center', alignContent: 'center', borderRightWidth: 1, borderRightColor: '#dddddd' }}>
+<DashBoardMenu navigation={props.navigation} />
+</View>}
         <FlatList
           showsVerticalScrollIndicator={false}
           data={MENU_UPDATES}
           renderItem={renderItem}
           ListHeaderComponent={header}
           bounces={false}
-          keyExtractor={item => item.id} />
+          keyExtractor={item => item.id}
+          contentContainerStyle={{marginLeft:20}} />
+          </View>
   }
       </View>
     </SafeAreaView>

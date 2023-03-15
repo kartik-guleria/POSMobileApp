@@ -29,7 +29,7 @@ const SearchBar = forwardRef((props, inputRef) => {
   } = props;
 
   const renderItems = ({item}) => (
-    <TouchableOpacity
+    <TouchableOpacity activeOpacity={0.7}
       style={Style.listItem}
       onPress={() => onPressListItem(item)}>
       <Text style={Style.placeTxt} numberOfLines={1}>
@@ -61,7 +61,7 @@ const SearchBar = forwardRef((props, inputRef) => {
           placeholderTextColor={'grey'}
           {...pendingProps}
         />
-        <TouchableOpacity
+        <TouchableOpacity activeOpacity={0.7}
           onPress={onCrossPress}
           style={{
             alignSelf: 'center',

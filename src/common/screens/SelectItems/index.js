@@ -205,11 +205,11 @@ const SelectItems = props => {
             <Text style={styles.billHeader}>{t('common:disc')}</Text>
             <Text style={styles.billHeader}>{t('common:total')}</Text>
             {selectedTick === true ? (
-              <TouchableOpacity onPress={() => setSelectedTick(false)}>
+              <TouchableOpacity activeOpacity={0.7} onPress={() => setSelectedTick(false)}>
                 {ComIcons.redTick}
               </TouchableOpacity>
             ) : (
-              <TouchableOpacity onPress={() => setSelectedTick(true)}>
+              <TouchableOpacity activeOpacity={0.7} onPress={() => setSelectedTick(true)}>
                 {ComIcons.emptyBox}
               </TouchableOpacity>
             )}
@@ -248,11 +248,11 @@ const SelectItems = props => {
             {billData.item.price * billData.item.qty} L
           </Text>
           {selectedTick === true ? (
-            <TouchableOpacity onPress={() => setSelectedTick(false)}>
+            <TouchableOpacity activeOpacity={0.7} onPress={() => setSelectedTick(false)}>
               {ComIcons.redTick}
             </TouchableOpacity>
           ) : (
-            <TouchableOpacity onPress={() => setSelectedTick(true)}>
+            <TouchableOpacity activeOpacity={0.7} onPress={() => setSelectedTick(true)}>
               {ComIcons.emptyBox}
             </TouchableOpacity>
           )}

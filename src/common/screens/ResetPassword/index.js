@@ -50,7 +50,7 @@ const ResetPassword = ({route,navigation})=> {
       <NavigationHeader
         title={t('common:resetPassword')}
         navigation={navigation} 
-        pop={cameFrom && true}
+        pop={cameFrom === undefined ? false : true}
         displayBtn={ cameFrom ? 'back': 'dash'}
         onPress= { () => cameFrom || navigation.openDrawer()}/>
          <View style={{flex:1,justifyContent:'center'}}> 

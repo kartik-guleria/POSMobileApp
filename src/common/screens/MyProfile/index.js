@@ -119,7 +119,7 @@ const MyProfile = props => {
             paddingHorizontal: DEVICE === 'tab' ? 50 : 0,
             paddingVertical: DEVICE === 'tab' ? 44 : 0,
           }}>
-          <TouchableOpacity style={{alignSelf:'center'}} onPress={() => toggleModal()}>
+          <TouchableOpacity activeOpacity={0.7} style={{alignSelf:'center'}} onPress={() => toggleModal()}>
             <Image
               style={styles.image}
               source={require('assets/images/johnDoe.png')}

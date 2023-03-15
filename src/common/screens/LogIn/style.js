@@ -58,7 +58,6 @@ export default styles = StyleSheet.create({
     color: COLORS.red,
     alignSelf: 'center',
     marginTop: 22,
-    backgroundColor:'grey',
     marginBottom: aspectRatio < 1.6 ? 100 : 35,
   },
   resetText: {

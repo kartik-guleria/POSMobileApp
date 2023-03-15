@@ -5,24 +5,24 @@ import {
   View,
   StyleSheet,
   Text,
-  SafeAreaView,
+  Dimensions,
   } from 'react-native';
-import MainStyle from 'styleSheet/MainStyle';
 import MyButton from 'components/MyButton';
 import { useTranslation } from 'react-i18next';
 import { COLORS } from '../assets';
 import { Switch } from 'react-native-gesture-handler';
+const {height: screenHeight, width: screenWidth} = Dimensions.get('screen');
 
 
 const CloseShiftModal = props => {
   const { t, i18n } = useTranslation();
-
   const [isModalVisible, setModalVisible] = useState(false);
     const toggleModal = () => {
       setModalVisible(!isModalVisible);
     };
   return (
-      <><ModalHeader onPressCross={props.onPressCross} title={'Close Shift'} /><View style={{ flex: 1, justifyContent: 'space-between', paddingHorizontal: 9 }}>
+      <><ModalHeader onPressCross={props.onPressCross} title={'Close Shift'} />
+      <View style={{ height:screenHeight/1.6,justifyContent: 'space-between', paddingHorizontal: 9,backgroundColor:COLORS.white}}>
       <View>
         <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
           <Text style={{ marginTop: 23, fontFamily: FONTS.bold,color:COLORS.black, fontSize: 18, lineHeight: 21 }}>Expected Cash Amount</Text>
@@ -33,13 +33,14 @@ const CloseShiftModal = props => {
           <Text style={{ marginTop: 23, fontFamily: FONTS.normal, color:COLORS.black,fontSize: 18, fontWeight: '400', lineHeight: 21 }}>00.00L</Text></View>
 
         <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-          <Text style={{ marginTop: 23, fontFamily: FONTS.normal, color:COLORS.black,fontSize: 18, fontWeight: '400', lineHeight: 21 }}>Differnce</Text>
+          <Text style={{ marginTop: 23, fontFamily: FONTS.normal, color:COLORS.black,fontSize: 18, fontWeight: '400', lineHeight: 21 }}>Difference</Text>
           <Text style={{ marginTop: 23, fontFamily: FONTS.medium,color:COLORS.black, fontSize: 18, fontWeight: '500', lineHeight: 21 }}>-</Text></View>
           <View style={{marginTop: 23, flexDirection: 'row', justifyContent: 'space-between',alignItems:'center' }}>
         <Text style={{ fontFamily: FONTS.normal, color:COLORS.black,fontSize: 18, fontWeight: '400', lineHeight: 21 }}>Print Report</Text>
          <Switch
                   value={true}
                   trackColor={{false: 'grey',true:'red'}}
+                  thumbColor={'white'}
                   // onValueChange={() =>
                   //   isSwitchEnabled ? setSwitch(false) : setSwitch(true)
                   // }

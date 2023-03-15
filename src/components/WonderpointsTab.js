@@ -21,7 +21,7 @@ const WonderPointTab = ({
   return (
     <View style={{ flexDirection: 'row', marginTop: 20 }}>
       <View style={{ width: '33.33%' }}>
-        <TouchableOpacity
+        <TouchableOpacity activeOpacity={0.7}
           style={{ width: '100%' }}
           activeOpacity={1}
           onPress={() => updatedSwitchData(1)}>
@@ -41,7 +41,7 @@ const WonderPointTab = ({
       </View>
 
       <View style={{ width: '33.33%' }}>
-        <TouchableOpacity
+        <TouchableOpacity activeOpacity={0.7}
           style={{ width: '100%' }}
           activeOpacity={1}
           onPress={() => updatedSwitchData(2)}>
@@ -60,7 +60,7 @@ const WonderPointTab = ({
         </TouchableOpacity>
       </View>
       <View style={{ width: '33.33%' }}>
-        <TouchableOpacity
+        <TouchableOpacity activeOpacity={0.7}
           style={{ width: '100%' }}
           activeOpacity={1}
           onPress={() => updatedSwitchData(3)}>

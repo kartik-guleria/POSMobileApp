@@ -1,10 +1,10 @@
-import { COLORS, FONTS, ComIcons, DEVICE } from 'assets/index';
+import {COLORS, FONTS, ComIcons, DEVICE} from 'assets/index';
 import NavigationHeader from 'components/NavigationHeader';
 import ScanQRModal from 'components/ScanQRModal';
 import SearchBar from 'components/SearchBar';
-import { PRODUCTS } from 'data/dummyData';
+import {PRODUCTS} from 'data/dummyData';
 import CheckOrderGrid from '../../../components/CheckOrderGrid';
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import DashBoardMenu from '../../../components/DashboardMenu';
 import ProductSelInfo from '../../../components/ProductSelInfo';
 import {
@@ -20,7 +20,7 @@ import MainStyle from 'styleSheet/MainStyle';
 import Modal from 'react-native-modal';
 import MyButton from 'components/MyButton';
 import {useTranslation} from 'react-i18next';
-import { DEVICE } from '../../../assets/theme';
+import InviteGuestModal from '../../../components/InviteGuestModal';
 
 const ProductSelection = props => {
   const {t, i18n} = useTranslation();
@@ -28,8 +28,12 @@ const ProductSelection = props => {
   const [selected, setSelected] = useState();
   const [counter, setCounter] = useState(1);
   const [isModalVisible, setModalVisible] = useState(false);
+  const [isInviteModalVisible, setInviteModalVisible] = useState(false);
   const toggleModal = () => {
     setModalVisible(!isModalVisible);
+  };
+  const toggleInviteModal = () => {
+    setInviteModalVisible(!isInviteModalVisible);
   };
   const incrementCounter = () => {
     setCounter(counter + 1);
@@ -80,7 +84,9 @@ const ProductSelection = props => {
           </Text>
           {selected === itemData.item.id ? (
             <View style={{flexDirection: 'row', marginTop: 8}}>
-              <TouchableOpacity onPress={() => decrementCounter()}>
+              <TouchableOpacity
+                activeOpacity={0.7}
+                onPress={() => decrementCounter()}>
                 {ComIcons.minusRed}
               </TouchableOpacity>
               <Text
@@ -93,7 +99,9 @@ const ProductSelection = props => {
                 }}>
                 {counter}
               </Text>
-              <TouchableOpacity onPress={() => incrementCounter()}>
+              <TouchableOpacity
+                activeOpacity={0.7}
+                onPress={() => incrementCounter()}>
                 {ComIcons.plusRed}
               </TouchableOpacity>
             </View>
@@ -101,6 +109,7 @@ const ProductSelection = props => {
         </View>
 
         <TouchableOpacity
+          activeOpacity={0.7}
           onPress={() => setSelected(itemData.item.id)}
           style={{
             backgroundColor: COLORS.red,
@@ -160,6 +169,7 @@ const ProductSelection = props => {
                 marginHorizontal: 9,
               }}></View>
             <TouchableOpacity
+              activeOpacity={0.7}
               onPress={() => props.navigation.navigate('CustomerDashboard')}>
               <Text
                 style={{
@@ -175,7 +185,7 @@ const ProductSelection = props => {
             </TouchableOpacity>
           </View>
           <View style={{flexDirection: 'row', alignItems: 'flex-end'}}>
-            <TouchableOpacity onPress={() => toggleModal()}>
+            <TouchableOpacity activeOpacity={0.7} onPress={() => toggleModal()}>
               {ComIcons.scanBlack}
             </TouchableOpacity>
             <View
@@ -185,8 +195,13 @@ const ProductSelection = props => {
                 height: 16,
                 marginHorizontal: 9,
               }}></View>
-            <View style={{marginRight: 3}}>{ComIcons.plusBlack}</View>
-            {ComIcons.userTransparent}
+            <TouchableOpacity
+              hitSlop={20}
+              onPress={() => toggleInviteModal()}
+              style={{flexDirection: 'row', alignItems: 'flex-end'}}>
+              {ComIcons.plusBlack}
+              {ComIcons.userTransparent}
+            </TouchableOpacity>
           </View>
         </View>
 
@@ -214,56 +229,76 @@ const ProductSelection = props => {
         navigation={props.navigation}
         productSelection={true}
       />
-      <View style={{ height: '100%' }}>
-        <View style={{ flexDirection: 'row', flex: 1 }} >
-          {DEVICE == 'tab' &&
-            <View style={{ width: '11%', justifyContent: 'center', alignContent: 'center', borderRightWidth: 1, borderRightColor: '#dddddd' }}>
+      <View style={{height: '100%'}}>
+        <View style={{flexDirection: 'row', flex: 1}}>
+          {DEVICE == 'tab' && (
+            <View
+              style={{
+                width: '11%',
+                justifyContent: 'center',
+                alignContent: 'center',
+                borderRightWidth: 1,
+                borderRightColor: '#dddddd',
+              }}>
               <DashBoardMenu navigation={props.navigation} />
             </View>
-
-          }
-          {DEVICE == 'tab' &&
-            <View style={{ width: '44%', }}>
-
+          )}
+          {DEVICE == 'tab' && (
+            <View style={{width: '44%'}}>
               <CheckOrderGrid navigation={props.navigation} />
             </View>
-          }
-      <View
-        style={{
-          marginHorizontal: 16,
-          marginTop: 38,
-          marginBottom: 15,
-          flex: 1,
-        }}>
-        <FlatList
-          data={PRODUCTS}
-          renderItem={renderItem}
-          keyExtractor={item => item.id}
-          bounces={false}
+          )}
+          <View
+            style={{
+              marginHorizontal: 16,
+              marginTop: 38,
+              marginBottom: 15,
+              flex: 1,
+            }}>
+            <FlatList
+              data={PRODUCTS}
+              renderItem={renderItem}
+              keyExtractor={item => item.id}
+              bounces={false}
               numColumns={DEVICE == 'tab' ? 4 : 3}
-          ListHeaderComponent={renderHeader}
-          ListFooterComponent={renderFooter}
-          showsVerticalScrollIndicator={false}
-          ItemSeparatorComponent={() => <View style={{height: 16}}></View>}
-          columnWrapperStyle={{justifyContent: 'space-around'}}
-        />
-        <Modal
-          isVisible={isModalVisible}
-          onSwipeComplete={() => setModalVisible(false)}
-          swipeDirection="down"
-          backdropOpacity={0.7}
-          backgroundColor="#FFFFFF"
-          style={{
-            marginBottom: 400,
-            position: 'absolute',
-            top: 200,
-            backgroundColor: COLORS.white,
-            marginHorizontal: DEVICE === 'tab' ? '35%' :16,
-
-            marginTop: 0,
-          }}>
-          <ScanQRModal onPressCross={() => toggleModal()} onPressProceed={()=>toggleModal() & props.navigation.navigate('ScanQR')} />
-        </Modal>
+              ListHeaderComponent={renderHeader}
+              ListFooterComponent={renderFooter}
+              showsVerticalScrollIndicator={false}
+              ItemSeparatorComponent={() => <View style={{height: 16}}></View>}
+              columnWrapperStyle={{justifyContent: 'space-between'}}
+            />
+            <Modal
+              isVisible={isModalVisible}
+              onSwipeComplete={() => setModalVisible(false)}
+              swipeDirection="down"
+              backdropOpacity={0.7}
+              style={{
+                width: DEVICE === 'tab' ? '30%' : '100%',
+                alignSelf: 'center',
+                paddingHorizontal: DEVICE === 'tab' ? 0 : 16,
+              }}>
+              <ScanQRModal
+                onPressCross={() => toggleModal()}
+                onPressProceed={() =>
+                  toggleModal() & props.navigation.navigate('ScanQR')
+                }
+              />
+            </Modal>
+            <Modal
+              isVisible={isInviteModalVisible}
+              onSwipeComplete={() => setInviteModalVisible(false)}
+              swipeDirection="down"
+              backdropOpacity={0.7}
+              style={{
+                width: DEVICE === 'tab' ? '30%' : '100%',
+                alignSelf: 'center',
+                paddingHorizontal: DEVICE === 'tab' ? 0 : 16,
+              }}>
+              <InviteGuestModal
+                onPressSend={() => toggleInviteModal()}
+                onPressCross={() => toggleInviteModal()}
+              />
+            </Modal>
           </View>
         </View>
       </View>

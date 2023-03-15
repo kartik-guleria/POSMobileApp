@@ -10,8 +10,8 @@ const CheckModal = ({title,btnTitle,onPressNo,onPress}) => {
     const { t, i18n } = useTranslation();
 
 return(
-    <View style={{flex:1}}>
-<Text style={{textAlign:'center',flex:1,marginTop:40,fontFamily:FONTS.medium,color:COLORS.black,fontSize:16,fontWeight:'400',lineHeight:17,marginHorizontal:55}}>
+    <View style={{backgroundColor:COLORS.white}}>
+<Text style={{marginBottom:55,textAlign:'center',marginTop:40,fontFamily:FONTS.medium,color:COLORS.black,fontSize:16,fontWeight:'400',lineHeight:17,marginHorizontal:55}}>
 {title}
 </Text>
 <View style={{flexDirection:'row',justifyContent:'space-around',backgroundColor:'grey',}}>

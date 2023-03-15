@@ -1,10 +1,15 @@
-import { COLORS, FONTS, ComIcons, DEVICE } from 'assets/index';
+import {COLORS, FONTS, ComIcons, DEVICE} from 'assets/index';
 import MyButton from 'components/MyButton';
 import NavigationHeader from 'components/NavigationHeader';
 import ProductConfigTab from 'components/ProductConfigTab';
 import UnderlineView from 'components/underlineView';
-import { INGRI_BASE_DATA, INGRI_EXTRA_DATA, INGRI_PROTEIN_DATA, INGRI_TOPPING_DATA } from 'data/dummyData';
-import React, { useState } from 'react';
+import {
+  INGRI_BASE_DATA,
+  INGRI_EXTRA_DATA,
+  INGRI_PROTEIN_DATA,
+  INGRI_TOPPING_DATA,
+} from 'data/dummyData';
+import React, {useState} from 'react';
 import DashBoardMenu from '../../../components/DashboardMenu';
 import {
   View,
@@ -16,12 +21,13 @@ import {
   Image,
 } from 'react-native';
 import MainStyle from 'styleSheet/MainStyle';
-import { useTranslation } from 'react-i18next';
-
+import {useTranslation} from 'react-i18next';
+import LeaveNoteModal from '../../../components/LeaveNoteModal';
+import Modal from 'react-native-modal';
 
 const ProductConfig = props => {
-  const { t, i18n } = useTranslation();
-  
+  const {t, i18n} = useTranslation();
+
   const [wpTypeId, setwpTypeId] = useState(1);
   const [wpType, setwpType] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
@@ -37,7 +43,7 @@ const ProductConfig = props => {
         setwpType('Protein');
         setCurrentPage(1);
         break;
-        case 4:
+      case 4:
         setwpTypeId(4);
         setwpType('Topping');
         setCurrentPage(1);
@@ -145,7 +151,7 @@ const ProductConfig = props => {
           style={{
             fontSize: 10,
             fontFamily: FONTS.medium,
-            color:COLORS.black,
+            color: COLORS.black,
             fontWeight: '500',
             lineHeight: 10,
             marginBottom: 2,
@@ -155,6 +161,7 @@ const ProductConfig = props => {
           {itemData.item.title}
         </Text>
         <TouchableOpacity
+          activeOpacity={0.7}
           onPress={() => deleteItem(itemData)}
           style={{position: 'absolute', right: -10, top: -11}}>
           {ComIcons.crossRed}
@@ -176,7 +183,7 @@ const ProductConfig = props => {
               style={{
                 fontSize: 14,
                 fontFamily: FONTS.medium,
-                color:COLORS.black,
+                color: COLORS.black,
                 fontWeight: '500',
                 lineHeight: 16,
               }}>
@@ -200,7 +207,7 @@ const ProductConfig = props => {
             style={{
               fontSize: 14,
               fontFamily: FONTS.medium,
-              color:COLORS.black,
+              color: COLORS.black,
               fontWeight: '500',
               lineHeight: 16,
             }}>
@@ -211,7 +218,7 @@ const ProductConfig = props => {
           style={{
             fontSize: 12,
             fontFamily: FONTS.medium,
-            color:COLORS.black,
+            color: COLORS.black,
             fontWeight: '500',
             lineHeight: 14,
             marginBottom: 15,
@@ -239,20 +246,24 @@ const ProductConfig = props => {
             <>
               <View
                 style={{flexDirection: 'row', alignItems: 'center', margin: 4}}>
-                <TouchableOpacity onPress={() => decrementCounter()}>
+                <TouchableOpacity
+                  activeOpacity={0.7}
+                  onPress={() => decrementCounter()}>
                   {ComIcons.trashRed}
                 </TouchableOpacity>
                 <Text
                   style={{
                     fontFamily: FONTS.bold,
                     fontSize: 18,
-                    color:COLORS.black,
+                    color: COLORS.black,
                     lineHeight: 23,
                     marginHorizontal: 9,
                   }}>
                   {counter}
                 </Text>
-                <TouchableOpacity onPress={() => incrementCounter()}>
+                <TouchableOpacity
+                  activeOpacity={0.7}
+                  onPress={() => incrementCounter()}>
                   {ComIcons.plusRedSmall}
                 </TouchableOpacity>
               </View>
@@ -260,7 +271,7 @@ const ProductConfig = props => {
                 style={{
                   fontFamily: FONTS.medium,
                   fontSize: 10,
-                  color:COLORS.black,
+                  color: COLORS.black,
                   fontWeight: '400',
                   lineHeight: 10,
                 }}>
@@ -271,7 +282,7 @@ const ProductConfig = props => {
                   marginTop: 2,
                   textAlign: 'center',
                   fontFamily: FONTS.medium,
-                  color:COLORS.black,
+                  color: COLORS.black,
                   fontSize: 10,
                   fontWeight: '500',
                   lineHeight: 12,
@@ -282,6 +293,7 @@ const ProductConfig = props => {
           ) : (
             <View>
               <TouchableOpacity
+                activeOpacity={0.7}
                 style={{marginHorizontal: 18, marginTop: 5}}
                 onPress={() => setSelected(btnData.item.id)}>
                 {ComIcons.plusRed}
@@ -291,7 +303,7 @@ const ProductConfig = props => {
                   marginTop: 10,
                   textAlign: 'center',
                   fontFamily: FONTS.medium,
-                  color:COLORS.black,
+                  color: COLORS.black,
                   fontSize: 10,
                   fontWeight: '500',
                   lineHeight: 12,
@@ -304,9 +316,14 @@ const ProductConfig = props => {
       </View>
     );
   };
-  const bottomButtons = (image, title,press) => {
+  const [isModalVisible, setModalVisible] = useState(false);
+  const toggleModal = () => {
+    setModalVisible(!isModalVisible);
+  };
+  const bottomButtons = (image, title, press) => {
     return (
       <TouchableOpacity
+        activeOpacity={0.7}
         style={{
           width: '50%',
           borderWidth: 1,
@@ -315,12 +332,15 @@ const ProductConfig = props => {
           justifyContent: 'center',
           height: 53,
           justifyContent: 'space-evenly',
-        }} onPress={()=> props.navigation.navigate(press)}>
+        }}
+        onPress={() =>
+          DEVICE === 'tab' ? toggleModal() : props.navigation.navigate(press)
+        }>
         <View>{image}</View>
         <Text
           style={{
             fontFamily: FONTS.medium,
-            color:COLORS.black,
+            color: COLORS.black,
             fontSize: 12,
             fontWeight: '500',
             lineHeight: 14,
@@ -335,10 +355,10 @@ const ProductConfig = props => {
       <View style={{marginHorizontal: 16}}>
         <ProductConfigTab
           selectionMode={wpTypeId}
-          option1=  {t('common:base')}
-          option2=  {t('common:protein')}
-          option3=  {t('common:topping')}
-          option4=  {t('common:extra')}
+          option1={t('common:base')}
+          option2={t('common:protein')}
+          option3={t('common:topping')}
+          option4={t('common:extra')}
           onSelectSwitch={onSelectSwitch}
           selectionColor={null}
         />
@@ -346,15 +366,29 @@ const ProductConfig = props => {
           style={{
             fontFamily: FONTS.bold,
             fontSize: 12,
-            color:COLORS.black,
+            color: COLORS.black,
             lineHeight: 13,
             marginTop: 23,
             marginBottom: 12,
           }}>
-         {wpTypeId === 1 ?  `${t('common:base')}(2/4)` : wpTypeId === 2 ? `${t('common:protein')}(2/4)` : wpTypeId === 3 ? `${t('common:topping')}(2/4)` : `${t('common:extra')}(2/4)` }
+          {wpTypeId === 1
+            ? `${t('common:base')}(2/4)`
+            : wpTypeId === 2
+            ? `${t('common:protein')}(2/4)`
+            : wpTypeId === 3
+            ? `${t('common:topping')}(2/4)`
+            : `${t('common:extra')}(2/4)`}
         </Text>
         <FlatList
-          data={wpTypeId ===1 ? INGRI_BASE_DATA: wpTypeId === 2 ? INGRI_PROTEIN_DATA:wpTypeId === 3 ? INGRI_TOPPING_DATA:INGRI_EXTRA_DATA}
+          data={
+            wpTypeId === 1
+              ? INGRI_BASE_DATA
+              : wpTypeId === 2
+              ? INGRI_PROTEIN_DATA
+              : wpTypeId === 3
+              ? INGRI_TOPPING_DATA
+              : INGRI_EXTRA_DATA
+          }
           renderItem={renderIngriButton}
           keyExtractor={item => item.id}
           bounces={false}
@@ -373,9 +407,9 @@ const ProductConfig = props => {
             flex: 1,
             justifyContent: 'space-between',
           }}>
-          {bottomButtons(ComIcons.info, t('common:info'),'LeaveNote')}
+          {bottomButtons(ComIcons.info, t('common:info'), 'LeaveNote')}
           <View style={{width: 5}}></View>
-          {bottomButtons(ComIcons.note, t('common:leaveANote'),'LeaveNote')}
+          {bottomButtons(ComIcons.note, t('common:leaveANote'), 'LeaveNote')}
         </View>
         <View
           style={{
@@ -384,8 +418,17 @@ const ProductConfig = props => {
             justifyContent: 'space-evenly',
             marginTop: 20,
           }}>
-          <MyButton width={false} title={t('common:cancel')} backColor={'grey'} onPress={()=>props.navigation.pop()}/>
-          <MyButton width={false} title={t('common:add')}onPress={() => props.navigation.navigate('CheckOrder')}/>
+          <MyButton
+            width={false}
+            title={t('common:cancel')}
+            backColor={'grey'}
+            onPress={() => props.navigation.pop()}
+          />
+          <MyButton
+            width={false}
+            title={t('common:add')}
+            onPress={() => props.navigation.navigate('CheckOrder')}
+          />
         </View>
       </View>
     );
@@ -397,40 +440,65 @@ const ProductConfig = props => {
     setIngridients(filteredData);
   };
   return (
-      <SafeAreaView style={MainStyle.safeAreaContainerLight}>
-        <NavigationHeader
-          title={t('common:productConfig')}
-          navigation={props.navigation}
+    <SafeAreaView style={MainStyle.safeAreaContainerLight}>
+      <NavigationHeader
+        title={t('common:productConfig')}
+        navigation={props.navigation}
       />
-      <View style={{ height: '100%' }}>
-        <View style={{ flexDirection: 'row', flex: 1 }} >
-          {DEVICE == 'tab' &&
-            <View style={{ width: '13%', justifyContent: 'center', alignContent: 'center', borderRightWidth: 1, borderRightColor: '#dddddd' }}>
+      <View style={{height: '100%'}}>
+        <View style={{flexDirection: 'row', flex: 1}}>
+          {DEVICE == 'tab' && (
+            <View
+              style={{
+                width: '13%',
+                justifyContent: 'center',
+                alignContent: 'center',
+                borderRightWidth: 1,
+                borderRightColor: '#dddddd',
+              }}>
               <DashBoardMenu navigation={props.navigation} />
             </View>
-          }
-        <View
-          style={{
-            marginTop: 38,
-            marginBottom: 15,
-            flex: 1,
-          }}>
-          <FlatList
-            data={Ingridients}
-            renderItem={renderItem}
-            keyExtractor={item => item.id}
-            bounces={false}
+          )}
+          <View
+            style={{
+              marginTop: 38,
+              marginBottom: 15,
+              flex: 1,
+            }}>
+            <FlatList
+              data={Ingridients}
+              renderItem={renderItem}
+              keyExtractor={item => item.id}
+              bounces={false}
               numColumns={DEVICE == 'tab' ? 7 : 4}
-            ListHeaderComponent={renderHeader}
-            ListFooterComponent={renderfooter}
-            showsVerticalScrollIndicator={false}
-            ItemSeparatorComponent={() => <View style={{height: 16}}></View>}
-            columnWrapperStyle={{justifyContent: 'space-evenly',marginHorizontal:10}}
-          />
-        </View>
+              ListHeaderComponent={renderHeader}
+              ListFooterComponent={renderfooter}
+              showsVerticalScrollIndicator={false}
+              ItemSeparatorComponent={() => <View style={{height: 16}}></View>}
+              columnWrapperStyle={{
+                justifyContent: 'space-evenly',
+                marginHorizontal: 10,
+              }}
+            />
+            <Modal
+              isVisible={isModalVisible}
+              onSwipeComplete={() => setModalVisible(false)}
+              swipeDirection="down"
+              backdropOpacity={0.7}
+              style={{
+                width: '30%',
+                alignSelf: 'center',
+              }}>
+              <LeaveNoteModal
+                onPressCross={() => toggleModal()}
+                onPressCancel={() => toggleModal()}
+                onPressApply={() => toggleModal()}
+              />
+            </Modal>
+          </View>
         </View>
       </View>
-      </SafeAreaView>
+    </SafeAreaView>
   );
 };
 

@@ -14,24 +14,33 @@ const NavigationHeader = ({
     navigation.pop();
   };
   return (
-    <View style={styles.mainView}>
-      <TouchableOpacity
-        hitSlop={30}
-        onPress={() => (pop ? back() : onPress())}
-        style={{marginLeft: displayBtn === 'dash' ? 20 : 10}}>
-        {displayBtn === 'back'
-          ? ComIcons.back
-          : displayBtn === 'dash'
-          ? ComIcons.drawer
-          : displayBtn === 'null'
-          ? null
-          : ComIcons.back}
-      </TouchableOpacity>
-      <View style={{ flex: 1, marginLeft: 10, }}>
-        <Text style={styles.titleText}>{title}</Text>
-      </View>
-      {productSelection ? <View>{ComIcons.productSelection}</View> : null}
+    <View
+    style={styles.mainView}>
+    <View
+      style={{
+        width: '80%',
+        alignItems: 'center'
+      }}>
+      <Text style={styles.titleText}>{title}</Text>
     </View>
+    {productSelection ? <View>{ComIcons.productSelection}</View> : null}
+    <TouchableOpacity activeOpacity={0.7}
+      hitSlop={30}
+      style={{
+        position: 'absolute',
+        left: 0,
+        marginLeft: displayBtn === 'dash' ? 20 : 10
+      }}
+      onPress={() => (pop ? back() : onPress())}>
+        {displayBtn === 'back'
+         ? ComIcons.back
+           : displayBtn === 'dash'
+           ? ComIcons.drawer
+           : displayBtn === 'null'
+           ? null
+           : ComIcons.back}
+    </TouchableOpacity>
+  </View>
   );
 };
 
@@ -39,11 +48,13 @@ export default NavigationHeader;
 const styles = StyleSheet.create({
   mainView: {
     flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: COLORS.red,
-    marginTop:-4
+      justifyContent: 'center',
+      backgroundColor:COLORS.red,
+      marginTop:-4,
+      alignItems:'center'
   },
   titleText: {
+    marginLeft:'-5%',
     textAlign: 'center',
     fontFamily: FONTS.medium,
     textTransform: 'uppercase',

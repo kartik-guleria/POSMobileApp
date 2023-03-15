@@ -33,7 +33,7 @@ const TestScreen = props => {
   <Text style={{marginTop:23,fontFamily:FONTS.normal,fontSize:18,fontWeight:'400',lineHeight:21}}>00.00L</Text></View>
 
   <View style={{flexDirection:'row',justifyContent:'space-between'}}>
-  <Text style={{marginTop:23,fontFamily:FONTS.normal,fontSize:18,fontWeight:'400',lineHeight:21}}>Differnce</Text>
+  <Text style={{marginTop:23,fontFamily:FONTS.normal,fontSize:18,fontWeight:'400',lineHeight:21}}>Difference</Text>
   <Text style={{marginTop:23,fontFamily:FONTS.normal,fontSize:18,fontWeight:'500',lineHeight:21}}>-</Text></View>
   <Text style={{marginTop:23,fontFamily:FONTS.normal,fontSize:18,fontWeight:'400',lineHeight:21}}>Print Report</Text>
 </View>

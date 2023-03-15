@@ -1,7 +1,6 @@
 import React from 'react';
 import { View, FlatList, SafeAreaView, Alert } from 'react-native';
 import MainStyle from 'styleSheet/MainStyle';
-import NavigationHeaderDash from 'components/NavigationHeaderDash';
 import ServiceGridTile from '../../../components/ServiceGridTile';
 import { ComIcons, DEVICE } from 'assets/index';
 import { useTranslation } from 'react-i18next';

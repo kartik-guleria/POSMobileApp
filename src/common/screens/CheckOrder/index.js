@@ -9,6 +9,7 @@ import Modal from 'react-native-modal';
 import CheckModal from 'components/CheckModal';
 import {useTranslation} from 'react-i18next';
 import OrderItem from './OrderItem';
+import { DEVICE } from '../../../assets';
 
 const CheckOrder = props => {
   const {t, i18n} = useTranslation();
@@ -149,7 +150,7 @@ const CheckOrder = props => {
         navigation={props.navigation}
       />
       <View style={{flex: 1, marginHorizontal: 16}}>
-        {Object.keys(BillInfo).length > 1 ? (
+        {Object.keys(BillInfo).length > 0 ? (
           <FlatList
             showsVerticalScrollIndicator={false}
             data={BillInfo}
@@ -169,13 +170,10 @@ const CheckOrder = props => {
           onSwipeComplete={() => setModalVisible(false)}
           swipeDirection="down"
           backdropOpacity={0.7}
-          backgroundColor="#FFFFFF"
           style={{
-            position: 'absolute',
-            top: 300,
-            height: 189,
-            backgroundColor: COLORS.white,
-            marginHorizontal: 16,
+            width: DEVICE === 'tab' ? '30%' : '100%',
+            alignSelf: 'center',
+            paddingHorizontal: DEVICE === 'tab' ? 0 : 16,
           }}>
           <CheckModal
             title={t('common:areYouSurePlaceOrder')}

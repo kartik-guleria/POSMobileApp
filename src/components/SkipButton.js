@@ -12,7 +12,7 @@ const SkipButton = props => {
 
 return (
     <View>
-        <TouchableOpacity 
+        <TouchableOpacity activeOpacity={0.7} 
             onPress={props.onPress}>
             <Text style = {{fontFamily:FONTS.bold,fontSize:14,lineHeight:15,marginLeft:7,marginRight:7}}>
                Skip

@@ -57,7 +57,7 @@ const ProductSelInfo = props => {
                             height: 16,
                             marginHorizontal: 9,
                         }}></View>
-                    <TouchableOpacity
+                    <TouchableOpacity activeOpacity={0.7}
                         onPress={() => props.navigation.navigate('CustomerDashboard')}>
                         <Text
                             style={{
@@ -73,7 +73,7 @@ const ProductSelInfo = props => {
                     </TouchableOpacity>
                 </View>
                 <View style={{ flexDirection: 'row', alignItems: 'flex-end' }}>
-                    <TouchableOpacity onPress={() => toggleModal()}>
+                    <TouchableOpacity activeOpacity={0.7} onPress={() => toggleModal()}>
                         {ComIcons.scanBlack}
                     </TouchableOpacity>
                     <View

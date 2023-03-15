@@ -22,7 +22,7 @@ const SelectTable = ({title, navigation, newLine = false, newLineTitle}) => {
   ];
   const renderItem = itemData => {
     return (
-      <TouchableOpacity
+      <TouchableOpacity activeOpacity={0.7}
         onPress={() => setSelectedId(itemData.item.id)}
         style={{
           backgroundColor:
@@ -59,7 +59,7 @@ const SelectTable = ({title, navigation, newLine = false, newLineTitle}) => {
   const renderFooter = () => {
     return (
       <View style={{flex: 1, justifyContent: 'space-between'}}>
-        <TouchableOpacity
+        <TouchableOpacity activeOpacity={0.7}
           style={{
             borderColor: COLORS.grey,
             borderWidth: 1,
@@ -99,7 +99,7 @@ const SelectTable = ({title, navigation, newLine = false, newLineTitle}) => {
               ListHeaderComponent={renderHeader}
               ListFooterComponent={renderFooter}
             />
-            <TouchableOpacity onPress={() => navigation.navigate('ProductSelection')}><Text>Product selection</Text></TouchableOpacity>
+            <TouchableOpacity activeOpacity={0.7} onPress={() => navigation.navigate('ProductSelection')}><Text>Product selection</Text></TouchableOpacity>
           </View>)
           : (<View>
             <Text>Abcd</Text>

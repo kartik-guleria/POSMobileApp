@@ -33,7 +33,7 @@ const Skeleton = props => {
             flexDirection: 'row',
             marginTop: 12,
           }}>
-          <TouchableOpacity
+          <TouchableOpacity activeOpacity={0.7}
             onPress={() => setSelectedIndex(1)}
             style={{
               borderWidth: selectedIndex === 1 ? 0 : 1,
@@ -55,7 +55,7 @@ const Skeleton = props => {
               {t('common:openOrders')}
             </Text>
           </TouchableOpacity>
-          <TouchableOpacity
+          <TouchableOpacity activeOpacity={0.7}
             onPress={() => setSelectedIndex(2)}
             style={{
               borderWidth: selectedIndex === 2 ? 0 : 1,
@@ -93,7 +93,7 @@ const Skeleton = props => {
             flexDirection: 'row',
             marginTop: 12,
           }}>
-          <TouchableOpacity
+          <TouchableOpacity activeOpacity={0.7}
             onPress={() => setSelectedIndex(1)}
             style={{
               borderWidth: selectedIndex === 1 ? 0 : 1,
@@ -115,7 +115,7 @@ const Skeleton = props => {
               {t('common:openOrders')}
             </Text>
           </TouchableOpacity>
-          <TouchableOpacity
+          <TouchableOpacity activeOpacity={0.7}
             onPress={() => setSelectedIndex(2)}
             style={{
               borderWidth: selectedIndex === 2 ? 0 : 1,
@@ -166,7 +166,7 @@ const Skeleton = props => {
 
   const renderItem = itemData => {
     return (
-      <TouchableOpacity
+      <TouchableOpacity activeOpacity={0.7}
         onPress={() => props.navigation.navigate('SelectItems')}
         disabled={selectedIndex == 1 ? false : true}
         style={{

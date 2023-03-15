@@ -63,7 +63,7 @@ const SelectTableScreen = props => {
   const floorItem = items => {
     return (
       <View>
-      <TouchableOpacity
+      <TouchableOpacity activeOpacity={0.7}
         style={[
           styles.topBarView,
             {
@@ -139,7 +139,7 @@ const SelectTableScreen = props => {
                       }}>
                       {selectedTable.length} {ComIcons.blackMergeArrow} T9
                     </Text>
-                    <TouchableOpacity
+                    <TouchableOpacity activeOpacity={0.7}
                       // onPress={ }
                       style={{
                         height: 41,
@@ -148,7 +148,7 @@ const SelectTableScreen = props => {
                       }}>
                       <Text style={styles.buttonStyle}>{t('common:cancel')}</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity
+                    <TouchableOpacity activeOpacity={0.7}
                       // onPress={ }
                       style={{
                         height: 41,
@@ -185,7 +185,7 @@ const SelectTableScreen = props => {
                     data={singleTableArray}
                     Vertical
                     renderItem={({ item }) => (
-                      <TouchableOpacity
+                      <TouchableOpacity activeOpacity={0.7}
                         disabled={item.Booked}
                         onPress={
                           () =>
@@ -254,7 +254,7 @@ const SelectTableScreen = props => {
                     data={doubleTableArray}
                     Vertical
                     renderItem={({ item }) => (
-                      <TouchableOpacity
+                      <TouchableOpacity activeOpacity={0.7}
                         disabled={item.Booked}
                         onPress={
                           () =>
@@ -332,7 +332,7 @@ const SelectTableScreen = props => {
                       }}>
                       {selectedTable.length} {ComIcons.blackMergeArrow} T9
                     </Text>
-                    <TouchableOpacity
+                    <TouchableOpacity activeOpacity={0.7}
                       // onPress={ }
                       style={{
                         height: 41,
@@ -341,7 +341,7 @@ const SelectTableScreen = props => {
                       }}>
                       <Text style={styles.buttonStyle}>{t('common:cancel')}</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity
+                    <TouchableOpacity activeOpacity={0.7}
                       // onPress={ }
                       style={{
                         height: 41,
@@ -377,7 +377,7 @@ const SelectTableScreen = props => {
                     data={doubleTableArray}
                     horizontal
                     renderItem={({ item }) => (
-                      <TouchableOpacity
+                      <TouchableOpacity activeOpacity={0.7}
                         disabled={item.Booked}
                         onPress={
                           () =>
@@ -447,7 +447,7 @@ const SelectTableScreen = props => {
                     data={singleTableArray}
                     horizontal
                     renderItem={({ item }) => (
-                      <TouchableOpacity
+                      <TouchableOpacity activeOpacity={0.7}
                         disabled={item.Booked}
                         onPress={
                           () =>
