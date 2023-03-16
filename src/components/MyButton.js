@@ -3,8 +3,6 @@ import { COLORS } from "assets/";
 import React from "react";
 import { Text,TouchableOpacity } from "react-native";
 import { useTranslation } from 'react-i18next';
-import { DEVICE } from "../assets";
-
 
 const MyButton = ({onPress ,title, size = true , backColor = 'red',width =true })=> {
     const { t, i18n } = useTranslation();

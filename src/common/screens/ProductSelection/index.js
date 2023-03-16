@@ -272,6 +272,7 @@ const ProductSelection = props => {
               onSwipeComplete={() => setModalVisible(false)}
               swipeDirection="down"
               backdropOpacity={0.7}
+              onBackdropPress={()=> toggleModal()}
               style={{
                 width: DEVICE === 'tab' ? '30%' : '100%',
                 alignSelf: 'center',
@@ -289,6 +290,7 @@ const ProductSelection = props => {
               onSwipeComplete={() => setInviteModalVisible(false)}
               swipeDirection="down"
               backdropOpacity={0.7}
+              onBackdropPress={()=> toggleInviteModal()}
               style={{
                 width: DEVICE === 'tab' ? '30%' : '100%',
                 alignSelf: 'center',

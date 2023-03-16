@@ -11,7 +11,7 @@ import DashBoardMenu from '../../../components/DashboardMenu';
 
 const OrderStatus = props => {
   const { t, i18n } = useTranslation();
-const [loading ,setLoading] = useState(true);
+const [loading ,setLoading] = useState(false);
   const renderItem = itemData => {
     return (
       <View

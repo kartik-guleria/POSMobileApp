@@ -174,6 +174,7 @@ const MyProfile = props => {
             swipeDirection="down"
             backdropOpacity={0.7}
             backgroundColor="#FFFFFF"
+            onBackdropPress={()=> setModalVisible(false)}
             style={{
               position: 'absolute',
               top: '72%',

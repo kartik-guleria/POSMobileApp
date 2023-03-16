@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, FlatList, SafeAreaView, Alert } from 'react-native';
+import { View, FlatList, SafeAreaView } from 'react-native';
 import MainStyle from 'styleSheet/MainStyle';
 import ServiceGridTile from '../../../components/ServiceGridTile';
 import { ComIcons, DEVICE } from 'assets/index';
@@ -65,13 +65,13 @@ const DashBoard = props => {
         pop ={false}
         onPress={() => props.navigation.openDrawer()}
       />
-      <View style={{ flex: 1, marginHorizontal: DEVICE == 'tab' ? 100 : 25, marginVertical: DEVICE == 'tab' ? 50 : 20 }}>
+      <View style={{flex: DEVICE ==='tab' ?0:1,flexDirection:'row', marginHorizontal: DEVICE == 'tab' ? 100 : 0, marginVertical: DEVICE == 'tab' ? 50 : 0 ,alignItems:'center'}}>
           <FlatList
             bounces={false}
-          numColumns={DEVICE == 'tab' ? 3 : 2}
+            numColumns={DEVICE == 'tab' ? 3 : 2}
             data={SERVICES}
             renderItem={renderServiceGridItem}
-            contentContainerStyle={{justifyContent:'center',flex:1}}
+            columnWrapperStyle={{justifyContent:'space-around'}}
           />
         </View>
       </SafeAreaView>

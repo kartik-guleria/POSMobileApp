@@ -170,6 +170,7 @@ const CheckOrder = props => {
           onSwipeComplete={() => setModalVisible(false)}
           swipeDirection="down"
           backdropOpacity={0.7}
+          onBackdropPress={()=> toggleModal()}
           style={{
             width: DEVICE === 'tab' ? '30%' : '100%',
             alignSelf: 'center',

@@ -351,12 +351,11 @@ const SelectItems = props => {
           swipeDirection="down"
           backdropOpacity={0.7}
           backgroundColor="#FFFFFF"
+          onBackdropPress={()=> toggleModal()}
           style={{
-            position: 'absolute',
-            top: 300,
-            height: 189,
-            backgroundColor: COLORS.white,
-            marginHorizontal: 16,
+            width: DEVICE==='tab' ? '30%' : '100%',
+            alignSelf:'center',
+            paddingHorizontal:DEVICE==='tab' ?0:16
           }}>
           <CheckModal
             title={t('common:areYouSureWonderpoints')}

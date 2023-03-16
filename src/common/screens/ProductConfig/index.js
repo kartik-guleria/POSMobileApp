@@ -485,6 +485,7 @@ const ProductConfig = props => {
               onSwipeComplete={() => setModalVisible(false)}
               swipeDirection="down"
               backdropOpacity={0.7}
+              onBackdropPress={()=> toggleModal()}
               style={{
                 width: '30%',
                 alignSelf: 'center',

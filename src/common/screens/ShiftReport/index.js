@@ -15,7 +15,7 @@ const {height: screenHeight, width: screenWidth} = Dimensions.get('screen');
 
 const ShiftReport = props => {
   const { t, i18n } = useTranslation();
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const SHIFT_DATA = [
     {
       title: t('common:cashDrawer'),
@@ -179,7 +179,8 @@ const ShiftReport = props => {
             width: DEVICE==='tab' ? '30%' : '100%',
             alignSelf:'center',
             paddingHorizontal:DEVICE==='tab' ?0:16
-            }}>
+            }}
+            onBackdropPress={()=> toggleModal()}>
               <CloseShiftModal onPressCross={() => toggleModal()} onPressClose={()=> onPressClose()}/>
             </Modal>
       </View>

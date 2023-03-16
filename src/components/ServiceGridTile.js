@@ -51,10 +51,10 @@ const ServiceGridTile = props => {
 const styles = StyleSheet.create({
   productItem: {
     marginTop: 16,
-    marginLeft: 10,
-    marginRight: 10,
+    // marginLeft: 10,
+    // marginRight: 10,
     height: DEVICE == 'tab' ? height / 2 - 150 : height / 3 - 120,
-    width: DEVICE == 'tab' ? width / 3 - 90 : width / 2 - 50,
+    width: DEVICE == 'tab' ? width / 3 - 90 : width / 2 - 40,
     backgroundColor: COLORS.white,
     shadowColor: 'black',
     shadowOpacity: 0.25,

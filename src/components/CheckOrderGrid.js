@@ -178,6 +178,7 @@ const CheckOrderGrid = props => {
                 swipeDirection="down"
                 backdropOpacity={0.7}
                 backgroundColor="#FFFFFF"
+                onBackdropPress={()=> toggleModal()}
                 style={{
                     position: 'absolute',
                     top: 300,
